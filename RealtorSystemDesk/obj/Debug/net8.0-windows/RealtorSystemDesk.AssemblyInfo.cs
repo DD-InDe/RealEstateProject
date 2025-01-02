@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RealtorSystemDesk")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a58caaf5984d5b3d9bb2dbe3923c87acffc0bb8")]
 [assembly: System.Reflection.AssemblyProductAttribute("RealtorSystemDesk")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RealtorSystemDesk")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
