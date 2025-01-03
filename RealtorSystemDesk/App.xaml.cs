@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Windows;
+using RealtorSystemDesk.Database;
 
 namespace RealtorSystemDesk;
 
@@ -9,5 +10,5 @@ namespace RealtorSystemDesk;
 /// </summary>
 public partial class App : Application
 {
-    
+    public static User? AuthorizedUser { get; set; }
 }

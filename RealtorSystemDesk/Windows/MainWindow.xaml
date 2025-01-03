@@ -9,7 +9,44 @@
         Title=""
         MinHeight="450"
         MinWidth="800">
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="{Binding ElementName=MainFrame, Path=Content.Title}" />
+
+            <Grid x:Name="MenuGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ToggleButton x:Name="ObjectToggleButton"
+                              Click="ToggleButton_OnClick"
+                              Grid.Column="0"
+                              IsChecked="{Binding Object}"
+                              Content="Объекты" />
+                <ToggleButton x:Name="ClientToggleButton"
+                              Click="ToggleButton_OnClick"
+                              Grid.Column="1"
+                              IsChecked="{Binding Client}"
+                              Content="Клиенты" />
+                <ToggleButton x:Name="AccountToggleButton"
+                              Click="ToggleButton_OnClick"
+                              Grid.Column="2"
+                              IsChecked="{Binding Account}"
+                              Content="Профиль" />
+            </Grid>
+
+        </StackPanel>
+
+        <Frame x:Name="MainFrame"
+               Grid.Row="1"
+               Source="../Pages/ObjectManagePages/ViewAllObjectPage.xaml"
+               NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>
