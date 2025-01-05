@@ -25,14 +25,23 @@
         </StackPanel>
 
         <DataGrid x:Name="ClientDataGrid"
+                  IsReadOnly="True"
                   AutoGenerateColumns="False"
                   Grid.Row="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ФИО"
+                <DataGridTextColumn Width="*" Header="ФИО"
                                     Binding="{Binding FullName}" />
-                <DataGridTextColumn Header="Дата рождения"
+                <DataGridTextColumn Width="*" Header="Дата рождения"
                                     Binding="{Binding BirthDate}" />
-                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Width="*" Header="Телефон"
+                                    Binding="{Binding Phone}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Подробнее" Click="InfoButton_OnClick"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

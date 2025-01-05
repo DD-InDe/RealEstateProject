@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace RealtorSystemDesk.Database;
 
@@ -16,13 +15,13 @@ public partial class Client
 
     public DateOnly? BirthDate { get; set; }
 
-    public string? Phone { get; set; }
-    
-    public string? Email { get; set; }
-
     public char? GenderId { get; set; }
 
     public int? UserId { get; set; }
+
+    public string? Phone { get; set; }
+
+    public string? Email { get; set; }
 
     public virtual ICollection<ClientDocument> ClientDocuments { get; set; } = new List<ClientDocument>();
 

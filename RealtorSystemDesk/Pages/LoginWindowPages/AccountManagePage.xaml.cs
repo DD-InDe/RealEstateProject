@@ -70,11 +70,7 @@ public partial class AccountManagePage : Page
                         Db.Context.Users.Update(_model.User);
                     }
 
-                    // вывод статуса сохранения
-                    if (Db.Context.SaveChanges() > 0)
-                        MessageService.ShowOk(message);
-                    else
-                        MessageService.ShowError(new Exception("При сохранении данных произошла ошибка."));
+                    DatabaseSaveService.SaveWithMessage(message);
                 }
                 else
                     MessageService.ShowInfo("Пароли не совпадают!");

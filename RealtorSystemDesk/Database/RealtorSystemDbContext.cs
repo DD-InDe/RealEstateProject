@@ -59,6 +59,9 @@ public partial class RealtorSystemDbContext : DbContext
                 .ValueGeneratedNever()
                 .HasColumnName("passport_id");
             entity.Property(e => e.BirthDate).HasColumnName("birth_date");
+            entity.Property(e => e.Email)
+                .HasMaxLength(100)
+                .HasColumnName("email");
             entity.Property(e => e.FirstName)
                 .HasMaxLength(100)
                 .HasColumnName("first_name");
@@ -71,6 +74,9 @@ public partial class RealtorSystemDbContext : DbContext
             entity.Property(e => e.MiddleName)
                 .HasMaxLength(100)
                 .HasColumnName("middle_name");
+            entity.Property(e => e.Phone)
+                .HasMaxLength(100)
+                .HasColumnName("phone");
             entity.Property(e => e.UserId).HasColumnName("user_id");
 
             entity.HasOne(d => d.Gender).WithMany(p => p.Clients)
@@ -115,20 +121,13 @@ public partial class RealtorSystemDbContext : DbContext
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.ClientId).HasColumnName("client_id");
             entity.Property(e => e.DateCreate).HasColumnName("date_create");
-            entity.Property(e => e.EmployeeId).HasColumnName("employee_id");
-            entity.Property(e => e.IsArchive)
-                .HasColumnType("bit(1)")
-                .HasColumnName("is_archive");
+            entity.Property(e => e.IsArchive).HasColumnName("is_archive");
             entity.Property(e => e.TypeId).HasColumnName("type_id");
             entity.Property(e => e.ValidUntil).HasColumnName("valid_until");
 
             entity.HasOne(d => d.Client).WithMany(p => p.Contracts)
                 .HasForeignKey(d => d.ClientId)
                 .HasConstraintName("contract_client_id_fkey");
-
-            entity.HasOne(d => d.Employee).WithMany(p => p.Contracts)
-                .HasForeignKey(d => d.EmployeeId)
-                .HasConstraintName("contract_employee_id_fkey");
 
             entity.HasOne(d => d.Type).WithMany(p => p.Contracts)
                 .HasForeignKey(d => d.TypeId)
@@ -173,9 +172,6 @@ public partial class RealtorSystemDbContext : DbContext
             entity.ToTable("document");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Description)
-                .HasMaxLength(300)
-                .HasColumnName("description");
             entity.Property(e => e.FileName)
                 .HasMaxLength(300)
                 .HasColumnName("file_name");
@@ -215,13 +211,12 @@ public partial class RealtorSystemDbContext : DbContext
             entity.ToTable("passport");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.PassportIssuedBy)
+            entity.Property(e => e.IssuedBy)
                 .HasMaxLength(200)
-                .HasColumnName("passport_issued_by");
-            entity.Property(e => e.PassportIssuedDate).HasColumnName("passport_issued_date");
-            entity.Property(e => e.PassportNumber).HasColumnName("passport_number");
-            entity.Property(e => e.PassportSerial).HasColumnName("passport_serial");
-            entity.Property(e => e.PassportValidUntil).HasColumnName("passport_valid_until");
+                .HasColumnName("issued_by");
+            entity.Property(e => e.IssuedDate).HasColumnName("issued_date");
+            entity.Property(e => e.Number).HasColumnName("number");
+            entity.Property(e => e.Serial).HasColumnName("serial");
         });
 
         modelBuilder.Entity<RealEstateObject>(entity =>

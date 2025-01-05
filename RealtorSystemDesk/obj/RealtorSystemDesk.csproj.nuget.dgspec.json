@@ -13,6 +13,7 @@
         "packagesPath": "C:\\Users\\alena\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\alena\\OneDrive\\Desktop\\real_estate_project\\RealtorSystemProject\\RealtorSystemDesk\\obj\\",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "C:\\Users\\alena\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],

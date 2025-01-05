@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using RealtorSystemDesk.Database;
+using RealtorSystemDesk.Pages.ClientManagePages;
 using RealtorSystemDesk.Services;
 
 namespace RealtorSystemDesk.Pages;
@@ -15,22 +16,13 @@ public partial class ViewAllClientPage : Page
     public ViewAllClientPage()
     {
         InitializeComponent();
-
-        ClientDataGrid.ItemsSource = _clients;
     }
 
     private void SearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e) => LoadData();
 
     private void AddButton_OnClick(object sender, RoutedEventArgs e)
     {
-        try
-        {
-        }
-        catch (Exception exception)
-        {
-            Console.WriteLine(exception);
-            MessageService.ShowError(exception);
-        }
+        //todo: сделать навигацию на добавление клиента
     }
 
     private void ViewAllClientPage_OnLoaded(object sender, RoutedEventArgs e)
@@ -50,8 +42,16 @@ public partial class ViewAllClientPage : Page
     {
         try
         {
-            _clients.Clear();
-            _clients = await Db.Context.Clients.Where(c=>c.UserId == App.AuthorizedUser!.Id).ToListAsync();
+            string search = SearchTextBox.Text.ToLower();
+
+            _clients = await Db.Context.Clients.Where(c =>
+                    c.UserId == App.AuthorizedUser!.Id &&
+                    (c.FirstName.ToLower().Contains(search) || c.LastName.ToLower().Contains(search) ||
+                     (c.MiddleName != null && c.MiddleName.ToLower().Contains(search))))
+                .ToListAsync();
+
+            ClientDataGrid.ItemsSource = null;
+            ClientDataGrid.ItemsSource = _clients;
         }
         catch (Exception e)
         {
@@ -59,4 +59,7 @@ public partial class ViewAllClientPage : Page
             MessageService.ShowError(e);
         }
     }
+
+    private void InfoButton_OnClick(object sender, RoutedEventArgs e) =>
+        NavigationService.Navigate(new ClientInfoPage(((Client)((Button)sender).DataContext).PassportId));
 }

@@ -138,3 +138,7 @@ C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\Realtor
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ObjectManagePages\ViewAllObjectPage.baml
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\LoginWindowPages\AccountManagePage.g.cs
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\LoginWindowPages\AccountManagePage.baml
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ClientManagePages\ClientInfoPage.g.cs
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ClientManagePages\ClientInfoPage.baml
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ClientManagePages\AddContractPage.g.cs
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ClientManagePages\AddContractPage.baml
