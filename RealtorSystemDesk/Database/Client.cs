@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace RealtorSystemDesk.Database;
 
@@ -14,6 +15,10 @@ public partial class Client
     public string? MiddleName { get; set; }
 
     public DateOnly? BirthDate { get; set; }
+
+    public string? Phone { get; set; }
+    
+    public string? Email { get; set; }
 
     public char? GenderId { get; set; }
 

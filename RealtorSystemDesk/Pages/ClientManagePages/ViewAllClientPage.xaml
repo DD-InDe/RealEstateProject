@@ -25,8 +25,15 @@
         </StackPanel>
 
         <DataGrid x:Name="ClientDataGrid"
-                  Grid.Row="1"
-                  >
+                  AutoGenerateColumns="False"
+                  Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ФИО"
+                                    Binding="{Binding FullName}" />
+                <DataGridTextColumn Header="Дата рождения"
+                                    Binding="{Binding BirthDate}" />
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"/>
+            </DataGrid.Columns>
         </DataGrid>
     </Grid>
 </Page>
