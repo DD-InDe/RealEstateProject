@@ -51,7 +51,7 @@ public partial class MainWindow : Window
 
             if (_menu.Object) MainFrame.Navigate(new ViewAllObjectPage());
             else if (_menu.Client) MainFrame.Navigate(new ViewAllClientPage());
-            else MainFrame.Navigate(new AccountManagePage());
+            else MainFrame.Navigate(new AccountManagePage(false));
         }
         catch (Exception exception)
         {

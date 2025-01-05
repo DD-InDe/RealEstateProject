@@ -50,5 +50,5 @@ public partial class AuthPage : Page
     }
 
     private void RegButton_OnClick(object sender, RoutedEventArgs e) =>
-        NavigationService.Navigate(new RegistrationPage());
+        NavigationService.Navigate(new AccountManagePage(true));
 }

@@ -17,6 +17,8 @@ public partial class Client
 
     public char? GenderId { get; set; }
 
+    public int? UserId { get; set; }
+
     public virtual ICollection<ClientDocument> ClientDocuments { get; set; } = new List<ClientDocument>();
 
     public virtual ICollection<Contract> Contracts { get; set; } = new List<Contract>();
@@ -24,4 +26,6 @@ public partial class Client
     public virtual Gender? Gender { get; set; }
 
     public virtual Passport Passport { get; set; } = null!;
+
+    public virtual User? User { get; set; }
 }

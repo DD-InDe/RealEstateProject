@@ -5,10 +5,28 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:RealtorSystemDesk.Pages"
       mc:Ignorable="d"
-      Title="ViewAllClientPage"
-      Height="450"
-      Width="800">
-    <Grid>
-        
+      Title="Список клиентов"
+      Loaded="ViewAllClientPage_OnLoaded"
+      d:DesignHeight="450"
+      d:DesignWidth="800">
+    <Grid ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Поиск" />
+            <TextBox x:Name="SearchTextBox"
+                     TextChanged="SearchTextBox_OnTextChanged" />
+            <Button x:Name="AddButton"
+                    Click="AddButton_OnClick"
+                    Content="Добавить" />
+        </StackPanel>
+
+        <DataGrid x:Name="ClientDataGrid"
+                  Grid.Row="1"
+                  >
+        </DataGrid>
     </Grid>
 </Page>

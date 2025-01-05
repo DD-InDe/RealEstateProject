@@ -130,13 +130,11 @@ C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\Realtor
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Windows\LoginWindow.g.cs
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Windows\LoginWindow.baml
-C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\AccountManagePage.g.cs
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\LoginWindowPages\AuthPage.g.cs
-C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\LoginWindowPages\RegistrationPage.g.cs
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ClientManagePages\ViewAllClientPage.g.cs
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ObjectManagePages\ViewAllObjectPage.g.cs
-C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\AccountManagePage.baml
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ClientManagePages\ViewAllClientPage.baml
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\LoginWindowPages\AuthPage.baml
-C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\LoginWindowPages\RegistrationPage.baml
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ObjectManagePages\ViewAllObjectPage.baml
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\LoginWindowPages\AccountManagePage.g.cs
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\LoginWindowPages\AccountManagePage.baml

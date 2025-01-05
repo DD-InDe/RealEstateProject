@@ -5,12 +5,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:RealtorSystemDesk.Windows"
         mc:Ignorable="d"
-        Title="Вход в систему"
-        WindowStyle="SingleBorderWindow"
-        SizeToContent="WidthAndHeight"
-        ResizeMode="NoResize">
+        Title="Вход в систему">
         
         <Frame x:Name="MainFrame"
                NavigationUIVisibility="Hidden"
-               Source="../Pages/AuthPage.xaml" />
+               Source="../Pages/LoginWindowPages/AuthPage.xaml" />
 </Window>
