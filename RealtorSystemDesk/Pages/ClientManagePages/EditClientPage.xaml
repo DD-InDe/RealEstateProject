@@ -1,0 +1,55 @@
+﻿<Page x:Class="RealtorSystemDesk.Pages.ClientManagePages.EditClientPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:RealtorSystemDesk.Pages.ClientManagePages"
+      mc:Ignorable="d"
+      Title="Управление клиентом"
+      Loaded="EditClientPage_OnLoaded"
+      d:DesignHeight="450"
+      d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Column="0">
+            <TextBlock Text="Фамилия:" />
+            <TextBox Text="{Binding LastName}" />
+            <TextBlock Text="Имя:" />
+            <TextBox Text="{Binding FirstName}" />
+            <TextBlock Text="Отчество:" />
+            <TextBox Text="{Binding MiddleName}" />
+            <TextBlock Text="Дата рождения:" />
+            <DatePicker SelectedDate="{Binding BirthDateTime}" />
+            <TextBlock Text="Телефон:" />
+            <TextBox Text="{Binding Phone}" />
+            <TextBlock Text="Почта:" />
+            <TextBox Text="{Binding Email}" />
+            <TextBlock Text="Пол:" />
+            <ComboBox x:Name="GenderComboBox"
+                      DisplayMemberPath="Name"
+                      SelectedItem="{Binding Gender}" />
+
+            <Button x:Name="SaveButton"
+                    Click="SaveButton_OnClick"
+                    Content="Сохранить" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical"
+                    Grid.Column="1">
+            <TextBlock Text="Серия паспорта:" />
+            <TextBox MaxLength="4"
+                     Text="{Binding Passport.Serial}" />
+            <TextBlock Text="Номер паспорта:" />
+            <TextBox MaxLength="6"
+                     Text="{Binding Passport.Number}" />
+            <TextBlock Text="Дата выдачи паспорта:" />
+            <DatePicker SelectedDate="{Binding Passport.IssuedDateTime}" />
+            <TextBlock Text="Кем выдан паспорт:" />
+            <TextBox Text="{Binding Passport.IssuedBy}" />
+        </StackPanel>
+    </Grid>
+</Page>

@@ -66,6 +66,9 @@ public partial class RealtorSystemDbContext : DbContext
             entity.Property(e => e.GenderId)
                 .HasMaxLength(1)
                 .HasColumnName("gender_id");
+            entity.Property(e => e.IsArchive)
+                .HasDefaultValue(false)
+                .HasColumnName("is_archive");
             entity.Property(e => e.LastName)
                 .HasMaxLength(100)
                 .HasColumnName("last_name");

@@ -29,16 +29,20 @@
                   AutoGenerateColumns="False"
                   Grid.Row="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="ФИО"
+                <DataGridTextColumn Width="*"
+                                    Header="ФИО"
                                     Binding="{Binding FullName}" />
-                <DataGridTextColumn Width="*" Header="Дата рождения"
-                                    Binding="{Binding BirthDate}" />
-                <DataGridTextColumn Width="*" Header="Телефон"
+                <DataGridTextColumn Width="*"
+                                    Header="Телефон"
                                     Binding="{Binding Phone}" />
+                <DataGridTextColumn Width="*"
+                                    Header="Почта"
+                                    Binding="{Binding Email}" />
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Подробнее" Click="InfoButton_OnClick"/>
+                            <Button Content="Подробнее"
+                                    Click="InfoButton_OnClick" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

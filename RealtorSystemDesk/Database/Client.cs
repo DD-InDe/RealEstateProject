@@ -23,6 +23,8 @@ public partial class Client
 
     public string? Email { get; set; }
 
+    public bool? IsArchive { get; set; }
+
     public virtual ICollection<ClientDocument> ClientDocuments { get; set; } = new List<ClientDocument>();
 
     public virtual ICollection<Contract> Contracts { get; set; } = new List<Contract>();

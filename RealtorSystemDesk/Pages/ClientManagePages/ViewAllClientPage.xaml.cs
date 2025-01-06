@@ -20,10 +20,8 @@ public partial class ViewAllClientPage : Page
 
     private void SearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e) => LoadData();
 
-    private void AddButton_OnClick(object sender, RoutedEventArgs e)
-    {
-        //todo: сделать навигацию на добавление клиента
-    }
+    private void AddButton_OnClick(object sender, RoutedEventArgs e) =>
+        NavigationService.Navigate(new EditClientPage());
 
     private void ViewAllClientPage_OnLoaded(object sender, RoutedEventArgs e)
     {

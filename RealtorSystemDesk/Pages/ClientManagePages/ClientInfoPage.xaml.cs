@@ -59,10 +59,8 @@ public partial class ClientInfoPage : Page
         }
     }
 
-    private void EditButton_OnClick(object sender, RoutedEventArgs e)
-    {
-        //todo: сделать навигацию на страницу редактирования
-    }
+    private void EditButton_OnClick(object sender, RoutedEventArgs e) =>
+        NavigationService.Navigate(new EditClientPage(_client));
 
     private void PrintButton_OnClick(object sender, RoutedEventArgs e)
     {

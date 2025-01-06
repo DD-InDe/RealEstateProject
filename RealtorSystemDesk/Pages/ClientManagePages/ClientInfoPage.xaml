@@ -31,6 +31,8 @@
             <TextBlock Text="{Binding Phone}" />
             <TextBlock Text="Почта:" />
             <TextBlock Text="{Binding Email}" />
+            <TextBlock Text="Пол:" />
+            <TextBlock Text="{Binding Gender.Name}" />
             <TextBlock Text="Серия паспорта:" />
             <TextBlock Text="{Binding Passport.Serial}" />
             <TextBlock Text="Номер паспорта:" />
