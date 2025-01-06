@@ -21,8 +21,6 @@ public partial class RealtorSystemDbContext : DbContext
 
     public virtual DbSet<Contract> Contracts { get; set; }
 
-    public virtual DbSet<ContractDocument> ContractDocuments { get; set; }
-
     public virtual DbSet<ContractType> ContractTypes { get; set; }
 
     public virtual DbSet<Document> Documents { get; set; }
@@ -109,6 +107,7 @@ public partial class RealtorSystemDbContext : DbContext
 
             entity.HasOne(d => d.Document).WithMany(p => p.ClientDocuments)
                 .HasForeignKey(d => d.DocumentId)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("client_document_document_id_fkey");
         });
 
@@ -132,25 +131,6 @@ public partial class RealtorSystemDbContext : DbContext
             entity.HasOne(d => d.Type).WithMany(p => p.Contracts)
                 .HasForeignKey(d => d.TypeId)
                 .HasConstraintName("contract_type_id_fkey");
-        });
-
-        modelBuilder.Entity<ContractDocument>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("contract_document_pkey");
-
-            entity.ToTable("contract_document");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.ContractId).HasColumnName("contract_id");
-            entity.Property(e => e.DocumentId).HasColumnName("document_id");
-
-            entity.HasOne(d => d.Contract).WithMany(p => p.ContractDocuments)
-                .HasForeignKey(d => d.ContractId)
-                .HasConstraintName("contract_document_contract_id_fkey");
-
-            entity.HasOne(d => d.Document).WithMany(p => p.ContractDocuments)
-                .HasForeignKey(d => d.DocumentId)
-                .HasConstraintName("contract_document_document_id_fkey");
         });
 
         modelBuilder.Entity<ContractType>(entity =>
@@ -274,6 +254,7 @@ public partial class RealtorSystemDbContext : DbContext
 
             entity.HasOne(d => d.Document).WithMany(p => p.RealEstateObjectDocuments)
                 .HasForeignKey(d => d.DocumentId)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("real_estate_object_document_document_id_fkey");
 
             entity.HasOne(d => d.RealEstateObject).WithMany(p => p.RealEstateObjectDocuments)

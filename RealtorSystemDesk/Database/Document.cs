@@ -11,7 +11,5 @@ public partial class Document
 
     public virtual ICollection<ClientDocument> ClientDocuments { get; set; } = new List<ClientDocument>();
 
-    public virtual ICollection<ContractDocument> ContractDocuments { get; set; } = new List<ContractDocument>();
-
     public virtual ICollection<RealEstateObjectDocument> RealEstateObjectDocuments { get; set; } = new List<RealEstateObjectDocument>();
 }

@@ -96,19 +96,31 @@
                 <TextBlock Text="Документы" />
                 <Button Content="Загрузить"
                         Click="DocumentAddButton_OnClick" />
-                <ItemsControl x:Name="DocumentItemsControl">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding FileName}" />
-                                <Button Content="Скачать и открыть"
-                                        Click="DocumentLoadButton_OnClick" />
-                                <Button Content="Удалить"
-                                        Click="DocumentDeleteButton_OnClick" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                <DataGrid x:Name="DocumentDataGrid"
+                          IsReadOnly="True"
+                          AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*"
+                                            Header="Название файла:"
+                                            Binding="{Binding Document.FileName}" />
+                        <DataGridTemplateColumn Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Скачать и открыть"
+                                            Click="DocumentLoadButton_OnClick" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Удалить"
+                                            Click="DocumentDeleteButton_OnClick" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
         </Grid>
     </Grid>

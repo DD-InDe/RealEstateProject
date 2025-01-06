@@ -45,9 +45,9 @@ public partial class ClientInfoPage : Page
                 await Db.Context.Contracts
                     .Include(c => c.Type)
                     .Where(c => c.ClientId == _client.PassportId).ToListAsync();
-            
-            DocumentItemsControl.ItemsSource = null;
-            DocumentItemsControl.ItemsSource =
+
+            DocumentDataGrid.ItemsSource = null;
+            DocumentDataGrid.ItemsSource =
                 await Db.Context.ClientDocuments
                     .Include(c => c.Document)
                     .Where(c => c.ClientId == _client.PassportId).ToListAsync();
@@ -106,7 +106,17 @@ public partial class ClientInfoPage : Page
 
     private void DocumentDeleteButton_OnClick(object sender, RoutedEventArgs e)
     {
-        //todo: сделать удаление файлов
+        try
+        {
+            Document document = ((ClientDocument)((Button)sender).DataContext).Document!;
+            FileService.DeleteFile(document);
+            LoadData();
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception);
+            MessageService.ShowError(exception);
+        }
     }
 
     private void DocumentAddButton_OnClick(object sender, RoutedEventArgs e)

@@ -6,7 +6,7 @@ using RealtorSystemDesk.Database;
 
 namespace RealtorSystemDesk.Services;
 
-public class FileService
+public abstract class FileService
 {
     private const string ServerPath = @"C:\Users\alena\OneDrive\Desktop\real_estate_project\server_files";
 
@@ -78,5 +78,22 @@ public class FileService
         }
 
         return 0;
+    }
+
+    public static void DeleteFile(Document document)
+    {
+        try
+        {
+            string directory = Path.Combine(ServerPath, App.AuthorizedUser.Login, document.FileName);
+            if (File.Exists(directory))
+                File.Delete(directory);
+            Db.Context.Documents.Remove(document);
+            DatabaseSaveService.SaveWithMessage("Файл удален!");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            MessageService.ShowError(e);
+        }
     }
 }

@@ -19,8 +19,6 @@ public partial class Contract
 
     public virtual Client? Client { get; set; }
 
-    public virtual ICollection<ContractDocument> ContractDocuments { get; set; } = new List<ContractDocument>();
-
     public virtual RealEstateObject? RealEstateObject { get; set; }
 
     public virtual ContractType? Type { get; set; }

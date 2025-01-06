@@ -28,11 +28,11 @@ public partial class AuthPage : Page
                 User? user = _context.Users.FirstOrDefault(c => c.Login == login && c.Password == password);
                 if (user != null)
                 {
+                    App.AuthorizedUser = user;
                     MainWindow window = new();
                     LoginWindow loginWindow = (Application.Current.MainWindow as LoginWindow)!;
                     window.Show();
                     Application.Current.MainWindow = window;
-                    App.AuthorizedUser = user;
 
                     loginWindow.Close();
                 }

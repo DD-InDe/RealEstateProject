@@ -6,47 +6,51 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:RealtorSystemDesk"
         mc:Ignorable="d"
-        Title=""
+        Title="Риэлторская система"
         MinHeight="450"
         MinWidth="800">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <StackPanel Orientation="Vertical">
-            <TextBlock Text="{Binding ElementName=MainFrame, Path=Content.Title}" />
-
-            <Grid x:Name="MenuGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <ToggleButton x:Name="ObjectToggleButton"
-                              Click="ToggleButton_OnClick"
-                              Grid.Column="0"
-                              IsChecked="{Binding Object}"
-                              Content="Объекты" />
-                <ToggleButton x:Name="ClientToggleButton"
-                              Click="ToggleButton_OnClick"
-                              Grid.Column="1"
-                              IsChecked="{Binding Client}"
-                              Content="Клиенты" />
-                <ToggleButton x:Name="AccountToggleButton"
-                              Click="ToggleButton_OnClick"
-                              Grid.Column="2"
-                              IsChecked="{Binding Account}"
-                              Content="Профиль" />
-            </Grid>
-
-        </StackPanel>
-
-        <Frame x:Name="MainFrame"
-               Grid.Row="1"
-               Source="../Pages/ObjectManagePages/ViewAllObjectPage.xaml"
-               NavigationUIVisibility="Hidden" />
+        <TabControl>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="👥 Клиенты" />
+                </TabItem.Header>
+                <StackPanel Orientation="Vertical">
+                    <Button x:Name="ClientBackButton"
+                            Content="Назад"
+                            HorizontalAlignment="Right"
+                            Click="ClientBackButton_OnClick" />
+                    <Frame x:Name="ClientFrame"
+                           Navigated="ClientFrame_OnNavigated"
+                           NavigationUIVisibility="Hidden"
+                           Source="../Pages/ClientManagePages/ViewAllClientPage.xaml" />
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="🏘️ Объекты" />
+                </TabItem.Header>
+                <StackPanel Orientation="Vertical">
+                    <Button x:Name="ObjectBackButton"
+                            Content="Назад"
+                            HorizontalAlignment="Right"
+                            Click="ObjectBackButton_OnClick" />
+                    <Frame x:Name="ObjectFrame"
+                           Navigated="ObjectFrame_OnNavigated"
+                           NavigationUIVisibility="Hidden"
+                           Source="../Pages/ObjectManagePages/ViewAllObjectPage.xaml" />
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="👤 Профиль" />
+                </TabItem.Header>
+                <StackPanel Orientation="Vertical">
+                    <Frame x:Name="ProfileFrame"
+                           NavigationUIVisibility="Hidden" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
