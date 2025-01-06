@@ -19,6 +19,7 @@
             <TextBlock Text="Поиск" />
             <TextBox x:Name="SearchTextBox"
                      TextChanged="SearchTextBox_OnTextChanged" />
+            <CheckBox x:Name="ArchiveCheckBox" Content="Архив" Checked="CheckBox_ChangeCheck" Unchecked="CheckBox_ChangeCheck"/>
             <Button x:Name="AddButton"
                     Click="AddButton_OnClick"
                     Content="Добавить" />

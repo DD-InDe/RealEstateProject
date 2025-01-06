@@ -41,12 +41,15 @@ public partial class ViewAllClientPage : Page
         try
         {
             string search = SearchTextBox.Text.ToLower();
+            bool archive = ArchiveCheckBox.IsChecked ?? false;
 
             _clients = await Db.Context.Clients.Where(c =>
                     c.UserId == App.AuthorizedUser!.Id &&
                     (c.FirstName.ToLower().Contains(search) || c.LastName.ToLower().Contains(search) ||
                      (c.MiddleName != null && c.MiddleName.ToLower().Contains(search))))
                 .ToListAsync();
+            if (!archive)
+                _clients = _clients.Where(c => c.IsArchive == false).ToList();
 
             ClientDataGrid.ItemsSource = null;
             ClientDataGrid.ItemsSource = _clients;
@@ -60,4 +63,6 @@ public partial class ViewAllClientPage : Page
 
     private void InfoButton_OnClick(object sender, RoutedEventArgs e) =>
         NavigationService.Navigate(new ClientInfoPage(((Client)((Button)sender).DataContext).PassportId));
+
+    private void CheckBox_ChangeCheck(object sender, RoutedEventArgs e) => LoadData();
 }

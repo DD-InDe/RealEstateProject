@@ -27,6 +27,14 @@ public partial class ClientInfoPage : Page
                 .FirstAsync(c => c.PassportId == _id);
             DataContext = _client;
 
+            if (_client.IsArchive.Value)
+            {
+                EditButton.Visibility = Visibility.Collapsed;
+                AddContractButton.Visibility = Visibility.Collapsed;
+                AddDocumentButton.Visibility = Visibility.Collapsed;
+                ArchiveButton.Visibility = Visibility.Collapsed;
+            }
+
             LoadData();
         }
         catch (Exception exception)
@@ -70,7 +78,7 @@ public partial class ClientInfoPage : Page
     private void AddContractButton_OnClick(object sender, RoutedEventArgs e) =>
         NavigationService.Navigate(new AddContractPage(_client.PassportId));
 
-    private void ArchiveButton_OnClick(object sender, RoutedEventArgs e)
+    private void ArchiveContractButton_OnClick(object sender, RoutedEventArgs e)
     {
         try
         {
@@ -134,6 +142,21 @@ public partial class ClientInfoPage : Page
 
                 LoadData();
             }
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception);
+            MessageService.ShowError(exception);
+        }
+    }
+
+    private void ArchiveClientButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            _client.IsArchive = true;
+            DatabaseSaveService.SaveWithMessage("Клиент добавлен в архив");
+            NavigationService.GoBack();
         }
         catch (Exception exception)
         {
