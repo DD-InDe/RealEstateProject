@@ -10,18 +10,54 @@
       d:DesignHeight="450"
       d:DesignWidth="800">
 
-    <StackPanel Orientation="Vertical">
-        <TextBlock Text="Дата заключения:" />
-        <DatePicker SelectedDate="{Binding DateCreate}" />
-        <TextBlock Text="Срок действия (в днях):" />
-        <TextBox Text="{Binding Days}" />
-        <TextBlock Text="Тип договора:" />
-        <ComboBox x:Name="TypeComboBox"
-                  SelectedItem="{Binding Type}"
-                  DisplayMemberPath="Name" />
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="Дата заключения:" />
+            <DatePicker SelectedDate="{Binding DateCreate}" />
+            <TextBlock Text="Срок действия (в днях):" />
+            <TextBox Text="{Binding Days}" />
+            <TextBlock Text="Тип договора:" />
+            <ComboBox x:Name="TypeComboBox"
+                      SelectedItem="{Binding Type}"
+                      DisplayMemberPath="Name" />
 
-        <Button x:Name="SaveButton"
-                Click="SaveButton_OnClick"
-                Content="Сохранить" />
-    </StackPanel>
+            <Button x:Name="SaveButton"
+                    Click="SaveButton_OnClick"
+                    Content="Сохранить" />
+        </StackPanel>
+
+        <StackPanel x:Name="ObjectPanel"
+                    Grid.Column="1"
+                    Orientation="Vertical"
+                    Visibility="Collapsed">
+            <TextBlock Text="Информация об объекте" />
+
+            <TextBlock Text="Адрес:" />
+            <TextBox Text="{Binding Address}" />
+            <TextBlock Text="Этаж:" />
+            <TextBox Text="{Binding Floor}" />
+            <TextBlock Text="Количество этажей в здании:" />
+            <TextBox Text="{Binding FloorsCount}" />
+            <TextBlock Text="Количество комнат:" />
+            <TextBox Text="{Binding RoomsCount}" />
+            <TextBlock Text="Площадь:" />
+            <TextBox Text="{Binding Square}" />
+            <TextBlock Text="Год постройки здания:" />
+            <TextBox Text="{Binding BuildingYear}" />
+            <TextBlock Text="Тип здания:" />
+            <ComboBox x:Name="ObjectTypeComboBox"
+                      SelectedItem="{Binding ObjectType}"
+                      DisplayMemberPath="Name" />
+            <TextBlock Text="Цена:" />
+            <TextBox Text="{Binding Price}" />
+            <TextBlock Text="Описание:" />
+            <TextBlock Text="{Binding Description}" />
+            <TextBlock Text="Заметка:" />
+            <TextBox Text="{Binding Note}" />
+        </StackPanel>
+    </Grid>
 </Page>

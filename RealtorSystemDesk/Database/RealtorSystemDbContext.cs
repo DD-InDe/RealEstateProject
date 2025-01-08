@@ -221,12 +221,12 @@ public partial class RealtorSystemDbContext : DbContext
             entity.Property(e => e.Floor).HasColumnName("floor");
             entity.Property(e => e.FloorsCount).HasColumnName("floors_count");
             entity.Property(e => e.IsArchive)
-                .HasColumnType("bit(1)")
+                .HasDefaultValue(false)
                 .HasColumnName("is_archive");
             entity.Property(e => e.Notes)
                 .HasMaxLength(300)
                 .HasColumnName("notes");
-            entity.Property(e => e.ObjectType).HasColumnName("object_type");
+            entity.Property(e => e.ObjectTypeId).HasColumnName("object_type_id");
             entity.Property(e => e.Price)
                 .HasPrecision(10, 2)
                 .HasColumnName("price");
@@ -240,8 +240,8 @@ public partial class RealtorSystemDbContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("real_estate_object_contract_id_fkey");
 
-            entity.HasOne(d => d.ObjectTypeNavigation).WithMany(p => p.RealEstateObjects)
-                .HasForeignKey(d => d.ObjectType)
+            entity.HasOne(d => d.ObjectType).WithMany(p => p.RealEstateObjects)
+                .HasForeignKey(d => d.ObjectTypeId)
                 .HasConstraintName("real_estate_object_object_type_fkey");
         });
 

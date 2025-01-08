@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace RealtorSystemDesk.Database;
@@ -26,13 +25,13 @@ public partial class RealEstateObject
 
     public int? BuildingYear { get; set; }
 
-    public BitArray? IsArchive { get; set; }
+    public int? ObjectTypeId { get; set; }
 
-    public int? ObjectType { get; set; }
+    public bool? IsArchive { get; set; }
 
     public virtual Contract Contract { get; set; } = null!;
 
-    public virtual RealEstateObjectType? ObjectTypeNavigation { get; set; }
+    public virtual RealEstateObjectType? ObjectType { get; set; }
 
     public virtual ICollection<RealEstateObjectDocument> RealEstateObjectDocuments { get; set; } = new List<RealEstateObjectDocument>();
 

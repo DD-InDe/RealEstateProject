@@ -19,9 +19,11 @@
             <TextBlock Text="Поиск" />
             <TextBox x:Name="SearchTextBox"
                      TextChanged="SearchTextBox_OnTextChanged" />
-            <CheckBox Content="Архив"
+            <CheckBox x:Name="ArchiveCheckBox" Content="Архив"
                       Checked="CheckBox_Check"
                       Unchecked="CheckBox_Check" />
+            <TextBlock Text="Тип объекта"/>
+            <ComboBox x:Name="TypeComboBox" DisplayMemberPath="Name" SelectionChanged="TypeComboBox_OnSelectionChanged"/>
             <Button x:Name="AddButton"
                     Click="AddButton_OnClick"
                     Content="Добавить" />
@@ -31,6 +33,29 @@
                   x:Name="ObjectDataGrid"
                   IsReadOnly="True"
                   AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Статус"
+                                    Width="*"
+                                    Binding="{Binding Status}" />
+                <DataGridTextColumn Header="Адрес"
+                                    Width="*"
+                                    Binding="{Binding Address}" />
+                <DataGridTextColumn Header="Тип объекта"
+                                    Width="*"
+                                    Binding="{Binding ObjectType.Name}" />
+                <DataGridTextColumn Header="Клиент"
+                                    Width="*"
+                                    Binding="{Binding Contract.Client.FullName}" />
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Подробнее"
+                                    x:Name="InfoButton"
+                                    Click="InfoButton_OnClick" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
         </DataGrid>
     </Grid>
 </Page>
