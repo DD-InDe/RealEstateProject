@@ -1,0 +1,20 @@
+﻿RealtorSystemDesk
+
+
+winexe
+C#
+.cs
+C:\Users\nasty\Downloads\курсовая алены\TermPaper-RealEstate\RealtorSystemDesk\obj\Debug\net8.0-windows\
+RealtorSystemDesk
+none
+false
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+C:\Users\nasty\Downloads\курсовая алены\TermPaper-RealEstate\RealtorSystemDesk\App.xaml
+10-1835574970
+
+41-1140162008
+216967818577
+Pages\ClientManagePages\AddContractPage.xaml;Pages\ClientManagePages\ClientInfoPage.xaml;Pages\ClientManagePages\EditClientPage.xaml;Pages\ClientManagePages\ViewAllClientPage.xaml;Pages\LoginWindowPages\AccountManagePage.xaml;Pages\LoginWindowPages\AuthPage.xaml;Pages\ObjectManagePages\ObjectInfoPage.xaml;Pages\ObjectManagePages\ViewAllObjectPage.xaml;Windows\LoginWindow.xaml;Windows\MainWindow.xaml;
+
+True
+
