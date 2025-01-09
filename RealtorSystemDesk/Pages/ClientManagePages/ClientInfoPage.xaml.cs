@@ -1,8 +1,13 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Win32;
 using RealtorSystemDesk.Database;
+using RealtorSystemDesk.Enums;
+using RealtorSystemDesk.Pages.ObjectManagePages;
 using RealtorSystemDesk.Services;
+using Xceed.Document.NET;
+using Xceed.Words.NET;
 
 namespace RealtorSystemDesk.Pages.ClientManagePages;
 
@@ -21,7 +26,8 @@ public partial class ClientInfoPage : Page
     {
         try
         {
-            _client = await Db.Context.Clients
+            _client = await Db
+                .Context.Clients
                 .Include(c => c.Passport)
                 .Include(c => c.Gender)
                 .FirstAsync(c => c.PassportId == _id);
@@ -50,15 +56,19 @@ public partial class ClientInfoPage : Page
         {
             ContractDataGrid.ItemsSource = null;
             ContractDataGrid.ItemsSource =
-                await Db.Context.Contracts
+                await Db
+                    .Context.Contracts
                     .Include(c => c.Type)
-                    .Where(c => c.ClientId == _client.PassportId).ToListAsync();
+                    .Where(c => c.ClientId == _client.PassportId)
+                    .ToListAsync();
 
-            DocumentDataGrid.ItemsSource = null;
-            DocumentDataGrid.ItemsSource =
-                await Db.Context.ClientDocuments
-                    .Include(c => c.Document)
-                    .Where(c => c.ClientId == _client.PassportId).ToListAsync();
+            FileDataGrid.ItemsSource = null;
+            FileDataGrid.ItemsSource =
+                await Db
+                    .Context.ClientFiles
+                    .Include(c => c.File)
+                    .Where(c => c.ClientId == _client.PassportId)
+                    .ToListAsync();
         }
         catch (Exception e)
         {
@@ -72,22 +82,21 @@ public partial class ClientInfoPage : Page
 
     private void PrintButton_OnClick(object sender, RoutedEventArgs e)
     {
-        //todo: сделать печать контрактов
-    }
-
-    private void AddContractButton_OnClick(object sender, RoutedEventArgs e) =>
-        NavigationService.Navigate(new AddContractPage(_client.PassportId));
-
-    private void ArchiveContractButton_OnClick(object sender, RoutedEventArgs e)
-    {
         try
         {
-            Contract contract = (((Button)sender).DataContext as Contract)!;
-            contract.IsArchive = true;
-            Db.Context.Contracts.Update(contract);
-            DatabaseSaveService.SaveWithMessage("Договор помечен как архив");
-
-            LoadData();
+            SaveFileDialog dialog = new()
+            {
+                FileName = $"Отчет_по_клиентам_{DateTime.Today.ToString("dd-mm-yyyy")}", AddExtension = true,
+                DefaultExt = "docx"
+            };
+            if (dialog.ShowDialog() == true)
+            {
+                using (var document = DocX.Load(dialog.FileName))
+                {
+                    Paragraph paragraph = document.InsertParagraph();
+                    
+                }
+            }
         }
         catch (Exception exception)
         {
@@ -96,12 +105,15 @@ public partial class ClientInfoPage : Page
         }
     }
 
+    private void AddContractButton_OnClick(object sender, RoutedEventArgs e) =>
+        NavigationService.Navigate(new AddContractPage(_client.PassportId));
+
     private void DocumentLoadButton_OnClick(object sender, RoutedEventArgs e)
     {
         try
         {
-            ClientDocument document = (((Button)sender).DataContext as ClientDocument)!;
-            FileService.DownloadFile(document.Document.FileName);
+            ClientFile file = (((Button)sender).DataContext as ClientFile)!;
+            FileService.DownloadFile(file.File.FileName);
         }
         catch (Exception exception)
         {
@@ -114,8 +126,8 @@ public partial class ClientInfoPage : Page
     {
         try
         {
-            Document document = ((ClientDocument)((Button)sender).DataContext).Document!;
-            FileService.DeleteFile(document);
+            File file = ((ClientFile)((Button)sender).DataContext).File!;
+            FileService.DeleteFile(file);
             LoadData();
         }
         catch (Exception exception)
@@ -129,15 +141,15 @@ public partial class ClientInfoPage : Page
     {
         try
         {
-            int documentId = FileService.UploadFile();
-            if (documentId != 0)
+            int fileId = FileService.UploadFile(FileOption.Document);
+            if (fileId != 0)
             {
-                ClientDocument clientDocument = new()
+                ClientFile clientFile = new()
                 {
                     ClientId = _client.PassportId,
-                    DocumentId = documentId
+                    FileId = fileId
                 };
-                Db.Context.ClientDocuments.Add(clientDocument);
+                Db.Context.ClientFiles.Add(clientFile);
                 DatabaseSaveService.SaveWithMessage("Данные обновлены!");
 
                 LoadData();
@@ -164,4 +176,7 @@ public partial class ClientInfoPage : Page
             MessageService.ShowError(exception);
         }
     }
+
+    private void NavigateToObject_OnClick(object sender, RoutedEventArgs e) =>
+        NavigationService.Navigate(new ObjectInfoPage(((Contract)((Button)sender).DataContext).Id));
 }

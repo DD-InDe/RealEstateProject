@@ -33,7 +33,5 @@ public partial class RealEstateObject
 
     public virtual RealEstateObjectType? ObjectType { get; set; }
 
-    public virtual ICollection<RealEstateObjectDocument> RealEstateObjectDocuments { get; set; } = new List<RealEstateObjectDocument>();
-
     public virtual ICollection<RealEstateObjectPhoto> RealEstateObjectPhotos { get; set; } = new List<RealEstateObjectPhoto>();
 }

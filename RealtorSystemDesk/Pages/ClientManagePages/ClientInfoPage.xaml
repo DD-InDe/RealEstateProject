@@ -64,9 +64,6 @@
                           AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Width="*"
-                                            Header="Статус:"
-                                            Binding="{Binding Active}" />
-                        <DataGridTextColumn Width="*"
                                             Header="Дата составления:"
                                             Binding="{Binding DateCreate}" />
                         <DataGridTextColumn Width="*"
@@ -78,9 +75,9 @@
                         <DataGridTemplateColumn Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="В архив"
-                                            Visibility="{Binding ArchiveButtonVisibility}"
-                                            Click="ArchiveContractButton_OnClick" />
+                                    <Button Content="Объект"
+                                            Visibility="{Binding ObjectButtonVisibility}"
+                                            Click="NavigateToObject_OnClick" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -101,7 +98,7 @@
                 <TextBlock Text="Документы" />
                 <Button  x:Name="AddDocumentButton" Content="Загрузить"
                          Click="DocumentAddButton_OnClick" />
-                <DataGrid x:Name="DocumentDataGrid"
+                <DataGrid x:Name="FileDataGrid"
                           IsReadOnly="True"
                           AutoGenerateColumns="False">
                     <DataGrid.Columns>

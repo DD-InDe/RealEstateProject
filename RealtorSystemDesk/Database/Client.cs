@@ -25,7 +25,7 @@ public partial class Client
 
     public bool? IsArchive { get; set; }
 
-    public virtual ICollection<ClientDocument> ClientDocuments { get; set; } = new List<ClientDocument>();
+    public virtual ICollection<ClientFile> ClientFiles { get; set; } = new List<ClientFile>();
 
     public virtual ICollection<Contract> Contracts { get; set; } = new List<Contract>();
 
