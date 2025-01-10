@@ -1,14 +1,23 @@
-﻿using System.Windows;
+﻿using System.Buffers.Text;
+using System.Drawing;
+using System.IO;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Win32;
 using RealtorSystemDesk.Database;
+using RealtorSystemDesk.Enums;
 using RealtorSystemDesk.Pages.ClientManagePages;
 using RealtorSystemDesk.Services;
+using File = System.IO.File;
+using Image = System.Windows.Controls.Image;
 
 namespace RealtorSystemDesk.Pages.ObjectManagePages;
 
 public partial class ObjectInfoPage : Page
 {
+    private List<RealEstateObjectPhoto> _files;
     private int _id;
     private RealEstateObject _object;
 
@@ -24,12 +33,14 @@ public partial class ObjectInfoPage : Page
         {
             try
             {
-                _object = await Db.Context.RealEstateObjects
+                _object = await Db
+                    .Context.RealEstateObjects
                     .Include(c => c.Contract)
                     .Include(c => c.ObjectType)
                     .FirstAsync(c => c.ContractId == _id);
 
-                DataContext = _object;
+                ArchiveButton.Content = _object.IsArchive.Value ? "Убрать из архива" : "Добавить в архив";
+                MainGrid.DataContext = _object;
                 LoadData();
             }
             catch (Exception exception)
@@ -45,13 +56,15 @@ public partial class ObjectInfoPage : Page
         }
     }
 
-    private async void LoadData()
+    private void LoadData()
     {
         try
         {
-            DocumentDataGrid.ItemsSource = null;
-            DocumentDataGrid.ItemsSource = await Db.Context.RealEstateObjectDocuments.Include(c => c.Document)
-                .Where(c => c.RealEstateObjectId == _object.ContractId).ToListAsync();
+            _files = Db
+                .Context.RealEstateObjectPhotos.Where(c => c.RealEstateObjectId == _object.ContractId)
+                .ToList();
+            PhotoItemsControl.ItemsSource = null;
+            PhotoItemsControl.ItemsSource = _files;
         }
         catch (Exception e)
         {
@@ -60,24 +73,27 @@ public partial class ObjectInfoPage : Page
         }
     }
 
-    private void EditButton_OnClick(object sender, RoutedEventArgs e) =>
-        NavigationService.Navigate(new ObjectEditPage(_object));
+    private void CustomerButton_OnClick(object sender, RoutedEventArgs e) =>
+        NavigationService.Navigate(new ClientInfoPage(_object.Contract.ClientId.Value));
 
-    private void AddDocumentButton_OnClick(object sender, RoutedEventArgs e)
+    private void AddPhotoButton_OnClick(object sender, RoutedEventArgs e)
     {
         try
         {
-            int documentId = FileService.UploadFile();
-            if (documentId != 0)
+            OpenFileDialog dialog = new()
             {
-                RealEstateObjectDocument objectDocument = new()
+                Filter = "images |*.jpeg; *.jpg; *.png"
+            };
+            if (dialog.ShowDialog() == true)
+            {
+                RealEstateObjectPhoto photo = new()
                 {
                     RealEstateObjectId = _object.ContractId,
-                    DocumentId = documentId
+                    Photo = Convert.ToBase64String(File.ReadAllBytes(dialog.FileName))
                 };
-                Db.Context.RealEstateObjectDocuments.Add(objectDocument);
-                DatabaseSaveService.SaveWithMessage("Данные обновлены!");
+                Db.Context.RealEstateObjectPhotos.Add(photo);
 
+                DatabaseSaveService.SaveWithMessage();
                 LoadData();
             }
         }
@@ -88,26 +104,13 @@ public partial class ObjectInfoPage : Page
         }
     }
 
-    private void DocumentLoadButton_OnClick(object sender, RoutedEventArgs e)
+    private void DeleteItem_OnClick(object sender, RoutedEventArgs e)
     {
         try
         {
-            RealEstateObjectDocument document = (((Button)sender).DataContext as RealEstateObjectDocument)!;
-            FileService.DownloadFile(document.Document.FileName);
-        }
-        catch (Exception exception)
-        {
-            Console.WriteLine(exception);
-            MessageService.ShowError(exception);
-        }
-    }
-
-    private void DocumentDeleteButton_OnClick(object sender, RoutedEventArgs e)
-    {
-        try
-        {
-            Document document = ((RealEstateObjectDocument)((Button)sender).DataContext).Document!;
-            FileService.DeleteFile(document);
+            RealEstateObjectPhoto photo = ((MenuItem)sender).DataContext as RealEstateObjectPhoto;
+            Db.Context.RealEstateObjectPhotos.Remove(photo);
+            DatabaseSaveService.SaveWithMessage();
             LoadData();
         }
         catch (Exception exception)
@@ -117,6 +120,19 @@ public partial class ObjectInfoPage : Page
         }
     }
 
-    private void CustomerButton_OnClick(object sender, RoutedEventArgs e) =>
-        NavigationService.Navigate(new ClientInfoPage(_object.Contract.ClientId.Value));
+    private void ArchiveButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            _object.IsArchive = !_object.IsArchive.Value;
+            DatabaseSaveService.SaveWithMessage();
+
+            ArchiveButton.Content = _object.IsArchive.Value ? "Убрать из архива" : "Добавить в архив";
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception);
+            MessageService.ShowError(exception);
+        }
+    }
 }

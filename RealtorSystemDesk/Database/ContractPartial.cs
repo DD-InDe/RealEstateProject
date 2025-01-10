@@ -4,6 +4,5 @@ namespace RealtorSystemDesk.Database;
 
 public partial class Contract
 {
-    public string Active => IsArchive!.Value ? "Архив" : "Активен";
-    public Visibility ArchiveButtonVisibility => IsArchive!.Value ? Visibility.Collapsed : Visibility.Visible;
+    public Visibility ObjectButtonVisibility => TypeId == 1 ? Visibility.Collapsed : Visibility.Visible;
 }

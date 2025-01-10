@@ -7,9 +7,9 @@ public partial class RealEstateObjectPhoto
 {
     public int Id { get; set; }
 
-    public int? ObjectId { get; set; }
+    public string? Photo { get; set; }
 
-    public string? FileName { get; set; }
+    public int? RealEstateObjectId { get; set; }
 
-    public virtual RealEstateObject? Object { get; set; }
+    public virtual RealEstateObject? RealEstateObject { get; set; }
 }

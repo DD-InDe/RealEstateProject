@@ -1,5 +1,5 @@
 --
--- PostgreSQL database dump
+-- realtor_system_dbQL database dump
 --
 
 -- Dumped from database version 17.0
@@ -7,27 +7,24 @@
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET transaction_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
 SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: public; Type: SCHEMA; Schema: -; Owner: pg_database_owner
+-- Name: public; Type: SCHEMA; Schema: -; Owner: realtor_system_db
 --
 
 CREATE SCHEMA public;
 
 
-ALTER SCHEMA public OWNER TO pg_database_owner;
+ALTER SCHEMA public OWNER TO realtor_system_db;
 
 --
--- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: pg_database_owner
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: realtor_system_db
 --
 
 COMMENT ON SCHEMA public IS 'standard public schema';
@@ -38,7 +35,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: __EFMigrationsHistory; Type: TABLE; Schema: public; Owner: postgres
+-- Name: __EFMigrationsHistory; Type: TABLE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE TABLE public."__EFMigrationsHistory" (
@@ -47,10 +44,10 @@ CREATE TABLE public."__EFMigrationsHistory" (
 );
 
 
-ALTER TABLE public."__EFMigrationsHistory" OWNER TO postgres;
+ALTER TABLE public."__EFMigrationsHistory" OWNER TO realtor_system_db;
 
 --
--- Name: client; Type: TABLE; Schema: public; Owner: postgres
+-- Name: client; Type: TABLE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE TABLE public.client (
@@ -67,10 +64,10 @@ CREATE TABLE public.client (
 );
 
 
-ALTER TABLE public.client OWNER TO postgres;
+ALTER TABLE public.client OWNER TO realtor_system_db;
 
 --
--- Name: client_document; Type: TABLE; Schema: public; Owner: postgres
+-- Name: client_document; Type: TABLE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE TABLE public.client_document (
@@ -80,10 +77,10 @@ CREATE TABLE public.client_document (
 );
 
 
-ALTER TABLE public.client_document OWNER TO postgres;
+ALTER TABLE public.client_document OWNER TO realtor_system_db;
 
 --
--- Name: client_document_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: client_document_id_seq; Type: SEQUENCE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE SEQUENCE public.client_document_id_seq
@@ -95,17 +92,17 @@ CREATE SEQUENCE public.client_document_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.client_document_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.client_document_id_seq OWNER TO realtor_system_db;
 
 --
--- Name: client_document_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: client_document_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: realtor_system_db
 --
 
 ALTER SEQUENCE public.client_document_id_seq OWNED BY public.client_document.id;
 
 
 --
--- Name: contract; Type: TABLE; Schema: public; Owner: postgres
+-- Name: contract; Type: TABLE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE TABLE public.contract (
@@ -118,10 +115,10 @@ CREATE TABLE public.contract (
 );
 
 
-ALTER TABLE public.contract OWNER TO postgres;
+ALTER TABLE public.contract OWNER TO realtor_system_db;
 
 --
--- Name: contract_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: contract_id_seq; Type: SEQUENCE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE SEQUENCE public.contract_id_seq
@@ -133,17 +130,17 @@ CREATE SEQUENCE public.contract_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.contract_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.contract_id_seq OWNER TO realtor_system_db;
 
 --
--- Name: contract_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: contract_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: realtor_system_db
 --
 
 ALTER SEQUENCE public.contract_id_seq OWNED BY public.contract.id;
 
 
 --
--- Name: contract_type; Type: TABLE; Schema: public; Owner: postgres
+-- Name: contract_type; Type: TABLE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE TABLE public.contract_type (
@@ -152,10 +149,10 @@ CREATE TABLE public.contract_type (
 );
 
 
-ALTER TABLE public.contract_type OWNER TO postgres;
+ALTER TABLE public.contract_type OWNER TO realtor_system_db;
 
 --
--- Name: contract_type_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: contract_type_id_seq; Type: SEQUENCE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE SEQUENCE public.contract_type_id_seq
@@ -167,17 +164,17 @@ CREATE SEQUENCE public.contract_type_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.contract_type_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.contract_type_id_seq OWNER TO realtor_system_db;
 
 --
--- Name: contract_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: contract_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: realtor_system_db
 --
 
 ALTER SEQUENCE public.contract_type_id_seq OWNED BY public.contract_type.id;
 
 
 --
--- Name: document; Type: TABLE; Schema: public; Owner: postgres
+-- Name: document; Type: TABLE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE TABLE public.document (
@@ -186,10 +183,10 @@ CREATE TABLE public.document (
 );
 
 
-ALTER TABLE public.document OWNER TO postgres;
+ALTER TABLE public.document OWNER TO realtor_system_db;
 
 --
--- Name: document_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: document_id_seq; Type: SEQUENCE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE SEQUENCE public.document_id_seq
@@ -201,17 +198,17 @@ CREATE SEQUENCE public.document_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.document_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.document_id_seq OWNER TO realtor_system_db;
 
 --
--- Name: document_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: document_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: realtor_system_db
 --
 
 ALTER SEQUENCE public.document_id_seq OWNED BY public.document.id;
 
 
 --
--- Name: gender; Type: TABLE; Schema: public; Owner: postgres
+-- Name: gender; Type: TABLE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE TABLE public.gender (
@@ -220,10 +217,10 @@ CREATE TABLE public.gender (
 );
 
 
-ALTER TABLE public.gender OWNER TO postgres;
+ALTER TABLE public.gender OWNER TO realtor_system_db;
 
 --
--- Name: material; Type: TABLE; Schema: public; Owner: postgres
+-- Name: material; Type: TABLE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE TABLE public.material (
@@ -232,10 +229,10 @@ CREATE TABLE public.material (
 );
 
 
-ALTER TABLE public.material OWNER TO postgres;
+ALTER TABLE public.material OWNER TO realtor_system_db;
 
 --
--- Name: material_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: material_id_seq; Type: SEQUENCE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE SEQUENCE public.material_id_seq
@@ -247,17 +244,17 @@ CREATE SEQUENCE public.material_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.material_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.material_id_seq OWNER TO realtor_system_db;
 
 --
--- Name: material_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: material_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: realtor_system_db
 --
 
 ALTER SEQUENCE public.material_id_seq OWNED BY public.material.id;
 
 
 --
--- Name: passport; Type: TABLE; Schema: public; Owner: postgres
+-- Name: passport; Type: TABLE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE TABLE public.passport (
@@ -269,10 +266,10 @@ CREATE TABLE public.passport (
 );
 
 
-ALTER TABLE public.passport OWNER TO postgres;
+ALTER TABLE public.passport OWNER TO realtor_system_db;
 
 --
--- Name: passport_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: passport_id_seq; Type: SEQUENCE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE SEQUENCE public.passport_id_seq
@@ -284,17 +281,17 @@ CREATE SEQUENCE public.passport_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.passport_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.passport_id_seq OWNER TO realtor_system_db;
 
 --
--- Name: passport_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: passport_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: realtor_system_db
 --
 
 ALTER SEQUENCE public.passport_id_seq OWNED BY public.passport.id;
 
 
 --
--- Name: real_estate_object; Type: TABLE; Schema: public; Owner: postgres
+-- Name: real_estate_object; Type: TABLE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE TABLE public.real_estate_object (
@@ -313,10 +310,10 @@ CREATE TABLE public.real_estate_object (
 );
 
 
-ALTER TABLE public.real_estate_object OWNER TO postgres;
+ALTER TABLE public.real_estate_object OWNER TO realtor_system_db;
 
 --
--- Name: real_estate_object_document; Type: TABLE; Schema: public; Owner: postgres
+-- Name: real_estate_object_document; Type: TABLE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE TABLE public.real_estate_object_document (
@@ -326,10 +323,10 @@ CREATE TABLE public.real_estate_object_document (
 );
 
 
-ALTER TABLE public.real_estate_object_document OWNER TO postgres;
+ALTER TABLE public.real_estate_object_document OWNER TO realtor_system_db;
 
 --
--- Name: real_estate_object_document_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: real_estate_object_document_id_seq; Type: SEQUENCE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE SEQUENCE public.real_estate_object_document_id_seq
@@ -341,17 +338,17 @@ CREATE SEQUENCE public.real_estate_object_document_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.real_estate_object_document_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.real_estate_object_document_id_seq OWNER TO realtor_system_db;
 
 --
--- Name: real_estate_object_document_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: real_estate_object_document_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: realtor_system_db
 --
 
 ALTER SEQUENCE public.real_estate_object_document_id_seq OWNED BY public.real_estate_object_document.id;
 
 
 --
--- Name: real_estate_object_photo; Type: TABLE; Schema: public; Owner: postgres
+-- Name: real_estate_object_photo; Type: TABLE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE TABLE public.real_estate_object_photo (
@@ -361,10 +358,10 @@ CREATE TABLE public.real_estate_object_photo (
 );
 
 
-ALTER TABLE public.real_estate_object_photo OWNER TO postgres;
+ALTER TABLE public.real_estate_object_photo OWNER TO realtor_system_db;
 
 --
--- Name: real_estate_object_photo_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: real_estate_object_photo_id_seq; Type: SEQUENCE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE SEQUENCE public.real_estate_object_photo_id_seq
@@ -376,17 +373,17 @@ CREATE SEQUENCE public.real_estate_object_photo_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.real_estate_object_photo_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.real_estate_object_photo_id_seq OWNER TO realtor_system_db;
 
 --
--- Name: real_estate_object_photo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: real_estate_object_photo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: realtor_system_db
 --
 
 ALTER SEQUENCE public.real_estate_object_photo_id_seq OWNED BY public.real_estate_object_photo.id;
 
 
 --
--- Name: real_estate_object_type; Type: TABLE; Schema: public; Owner: postgres
+-- Name: real_estate_object_type; Type: TABLE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE TABLE public.real_estate_object_type (
@@ -395,10 +392,10 @@ CREATE TABLE public.real_estate_object_type (
 );
 
 
-ALTER TABLE public.real_estate_object_type OWNER TO postgres;
+ALTER TABLE public.real_estate_object_type OWNER TO realtor_system_db;
 
 --
--- Name: real_estate_object_type_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: real_estate_object_type_id_seq; Type: SEQUENCE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE SEQUENCE public.real_estate_object_type_id_seq
@@ -410,17 +407,17 @@ CREATE SEQUENCE public.real_estate_object_type_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.real_estate_object_type_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.real_estate_object_type_id_seq OWNER TO realtor_system_db;
 
 --
--- Name: real_estate_object_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: real_estate_object_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: realtor_system_db
 --
 
 ALTER SEQUENCE public.real_estate_object_type_id_seq OWNED BY public.real_estate_object_type.id;
 
 
 --
--- Name: user; Type: TABLE; Schema: public; Owner: postgres
+-- Name: user; Type: TABLE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE TABLE public."user" (
@@ -433,10 +430,10 @@ CREATE TABLE public."user" (
 );
 
 
-ALTER TABLE public."user" OWNER TO postgres;
+ALTER TABLE public."user" OWNER TO realtor_system_db;
 
 --
--- Name: user_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: user_id_seq; Type: SEQUENCE; Schema: public; Owner: realtor_system_db
 --
 
 CREATE SEQUENCE public.user_id_seq
@@ -448,87 +445,87 @@ CREATE SEQUENCE public.user_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.user_id_seq OWNER TO postgres;
+ALTER SEQUENCE public.user_id_seq OWNER TO realtor_system_db;
 
 --
--- Name: user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: realtor_system_db
 --
 
 ALTER SEQUENCE public.user_id_seq OWNED BY public."user".id;
 
 
 --
--- Name: client_document id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: client_document id; Type: DEFAULT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.client_document ALTER COLUMN id SET DEFAULT nextval('public.client_document_id_seq'::regclass);
 
 
 --
--- Name: contract id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: contract id; Type: DEFAULT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.contract ALTER COLUMN id SET DEFAULT nextval('public.contract_id_seq'::regclass);
 
 
 --
--- Name: contract_type id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: contract_type id; Type: DEFAULT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.contract_type ALTER COLUMN id SET DEFAULT nextval('public.contract_type_id_seq'::regclass);
 
 
 --
--- Name: document id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: document id; Type: DEFAULT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.document ALTER COLUMN id SET DEFAULT nextval('public.document_id_seq'::regclass);
 
 
 --
--- Name: material id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: material id; Type: DEFAULT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.material ALTER COLUMN id SET DEFAULT nextval('public.material_id_seq'::regclass);
 
 
 --
--- Name: passport id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: passport id; Type: DEFAULT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.passport ALTER COLUMN id SET DEFAULT nextval('public.passport_id_seq'::regclass);
 
 
 --
--- Name: real_estate_object_document id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: real_estate_object_document id; Type: DEFAULT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.real_estate_object_document ALTER COLUMN id SET DEFAULT nextval('public.real_estate_object_document_id_seq'::regclass);
 
 
 --
--- Name: real_estate_object_photo id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: real_estate_object_photo id; Type: DEFAULT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.real_estate_object_photo ALTER COLUMN id SET DEFAULT nextval('public.real_estate_object_photo_id_seq'::regclass);
 
 
 --
--- Name: real_estate_object_type id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: real_estate_object_type id; Type: DEFAULT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.real_estate_object_type ALTER COLUMN id SET DEFAULT nextval('public.real_estate_object_type_id_seq'::regclass);
 
 
 --
--- Name: user id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: user id; Type: DEFAULT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public."user" ALTER COLUMN id SET DEFAULT nextval('public.user_id_seq'::regclass);
 
 
 --
--- Data for Name: __EFMigrationsHistory; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: __EFMigrationsHistory; Type: TABLE DATA; Schema: public; Owner: realtor_system_db
 --
 
 INSERT INTO public."__EFMigrationsHistory" VALUES ('20250105121013_Add_Columns_In_Client', '8.0.11');
@@ -538,7 +535,7 @@ INSERT INTO public."__EFMigrationsHistory" VALUES ('20250105122103_Add_Columns_I
 
 
 --
--- Data for Name: client; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: client; Type: TABLE DATA; Schema: public; Owner: realtor_system_db
 --
 
 INSERT INTO public.client VALUES (8, 'Федосеев', 'Андрей', 'Андреевич', '1993-12-18', 'M', 1, '66564343', 'tyubjgjh@mail.ru', false);
@@ -555,13 +552,13 @@ INSERT INTO public.client VALUES (5, 'Ковалев', 'Николай', 'Ник
 
 
 --
--- Data for Name: client_document; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: client_document; Type: TABLE DATA; Schema: public; Owner: realtor_system_db
 --
 
 
 
 --
--- Data for Name: contract; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: contract; Type: TABLE DATA; Schema: public; Owner: realtor_system_db
 --
 
 INSERT INTO public.contract VALUES (1, '2025-01-07', '2025-01-23', 1, 1, true);
@@ -571,7 +568,7 @@ INSERT INTO public.contract VALUES (4, '2025-01-07', '2025-01-07', 10, 1, true);
 
 
 --
--- Data for Name: contract_type; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: contract_type; Type: TABLE DATA; Schema: public; Owner: realtor_system_db
 --
 
 INSERT INTO public.contract_type VALUES (1, 'Контракт на покупку');
@@ -579,13 +576,13 @@ INSERT INTO public.contract_type VALUES (2, 'Контракт на продаж�
 
 
 --
--- Data for Name: document; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: document; Type: TABLE DATA; Schema: public; Owner: realtor_system_db
 --
 
 
 
 --
--- Data for Name: gender; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: gender; Type: TABLE DATA; Schema: public; Owner: realtor_system_db
 --
 
 INSERT INTO public.gender VALUES ('M', 'Мужской');
@@ -593,13 +590,13 @@ INSERT INTO public.gender VALUES ('F', 'Женский');
 
 
 --
--- Data for Name: material; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: material; Type: TABLE DATA; Schema: public; Owner: realtor_system_db
 --
 
 
 
 --
--- Data for Name: passport; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: passport; Type: TABLE DATA; Schema: public; Owner: realtor_system_db
 --
 
 INSERT INTO public.passport VALUES (2, 2345, 678901, '2021-02-02', 'УФМС России');
@@ -617,7 +614,7 @@ INSERT INTO public.passport VALUES (14, 2341, 234123, '2025-01-23', 'asdfasd');
 
 
 --
--- Data for Name: real_estate_object; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: real_estate_object; Type: TABLE DATA; Schema: public; Owner: realtor_system_db
 --
 
 INSERT INTO public.real_estate_object VALUES (3, 'Серпухов ул Осенняя 7', 'дом', 'дом', 3, 9, 3, 220.00, 8500000.00, 1999, 2, false);
@@ -626,19 +623,19 @@ INSERT INTO public.real_estate_object VALUES (2, 'Серпухов ул Пушк
 
 
 --
--- Data for Name: real_estate_object_document; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: real_estate_object_document; Type: TABLE DATA; Schema: public; Owner: realtor_system_db
 --
 
 
 
 --
--- Data for Name: real_estate_object_photo; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: real_estate_object_photo; Type: TABLE DATA; Schema: public; Owner: realtor_system_db
 --
 
 
 
 --
--- Data for Name: real_estate_object_type; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: real_estate_object_type; Type: TABLE DATA; Schema: public; Owner: realtor_system_db
 --
 
 INSERT INTO public.real_estate_object_type VALUES (1, 'Дом');
@@ -646,7 +643,7 @@ INSERT INTO public.real_estate_object_type VALUES (2, 'Квартира');
 
 
 --
--- Data for Name: user; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: user; Type: TABLE DATA; Schema: public; Owner: realtor_system_db
 --
 
 INSERT INTO public."user" VALUES (2, 'user2', 'pass5678', 'Петров', 'Петр', 'Петрович');
@@ -663,77 +660,77 @@ INSERT INTO public."user" VALUES (11, 'alena', 'pass', 'Богданович', '
 
 
 --
--- Name: client_document_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: client_document_id_seq; Type: SEQUENCE SET; Schema: public; Owner: realtor_system_db
 --
 
 SELECT pg_catalog.setval('public.client_document_id_seq', 2, true);
 
 
 --
--- Name: contract_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: contract_id_seq; Type: SEQUENCE SET; Schema: public; Owner: realtor_system_db
 --
 
 SELECT pg_catalog.setval('public.contract_id_seq', 4, true);
 
 
 --
--- Name: contract_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: contract_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: realtor_system_db
 --
 
 SELECT pg_catalog.setval('public.contract_type_id_seq', 2, true);
 
 
 --
--- Name: document_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: document_id_seq; Type: SEQUENCE SET; Schema: public; Owner: realtor_system_db
 --
 
 SELECT pg_catalog.setval('public.document_id_seq', 2, true);
 
 
 --
--- Name: material_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: material_id_seq; Type: SEQUENCE SET; Schema: public; Owner: realtor_system_db
 --
 
 SELECT pg_catalog.setval('public.material_id_seq', 1, false);
 
 
 --
--- Name: passport_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: passport_id_seq; Type: SEQUENCE SET; Schema: public; Owner: realtor_system_db
 --
 
 SELECT pg_catalog.setval('public.passport_id_seq', 14, true);
 
 
 --
--- Name: real_estate_object_document_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: real_estate_object_document_id_seq; Type: SEQUENCE SET; Schema: public; Owner: realtor_system_db
 --
 
 SELECT pg_catalog.setval('public.real_estate_object_document_id_seq', 1, false);
 
 
 --
--- Name: real_estate_object_photo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: real_estate_object_photo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: realtor_system_db
 --
 
 SELECT pg_catalog.setval('public.real_estate_object_photo_id_seq', 1, false);
 
 
 --
--- Name: real_estate_object_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: real_estate_object_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: realtor_system_db
 --
 
 SELECT pg_catalog.setval('public.real_estate_object_type_id_seq', 2, true);
 
 
 --
--- Name: user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: realtor_system_db
 --
 
 SELECT pg_catalog.setval('public.user_id_seq', 11, true);
 
 
 --
--- Name: __EFMigrationsHistory PK___EFMigrationsHistory; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: __EFMigrationsHistory PK___EFMigrationsHistory; Type: CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public."__EFMigrationsHistory"
@@ -741,7 +738,7 @@ ALTER TABLE ONLY public."__EFMigrationsHistory"
 
 
 --
--- Name: client_document client_document_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: client_document client_document_pkey; Type: CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.client_document
@@ -749,7 +746,7 @@ ALTER TABLE ONLY public.client_document
 
 
 --
--- Name: client client_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: client client_pkey; Type: CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.client
@@ -757,7 +754,7 @@ ALTER TABLE ONLY public.client
 
 
 --
--- Name: contract contract_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: contract contract_pkey; Type: CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.contract
@@ -765,7 +762,7 @@ ALTER TABLE ONLY public.contract
 
 
 --
--- Name: contract_type contract_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: contract_type contract_type_pkey; Type: CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.contract_type
@@ -773,7 +770,7 @@ ALTER TABLE ONLY public.contract_type
 
 
 --
--- Name: document document_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: document document_pkey; Type: CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.document
@@ -781,7 +778,7 @@ ALTER TABLE ONLY public.document
 
 
 --
--- Name: gender gender_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: gender gender_pkey; Type: CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.gender
@@ -789,7 +786,7 @@ ALTER TABLE ONLY public.gender
 
 
 --
--- Name: material material_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: material material_pkey; Type: CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.material
@@ -797,7 +794,7 @@ ALTER TABLE ONLY public.material
 
 
 --
--- Name: passport passport_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: passport passport_pkey; Type: CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.passport
@@ -805,7 +802,7 @@ ALTER TABLE ONLY public.passport
 
 
 --
--- Name: real_estate_object_document real_estate_object_document_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: real_estate_object_document real_estate_object_document_pkey; Type: CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.real_estate_object_document
@@ -813,7 +810,7 @@ ALTER TABLE ONLY public.real_estate_object_document
 
 
 --
--- Name: real_estate_object_photo real_estate_object_photo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: real_estate_object_photo real_estate_object_photo_pkey; Type: CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.real_estate_object_photo
@@ -821,7 +818,7 @@ ALTER TABLE ONLY public.real_estate_object_photo
 
 
 --
--- Name: real_estate_object real_estate_object_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: real_estate_object real_estate_object_pkey; Type: CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.real_estate_object
@@ -829,7 +826,7 @@ ALTER TABLE ONLY public.real_estate_object
 
 
 --
--- Name: real_estate_object_type real_estate_object_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: real_estate_object_type real_estate_object_type_pkey; Type: CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.real_estate_object_type
@@ -837,7 +834,7 @@ ALTER TABLE ONLY public.real_estate_object_type
 
 
 --
--- Name: user user_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: user user_pkey; Type: CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public."user"
@@ -845,7 +842,7 @@ ALTER TABLE ONLY public."user"
 
 
 --
--- Name: client client___fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: client client___fk; Type: FK CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.client
@@ -853,7 +850,7 @@ ALTER TABLE ONLY public.client
 
 
 --
--- Name: client_document client_document_client_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: client_document client_document_client_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.client_document
@@ -861,7 +858,7 @@ ALTER TABLE ONLY public.client_document
 
 
 --
--- Name: client_document client_document_document_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: client_document client_document_document_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.client_document
@@ -869,7 +866,7 @@ ALTER TABLE ONLY public.client_document
 
 
 --
--- Name: client client_gender_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: client client_gender_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.client
@@ -877,7 +874,7 @@ ALTER TABLE ONLY public.client
 
 
 --
--- Name: client client_passport_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: client client_passport_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.client
@@ -885,7 +882,7 @@ ALTER TABLE ONLY public.client
 
 
 --
--- Name: contract contract_client_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: contract contract_client_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.contract
@@ -893,7 +890,7 @@ ALTER TABLE ONLY public.contract
 
 
 --
--- Name: contract contract_type_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: contract contract_type_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.contract
@@ -901,7 +898,7 @@ ALTER TABLE ONLY public.contract
 
 
 --
--- Name: real_estate_object real_estate_object_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: real_estate_object real_estate_object_contract_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.real_estate_object
@@ -909,7 +906,7 @@ ALTER TABLE ONLY public.real_estate_object
 
 
 --
--- Name: real_estate_object_document real_estate_object_document_document_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: real_estate_object_document real_estate_object_document_document_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.real_estate_object_document
@@ -917,7 +914,7 @@ ALTER TABLE ONLY public.real_estate_object_document
 
 
 --
--- Name: real_estate_object_document real_estate_object_document_real_estate_object_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: real_estate_object_document real_estate_object_document_real_estate_object_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.real_estate_object_document
@@ -925,7 +922,7 @@ ALTER TABLE ONLY public.real_estate_object_document
 
 
 --
--- Name: real_estate_object real_estate_object_object_type_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: real_estate_object real_estate_object_object_type_fkey; Type: FK CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.real_estate_object
@@ -933,7 +930,7 @@ ALTER TABLE ONLY public.real_estate_object
 
 
 --
--- Name: real_estate_object_photo real_estate_object_photo_object_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: real_estate_object_photo real_estate_object_photo_object_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: realtor_system_db
 --
 
 ALTER TABLE ONLY public.real_estate_object_photo
@@ -941,6 +938,6 @@ ALTER TABLE ONLY public.real_estate_object_photo
 
 
 --
--- PostgreSQL database dump complete
+-- realtor_system_dbQL database dump complete
 --
 

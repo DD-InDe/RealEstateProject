@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\App.xaml
-11-281027469
+10-1835574970
 
-43-626620140
-212-131611406
-Pages\ClientManagePages\AddContractPage.xaml;Pages\ClientManagePages\ClientInfoPage.xaml;Pages\ClientManagePages\EditClientPage.xaml;Pages\ClientManagePages\ViewAllClientPage.xaml;Pages\LoginWindowPages\AccountManagePage.xaml;Pages\LoginWindowPages\AuthPage.xaml;Pages\ObjectManagePages\ObjectEditPage.xaml;Pages\ObjectManagePages\ObjectInfoPage.xaml;Pages\ObjectManagePages\ViewAllObjectPage.xaml;Windows\LoginWindow.xaml;Windows\MainWindow.xaml;
+41-1140162008
+216-1032472032
+Pages\ClientManagePages\AddContractPage.xaml;Pages\ClientManagePages\ClientInfoPage.xaml;Pages\ClientManagePages\EditClientPage.xaml;Pages\ClientManagePages\ViewAllClientPage.xaml;Pages\LoginWindowPages\AccountManagePage.xaml;Pages\LoginWindowPages\AuthPage.xaml;Pages\ObjectManagePages\ObjectInfoPage.xaml;Pages\ObjectManagePages\ViewAllObjectPage.xaml;Windows\LoginWindow.xaml;Windows\MainWindow.xaml;
 
-False
+True
 

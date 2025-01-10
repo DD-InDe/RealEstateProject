@@ -5,78 +5,111 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:RealtorSystemDesk.Pages.ObjectManagePages"
       mc:Ignorable="d"
+      x:Name="ThisPage"
       Loaded="ObjectInfoPage_OnLoaded"
       Title="Информация об объекте"
       d:DesignHeight="450"
       d:DesignWidth="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="0"
-                    Orientation="Vertical">
-            <TextBlock Text="Информация об объекте" />
+        <Grid Grid.Row="0"
+              x:Name="MainGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-            <TextBlock Text="Адрес:" />
-            <TextBlock Text="{Binding Address}" />
-            <TextBlock Text="Этаж:" />
-            <TextBlock Text="{Binding Floor}" />
-            <TextBlock Text="Количество этажей в здании:" />
-            <TextBlock Text="{Binding FloorsCount}" />
-            <TextBlock Text="Количество комнат:" />
-            <TextBlock Text="{Binding RoomsCount}" />
-            <TextBlock Text="Площадь:" />
-            <TextBlock Text="{Binding Square}" />
-            <TextBlock Text="Год постройки здания:" />
-            <TextBlock Text="{Binding BuildingYear}" />
-            <TextBlock Text="Тип здания:" />
-            <TextBlock Text="{Binding ObjectType.Name}" />
-            <TextBlock Text="Цена:" />
-            <TextBlock Text="{Binding Price}" />
-            <TextBlock Text="Описание:" />
-            <TextBlock Text="{Binding Description}" />
-            <TextBlock Text="Заметка:" />
-            <TextBlock Text="{Binding Note}" />
+            <TextBlock Text="Информация об объекте"
+                       Grid.Row="0"
+                       Grid.ColumnSpan="2"
+                       HorizontalAlignment="Center" />
+            <StackPanel Grid.Column="0"
+                        Grid.Row="1"
+                        Orientation="Vertical">
 
-            <Button x:Name="CustomerButton"
-                    Content="Продавец"
-                    Click="CustomerButton_OnClick" />
-        </StackPanel>
-        <Grid Grid.Column="1">
+                <TextBlock Text="Адрес:" />
+                <TextBlock Text="{Binding Address}" />
+                <TextBlock Text="Этаж:" />
+                <TextBlock Text="{Binding Floor}" />
+                <TextBlock Text="Количество этажей в здании:" />
+                <TextBlock Text="{Binding FloorsCount}" />
+                <TextBlock Text="Количество комнат:" />
+                <TextBlock Text="{Binding RoomsCount}" />
+                <TextBlock Text="Площадь:" />
+                <TextBlock Text="{Binding Square}" />
 
-            <StackPanel Orientation="Vertical">
-                <TextBlock Text="Документы" />
-                <Button x:Name="AddDocumentButton"
-                        Content="Загрузить"
-                        Click="AddDocumentButton_OnClick" />
-                <DataGrid x:Name="DocumentDataGrid"
-                          IsReadOnly="True"
-                          AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Width="*"
-                                            Header="Название файла:"
-                                            Binding="{Binding Document.FileName}" />
-                        <DataGridTemplateColumn Width="*">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Content="Скачать и открыть"
-                                            Click="DocumentLoadButton_OnClick" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Width="*">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Content="Удалить"
-                                            Click="DocumentDeleteButton_OnClick" />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
+            </StackPanel>
+            <StackPanel Orientation="Vertical"
+                        Grid.Row="1"
+                        Grid.Column="1">
+                <TextBlock Text="Год постройки здания:" />
+                <TextBlock Text="{Binding BuildingYear}" />
+                <TextBlock Text="Тип здания:" />
+                <TextBlock Text="{Binding ObjectType.Name}" />
+                <TextBlock Text="Цена:" />
+                <TextBlock Text="{Binding Price}" />
+                <TextBlock Text="Описание:" />
+                <TextBlock Text="{Binding Description}" />
+                <TextBlock Text="Заметка:" />
+                <TextBlock Text="{Binding Note}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        Grid.Row="2"
+                        Grid.ColumnSpan="2">
+                <Button Content="Клиент"
+                        Click="CustomerButton_OnClick" />
+                <Button x:Name="ArchiveButton"
+                        Click="ArchiveButton_OnClick" />
             </StackPanel>
         </Grid>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1">
+            <TextBlock Text="Фотографии объекта"
+                       HorizontalAlignment="Center" />
+            <Button x:Name="AddPhotoButton"
+                    Content="Добавить фото"
+                    HorizontalAlignment="Right"
+                    Click="AddPhotoButton_OnClick" />
+
+            <ScrollViewer Width="{Binding ElementName=ThisPage, Path=ActualWidth}"
+                          VerticalScrollBarVisibility="Hidden"
+                          HorizontalScrollBarVisibility="Auto">
+                <ItemsControl x:Name="PhotoItemsControl">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Image Width="300"
+                                   Height="200"
+                                   Stretch="Fill"
+                                   Margin="20,10"
+                                   Source="{Binding PhotoFile}">
+                                <Image.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="Удалить"
+                                                  Click="DeleteItem_OnClick" />
+                                    </ContextMenu>
+                                </Image.ContextMenu>
+                            </Image>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </StackPanel>
+
     </Grid>
 </Page>
