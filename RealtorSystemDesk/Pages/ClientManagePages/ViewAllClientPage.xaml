@@ -23,6 +23,9 @@
             <Button x:Name="AddButton"
                     Click="AddButton_OnClick"
                     Content="Добавить" />
+            <Button x:Name="StatsButton"
+                    Click="StatsButton_OnClick"
+                    Content="Статистика" />
         </StackPanel>
 
         <DataGrid x:Name="ClientDataGrid"

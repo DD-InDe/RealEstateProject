@@ -65,4 +65,9 @@ public partial class ViewAllClientPage : Page
         NavigationService.Navigate(new ClientInfoPage(((Client)((Button)sender).DataContext).PassportId));
 
     private void CheckBox_ChangeCheck(object sender, RoutedEventArgs e) => LoadData();
+
+    private void StatsButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
 }

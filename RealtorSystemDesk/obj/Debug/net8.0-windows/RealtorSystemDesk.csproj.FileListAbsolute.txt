@@ -146,8 +146,6 @@ C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\Realtor
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ClientManagePages\EditClientPage.baml
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ObjectManagePages\ObjectInfoPage.g.cs
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ObjectManagePages\ObjectInfoPage.baml
-C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ObjectManagePages\ObjectEditPage.g.cs
-C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ObjectManagePages\ObjectEditPage.baml
 C:\Users\nasty\Downloads\курсовая алены\TermPaper-RealEstate\RealtorSystemDesk\bin\Debug\net8.0-windows\RealtorSystemDesk.exe
 C:\Users\nasty\Downloads\курсовая алены\TermPaper-RealEstate\RealtorSystemDesk\bin\Debug\net8.0-windows\RealtorSystemDesk.deps.json
 C:\Users\nasty\Downloads\курсовая алены\TermPaper-RealEstate\RealtorSystemDesk\bin\Debug\net8.0-windows\RealtorSystemDesk.runtimeconfig.json
@@ -271,3 +269,6 @@ C:\Users\nasty\Downloads\курсовая алены\TermPaper-RealEstate\Realto
 C:\Users\nasty\Downloads\курсовая алены\TermPaper-RealEstate\RealtorSystemDesk\obj\Debug\net8.0-windows\RealtorSystemDesk.genruntimeconfig.cache
 C:\Users\nasty\Downloads\курсовая алены\TermPaper-RealEstate\RealtorSystemDesk\obj\Debug\net8.0-windows\ref\RealtorSystemDesk.dll
 C:\Users\nasty\Downloads\курсовая алены\TermPaper-RealEstate\RealtorSystemDesk\bin\Debug\net8.0-windows\System.Drawing.Common.dll
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\System.Drawing.Common.dll
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\Xceed.Document.NET.dll
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\Xceed.Words.NET.dll

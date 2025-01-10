@@ -15,6 +15,8 @@ public partial class Contract
 
     public int? TypeId { get; set; }
 
+    public bool? IsArchive { get; set; }
+
     public virtual Client? Client { get; set; }
 
     public virtual RealEstateObject? RealEstateObject { get; set; }

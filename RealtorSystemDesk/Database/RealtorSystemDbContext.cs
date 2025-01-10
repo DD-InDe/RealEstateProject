@@ -121,6 +121,7 @@ public partial class RealtorSystemDbContext : DbContext
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.ClientId).HasColumnName("client_id");
             entity.Property(e => e.DateCreate).HasColumnName("date_create");
+            entity.Property(e => e.IsArchive).HasColumnName("is_archive");
             entity.Property(e => e.TypeId).HasColumnName("type_id");
             entity.Property(e => e.ValidUntil).HasColumnName("valid_until");
 
@@ -244,7 +245,7 @@ public partial class RealtorSystemDbContext : DbContext
 
             entity.HasOne(d => d.RealEstateObject).WithMany(p => p.RealEstateObjectPhotos)
                 .HasForeignKey(d => d.RealEstateObjectId)
-                .HasConstraintName("real_estate_object_photo_real_estate_object_id_fkey");
+                .HasConstraintName("real_estate_object_photo_object_id_fkey");
         });
 
         modelBuilder.Entity<RealEstateObjectType>(entity =>
@@ -266,6 +267,9 @@ public partial class RealtorSystemDbContext : DbContext
             entity.ToTable("user");
 
             entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.CompanyName)
+                .HasMaxLength(150)
+                .HasColumnName("company_name");
             entity.Property(e => e.FirstName)
                 .HasMaxLength(100)
                 .HasColumnName("first_name");

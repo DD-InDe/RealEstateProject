@@ -38,13 +38,14 @@ public partial class AccountManagePage : Page
             string firstName = _model.User.FirstName;
             string middleName = _model.User.MiddleName;
             string login = _model.User.Login;
+            string company = _model.User.CompanyName;
             string password = PasswordBox.Password;
             string repeatPassword = RepeatPasswordBox.Password;
             string[] values;
             if (_model.IsRegistration)
-                values = [firstName, lastName, middleName, login, password, repeatPassword];
+                values = [firstName, lastName, middleName, login, password, repeatPassword, company];
             else
-                values = [firstName, lastName, middleName, login];
+                values = [firstName, lastName, middleName, login, company];
             bool isCorrect = values.All(c => !string.IsNullOrEmpty(c));
 
             if (isCorrect)

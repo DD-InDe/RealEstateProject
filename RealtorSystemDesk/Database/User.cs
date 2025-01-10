@@ -17,5 +17,7 @@ public partial class User
 
     public string? MiddleName { get; set; }
 
+    public string? CompanyName { get; set; }
+
     public virtual ICollection<Client> Clients { get; set; } = new List<Client>();
 }
