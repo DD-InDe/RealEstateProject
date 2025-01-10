@@ -2396,31 +2396,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nasty\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\alena\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nasty\\Downloads\\курсовая алены\\TermPaper-RealEstate\\RealtorSystemDesk\\RealtorSystemDesk.csproj",
+      "projectUniqueName": "C:\\Users\\alena\\OneDrive\\Desktop\\real_estate_project\\RealtorSystemProject\\RealtorSystemDesk\\RealtorSystemDesk.csproj",
       "projectName": "RealtorSystemDesk",
-      "projectPath": "C:\\Users\\nasty\\Downloads\\курсовая алены\\TermPaper-RealEstate\\RealtorSystemDesk\\RealtorSystemDesk.csproj",
-      "packagesPath": "C:\\Users\\nasty\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nasty\\Downloads\\курсовая алены\\TermPaper-RealEstate\\RealtorSystemDesk\\obj\\",
+      "projectPath": "C:\\Users\\alena\\OneDrive\\Desktop\\real_estate_project\\RealtorSystemProject\\RealtorSystemDesk\\RealtorSystemDesk.csproj",
+      "packagesPath": "C:\\Users\\alena\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alena\\OneDrive\\Desktop\\real_estate_project\\RealtorSystemProject\\RealtorSystemDesk\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
+      "UsingMicrosoftNETSdk": false,
       "configFilePaths": [
-        "C:\\Users\\nasty\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\alena\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0-windows"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2438,8 +2433,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.100"
+      }
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -2483,7 +2477,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
