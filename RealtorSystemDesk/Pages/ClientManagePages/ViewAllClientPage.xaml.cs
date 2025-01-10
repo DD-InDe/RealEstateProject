@@ -66,8 +66,5 @@ public partial class ViewAllClientPage : Page
 
     private void CheckBox_ChangeCheck(object sender, RoutedEventArgs e) => LoadData();
 
-    private void StatsButton_OnClick(object sender, RoutedEventArgs e)
-    {
-        throw new NotImplementedException();
-    }
+    private void StatsButton_OnClick(object sender, RoutedEventArgs e) => NavigationService.Navigate(new StatsPage());
 }

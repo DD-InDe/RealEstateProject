@@ -272,3 +272,7 @@ C:\Users\nasty\Downloads\курсовая алены\TermPaper-RealEstate\Realto
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\System.Drawing.Common.dll
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\Xceed.Document.NET.dll
 C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\Xceed.Words.NET.dll
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\LiveCharts.dll
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\LiveCharts.Wpf.dll
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ClientManagePages\StatsPage.g.cs
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ClientManagePages\StatsPage.baml
