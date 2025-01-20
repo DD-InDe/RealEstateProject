@@ -15,6 +15,8 @@ public partial class RealtorSystemDbContext : DbContext
     {
     }
 
+    public virtual DbSet<Apartment> Apartments { get; set; }
+
     public virtual DbSet<Client> Clients { get; set; }
 
     public virtual DbSet<ClientFile> ClientFiles { get; set; }
@@ -27,11 +29,15 @@ public partial class RealtorSystemDbContext : DbContext
 
     public virtual DbSet<Gender> Genders { get; set; }
 
+    public virtual DbSet<House> Houses { get; set; }
+
     public virtual DbSet<Passport> Passports { get; set; }
 
     public virtual DbSet<RealEstateObject> RealEstateObjects { get; set; }
 
-    public virtual DbSet<RealEstateObjectPhoto> RealEstateObjectPhotos { get; set; }
+    public virtual DbSet<RealEstateObjectClass> RealEstateObjectClasses { get; set; }
+
+    public virtual DbSet<RealEstateObjectDocument> RealEstateObjectDocuments { get; set; }
 
     public virtual DbSet<RealEstateObjectType> RealEstateObjectTypes { get; set; }
 
@@ -39,10 +45,31 @@ public partial class RealtorSystemDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Server=localhost;Port=5432;Username=postgres;Password=123;Database=realtor_system_db");
+        => optionsBuilder.UseNpgsql("Server=localhost;Port=5432;Database=realtor_system_db;Username=postgres;Password=123");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Apartment>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("apartment");
+
+            entity.HasIndex(e => e.CadastralNumber, "apartment_cadastral_number_key").IsUnique();
+
+            entity.Property(e => e.CadastralNumber)
+                .HasMaxLength(12)
+                .HasColumnName("cadastral_number");
+            entity.Property(e => e.Floor).HasColumnName("floor");
+            entity.Property(e => e.Square)
+                .HasPrecision(10, 2)
+                .HasColumnName("square");
+
+            entity.HasOne(d => d.CadastralNumberNavigation).WithOne()
+                .HasForeignKey<Apartment>(d => d.CadastralNumber)
+                .HasConstraintName("apartment_cadastral_number_fkey");
+        });
+
         modelBuilder.Entity<Client>(entity =>
         {
             entity.HasKey(e => e.PassportId).HasName("client_pkey");
@@ -74,7 +101,6 @@ public partial class RealtorSystemDbContext : DbContext
             entity.Property(e => e.Phone)
                 .HasMaxLength(100)
                 .HasColumnName("phone");
-            entity.Property(e => e.UserId).HasColumnName("user_id");
 
             entity.HasOne(d => d.Gender).WithMany(p => p.Clients)
                 .HasForeignKey(d => d.GenderId)
@@ -84,10 +110,6 @@ public partial class RealtorSystemDbContext : DbContext
                 .HasForeignKey<Client>(d => d.PassportId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("client_passport_id_fkey");
-
-            entity.HasOne(d => d.User).WithMany(p => p.Clients)
-                .HasForeignKey(d => d.UserId)
-                .HasConstraintName("client___fk");
         });
 
         modelBuilder.Entity<ClientFile>(entity =>
@@ -123,6 +145,7 @@ public partial class RealtorSystemDbContext : DbContext
             entity.Property(e => e.DateCreate).HasColumnName("date_create");
             entity.Property(e => e.IsArchive).HasColumnName("is_archive");
             entity.Property(e => e.TypeId).HasColumnName("type_id");
+            entity.Property(e => e.UserId).HasColumnName("user_id");
             entity.Property(e => e.ValidUntil).HasColumnName("valid_until");
 
             entity.HasOne(d => d.Client).WithMany(p => p.Contracts)
@@ -132,6 +155,10 @@ public partial class RealtorSystemDbContext : DbContext
             entity.HasOne(d => d.Type).WithMany(p => p.Contracts)
                 .HasForeignKey(d => d.TypeId)
                 .HasConstraintName("contract_type_id_fkey");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Contracts)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("contract_user_id_fkey");
         });
 
         modelBuilder.Entity<ContractType>(entity =>
@@ -175,6 +202,33 @@ public partial class RealtorSystemDbContext : DbContext
                 .HasColumnName("name");
         });
 
+        modelBuilder.Entity<House>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("house");
+
+            entity.HasIndex(e => e.CadastralNumber, "house_cadastral_number_key").IsUnique();
+
+            entity.Property(e => e.CadastralNumber)
+                .HasMaxLength(12)
+                .HasColumnName("cadastral_number");
+            entity.Property(e => e.FloorsCount).HasColumnName("floors_count");
+            entity.Property(e => e.Material)
+                .HasMaxLength(200)
+                .HasColumnName("material");
+            entity.Property(e => e.PlotSquare)
+                .HasPrecision(10, 2)
+                .HasColumnName("plot_square");
+            entity.Property(e => e.Square)
+                .HasPrecision(10, 2)
+                .HasColumnName("square");
+
+            entity.HasOne(d => d.CadastralNumberNavigation).WithOne()
+                .HasForeignKey<House>(d => d.CadastralNumber)
+                .HasConstraintName("house_cadastral_number_fkey");
+        });
+
         modelBuilder.Entity<Passport>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("passport_pkey");
@@ -192,60 +246,91 @@ public partial class RealtorSystemDbContext : DbContext
 
         modelBuilder.Entity<RealEstateObject>(entity =>
         {
-            entity.HasKey(e => e.ContractId).HasName("real_estate_object_pkey");
+            entity.HasKey(e => e.CadastralNumber).HasName("real_estate_object_pkey");
 
             entity.ToTable("real_estate_object");
 
-            entity.Property(e => e.ContractId)
-                .ValueGeneratedNever()
-                .HasColumnName("contract_id");
+            entity.HasIndex(e => e.ContractId, "real_estate_object_contract_id_key").IsUnique();
+
+            entity.Property(e => e.CadastralNumber)
+                .HasMaxLength(12)
+                .HasColumnName("cadastral_number");
             entity.Property(e => e.Address)
-                .HasMaxLength(400)
+                .HasMaxLength(200)
                 .HasColumnName("address");
-            entity.Property(e => e.BuildingYear).HasColumnName("building_year");
-            entity.Property(e => e.Description)
-                .HasMaxLength(1000)
-                .HasColumnName("description");
-            entity.Property(e => e.Floor).HasColumnName("floor");
-            entity.Property(e => e.FloorsCount).HasColumnName("floors_count");
-            entity.Property(e => e.IsArchive)
-                .HasDefaultValue(false)
-                .HasColumnName("is_archive");
-            entity.Property(e => e.Notes)
-                .HasMaxLength(300)
-                .HasColumnName("notes");
-            entity.Property(e => e.ObjectTypeId).HasColumnName("object_type_id");
-            entity.Property(e => e.Price)
-                .HasPrecision(10, 2)
-                .HasColumnName("price");
+            entity.Property(e => e.ClassId)
+                .HasDefaultValueSql("nextval('real_estate_object_class_id_seq1'::regclass)")
+                .HasColumnName("class_id");
+            entity.Property(e => e.ContractId).HasColumnName("contract_id");
             entity.Property(e => e.RoomsCount).HasColumnName("rooms_count");
-            entity.Property(e => e.Square)
-                .HasPrecision(10, 2)
-                .HasColumnName("square");
+            entity.Property(e => e.TypeId).HasColumnName("type_id");
+            entity.Property(e => e.YearOfBuilding).HasColumnName("year_of_building");
+
+            entity.HasOne(d => d.Class).WithMany(p => p.RealEstateObjects)
+                .HasForeignKey(d => d.ClassId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("real_estate_object_class_id_fkey");
 
             entity.HasOne(d => d.Contract).WithOne(p => p.RealEstateObject)
                 .HasForeignKey<RealEstateObject>(d => d.ContractId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("real_estate_object_contract_id_fkey");
 
-            entity.HasOne(d => d.ObjectType).WithMany(p => p.RealEstateObjects)
-                .HasForeignKey(d => d.ObjectTypeId)
-                .HasConstraintName("real_estate_object_object_type_fkey");
+            entity.HasOne(d => d.Type).WithMany(p => p.RealEstateObjects)
+                .HasForeignKey(d => d.TypeId)
+                .HasConstraintName("real_estate_object_type_id_fkey");
         });
 
-        modelBuilder.Entity<RealEstateObjectPhoto>(entity =>
+        modelBuilder.Entity<RealEstateObjectClass>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("real_estate_object_photo_pkey");
+            entity.HasKey(e => e.Id).HasName("real_estate_object_class_pkey");
 
-            entity.ToTable("real_estate_object_photo");
+            entity.ToTable("real_estate_object_class");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Photo).HasColumnName("photo");
-            entity.Property(e => e.RealEstateObjectId).HasColumnName("real_estate_object_id");
+            entity.Property(e => e.Name)
+                .HasMaxLength(100)
+                .HasColumnName("name");
+        });
 
-            entity.HasOne(d => d.RealEstateObject).WithMany(p => p.RealEstateObjectPhotos)
-                .HasForeignKey(d => d.RealEstateObjectId)
-                .HasConstraintName("real_estate_object_photo_object_id_fkey");
+        modelBuilder.Entity<RealEstateObjectDocument>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("real_estate_object_document");
+
+            entity.Property(e => e.BasisOfOwnership).HasColumnName("basis_of_ownership");
+            entity.Property(e => e.CadastralNumber)
+                .HasMaxLength(12)
+                .HasColumnName("cadastral_number");
+            entity.Property(e => e.CertificateOfNoDebt).HasColumnName("certificate_of_no_debt");
+            entity.Property(e => e.ExtractFromEgrn).HasColumnName("extract_from_egrn");
+            entity.Property(e => e.GuardianshipConsent).HasColumnName("guardianship_consent");
+            entity.Property(e => e.OwnersPassports).HasColumnName("owners_passports");
+            entity.Property(e => e.SpousesConsent).HasColumnName("spouses_consent");
+
+            entity.HasOne(d => d.BasisOfOwnershipNavigation).WithMany()
+                .HasForeignKey(d => d.BasisOfOwnership)
+                .HasConstraintName("real_estate_object_document_basis_of_ownership_fkey");
+
+            entity.HasOne(d => d.CertificateOfNoDebtNavigation).WithMany()
+                .HasForeignKey(d => d.CertificateOfNoDebt)
+                .HasConstraintName("real_estate_object_document_certificate_of_no_debt_fkey");
+
+            entity.HasOne(d => d.ExtractFromEgrnNavigation).WithMany()
+                .HasForeignKey(d => d.ExtractFromEgrn)
+                .HasConstraintName("real_estate_object_document_extract_from_egrn_fkey");
+
+            entity.HasOne(d => d.GuardianshipConsentNavigation).WithMany()
+                .HasForeignKey(d => d.GuardianshipConsent)
+                .HasConstraintName("real_estate_object_document_guardianship_consent_fkey");
+
+            entity.HasOne(d => d.OwnersPassportsNavigation).WithMany()
+                .HasForeignKey(d => d.OwnersPassports)
+                .HasConstraintName("real_estate_object_document_owners_passports_fkey");
+
+            entity.HasOne(d => d.SpousesConsentNavigation).WithMany()
+                .HasForeignKey(d => d.SpousesConsent)
+                .HasConstraintName("real_estate_object_document_spouses_consent_fkey");
         });
 
         modelBuilder.Entity<RealEstateObjectType>(entity =>

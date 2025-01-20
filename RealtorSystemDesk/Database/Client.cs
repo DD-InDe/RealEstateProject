@@ -17,8 +17,6 @@ public partial class Client
 
     public char? GenderId { get; set; }
 
-    public int? UserId { get; set; }
-
     public string? Phone { get; set; }
 
     public string? Email { get; set; }
@@ -32,6 +30,4 @@ public partial class Client
     public virtual Gender? Gender { get; set; }
 
     public virtual Passport Passport { get; set; } = null!;
-
-    public virtual User? User { get; set; }
 }
