@@ -25,8 +25,7 @@ public partial class StatsPage : Page
             if (AllCheckBox.IsChecked ?? false)
                 contracts.AddRange(Db.Context.Contracts
                     .Include(c => c.Client)
-                    .Include(c => c.Type)
-                    .Where(c => c.Client.UserId == App.AuthorizedUser.Id).ToList());
+                    .Include(c => c.Type).ToList());
             else
             {
                 if (StartDatePicker.SelectedDate != null && EndDatePicker.SelectedDate != null)
@@ -36,8 +35,7 @@ public partial class StatsPage : Page
                         contracts.AddRange(Db.Context.Contracts
                             .Include(c => c.Client)
                             .Include(c => c.Type)
-                            .Where(c => c.Client.UserId == App.AuthorizedUser.Id &&
-                                        c.DateCreate >= DateOnly.FromDateTime(StartDatePicker.SelectedDate.Value) &&
+                            .Where(c => c.DateCreate >= DateOnly.FromDateTime(StartDatePicker.SelectedDate.Value) &&
                                         c.DateCreate <= DateOnly.FromDateTime(EndDatePicker.SelectedDate.Value))
                             .ToList());
                     }

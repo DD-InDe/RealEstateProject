@@ -88,7 +88,7 @@ public partial class ClientInfoPage : Page
             if (contract.TypeId == 2)
                 contract = Db.Context.Contracts.Include(c => c.Client)
                     .Include(c => c.RealEstateObject)
-                    .Include(c => c.RealEstateObject.ObjectType)
+                    .Include(c => c.RealEstateObject.Type)
                     .Include(c => c.Client.Passport)
                     .First(c => c.Id == contract.Id);
             else
@@ -119,7 +119,8 @@ public partial class ClientInfoPage : Page
                 bookmarks.Find(c => c.Name == "CLIENT_PASS_S").SetText(contract.Client.Passport.Serial.ToString());
                 bookmarks.Find(c => c.Name == "CLIENT_PASS_N").SetText(contract.Client.Passport.Number.ToString());
                 bookmarks.Find(c => c.Name == "CLIENT_PASS_BY").SetText(contract.Client.Passport.IssuedBy);
-                bookmarks.Find(c => c.Name == "CLIENT_PASS_DATE").SetText(contract.Client.Passport.IssuedDate.Value.ToString());
+                bookmarks.Find(c => c.Name == "CLIENT_PASS_DATE")
+                    .SetText(contract.Client.Passport.IssuedDate.Value.ToString());
                 bookmarks.Find(c => c.Name == "CLIENT_PHONE").SetText(contract.Client.Phone);
                 bookmarks.Find(c => c.Name == "USER_NAME").SetText(
                     $"{App.AuthorizedUser.LastName} {App.AuthorizedUser.FirstName} {App.AuthorizedUser.MiddleName}");
@@ -129,7 +130,7 @@ public partial class ClientInfoPage : Page
                 if (contract.TypeId == 2)
                 {
                     bookmarks.Find(c => c.Name == "OBJECT_TYPE")
-                        .SetText(contract.RealEstateObject.ObjectType.Name);
+                        .SetText(contract.RealEstateObject.Type.Name);
                     bookmarks.Find(c => c.Name == "OBJECT_ADDRESS").SetText(contract.RealEstateObject.Address);
                     bookmarks.Find(c => c.Name == "OBJECT_PRICE").SetText(contract.RealEstateObject.Price.ToString());
                 }

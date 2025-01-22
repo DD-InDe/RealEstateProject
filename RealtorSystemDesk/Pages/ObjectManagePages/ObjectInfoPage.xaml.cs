@@ -36,10 +36,10 @@ public partial class ObjectInfoPage : Page
                 _object = await Db
                     .Context.RealEstateObjects
                     .Include(c => c.Contract)
-                    .Include(c => c.ObjectType)
+                    .Include(c => c.Type)
                     .FirstAsync(c => c.ContractId == _id);
 
-                ArchiveButton.Content = _object.IsArchive.Value ? "Убрать из архива" : "Добавить в архив";
+                // ArchiveButton.Content = _object.IsArchive.Value ? "Убрать из архива" : "Добавить в архив";
                 MainGrid.DataContext = _object;
                 LoadData();
             }
@@ -60,11 +60,11 @@ public partial class ObjectInfoPage : Page
     {
         try
         {
-            _files = Db
-                .Context.RealEstateObjectPhotos.Where(c => c.RealEstateObjectId == _object.ContractId)
-                .ToList();
-            PhotoItemsControl.ItemsSource = null;
-            PhotoItemsControl.ItemsSource = _files;
+            // _files = Db
+            //     .Context.RealEstateObjectPhotos.Where(c => c.RealEstateObjectId == _object.ContractId)
+            //     .ToList();
+            // PhotoItemsControl.ItemsSource = null;
+            // PhotoItemsControl.ItemsSource = _files;
         }
         catch (Exception e)
         {
@@ -80,22 +80,22 @@ public partial class ObjectInfoPage : Page
     {
         try
         {
-            OpenFileDialog dialog = new()
-            {
-                Filter = "images |*.jpeg; *.jpg; *.png"
-            };
-            if (dialog.ShowDialog() == true)
-            {
-                RealEstateObjectPhoto photo = new()
-                {
-                    RealEstateObjectId = _object.ContractId,
-                    Photo = Convert.ToBase64String(File.ReadAllBytes(dialog.FileName))
-                };
-                Db.Context.RealEstateObjectPhotos.Add(photo);
-
-                DatabaseSaveService.SaveWithMessage();
-                LoadData();
-            }
+            // OpenFileDialog dialog = new()
+            // {
+            //     Filter = "images |*.jpeg; *.jpg; *.png"
+            // };
+            // if (dialog.ShowDialog() == true)
+            // {
+            //     RealEstateObjectPhoto photo = new()
+            //     {
+            //         RealEstateObjectId = _object.ContractId,
+            //         Photo = Convert.ToBase64String(File.ReadAllBytes(dialog.FileName))
+            //     };
+            //     Db.Context.RealEstateObjectPhotos.Add(photo);
+            //
+            //     DatabaseSaveService.SaveWithMessage();
+            //     LoadData();
+            // }
         }
         catch (Exception exception)
         {
@@ -108,10 +108,10 @@ public partial class ObjectInfoPage : Page
     {
         try
         {
-            RealEstateObjectPhoto photo = ((MenuItem)sender).DataContext as RealEstateObjectPhoto;
-            Db.Context.RealEstateObjectPhotos.Remove(photo);
-            DatabaseSaveService.SaveWithMessage();
-            LoadData();
+            // RealEstateObjectPhoto photo = ((MenuItem)sender).DataContext as RealEstateObjectPhoto;
+            // Db.Context.RealEstateObjectPhotos.Remove(photo);
+            // DatabaseSaveService.SaveWithMessage();
+            // LoadData();
         }
         catch (Exception exception)
         {
@@ -124,10 +124,10 @@ public partial class ObjectInfoPage : Page
     {
         try
         {
-            _object.IsArchive = !_object.IsArchive.Value;
-            DatabaseSaveService.SaveWithMessage();
-
-            ArchiveButton.Content = _object.IsArchive.Value ? "Убрать из архива" : "Добавить в архив";
+            // _object.IsArchive = !_object.IsArchive.Value;
+            // DatabaseSaveService.SaveWithMessage();
+            //
+            // ArchiveButton.Content = _object.IsArchive.Value ? "Убрать из архива" : "Добавить в архив";
         }
         catch (Exception exception)
         {

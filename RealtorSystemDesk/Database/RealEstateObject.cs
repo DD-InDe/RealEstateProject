@@ -5,33 +5,37 @@ namespace RealtorSystemDesk.Database;
 
 public partial class RealEstateObject
 {
-    public int ContractId { get; set; }
+    public string CadastralNumber { get; set; } = null!;
 
     public string? Address { get; set; }
 
-    public string? Description { get; set; }
-
-    public string? Notes { get; set; }
-
-    public int? Floor { get; set; }
-
-    public int? FloorsCount { get; set; }
+    public int? YearOfBuilding { get; set; }
 
     public int? RoomsCount { get; set; }
 
-    public decimal? Square { get; set; }
+    public int? TypeId { get; set; }
+
+    public int? ContractId { get; set; }
+
+    public int? ClassId { get; set; }
 
     public decimal? Price { get; set; }
 
-    public int? BuildingYear { get; set; }
+    public decimal? Square { get; set; }
 
-    public int? ObjectTypeId { get; set; }
+    public decimal? PlotSquare { get; set; }
 
-    public bool? IsArchive { get; set; }
+    public int? FloorsCount { get; set; }
 
-    public virtual Contract Contract { get; set; } = null!;
+    public string? Material { get; set; }
 
-    public virtual RealEstateObjectType? ObjectType { get; set; }
+    public int? Floor { get; set; }
+
+    public virtual RealEstateObjectClass? Class { get; set; }
+
+    public virtual Contract? Contract { get; set; }
 
     public virtual ICollection<RealEstateObjectPhoto> RealEstateObjectPhotos { get; set; } = new List<RealEstateObjectPhoto>();
+
+    public virtual RealEstateObjectType? Type { get; set; }
 }

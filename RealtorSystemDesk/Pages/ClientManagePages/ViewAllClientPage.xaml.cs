@@ -44,7 +44,6 @@ public partial class ViewAllClientPage : Page
             bool archive = ArchiveCheckBox.IsChecked ?? false;
 
             _clients = await Db.Context.Clients.Where(c =>
-                    c.UserId == App.AuthorizedUser!.Id &&
                     (c.FirstName.ToLower().Contains(search) || c.LastName.ToLower().Contains(search) ||
                      (c.MiddleName != null && c.MiddleName.ToLower().Contains(search))))
                 .ToListAsync();
