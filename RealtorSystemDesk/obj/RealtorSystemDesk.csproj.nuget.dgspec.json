@@ -13,6 +13,7 @@
         "packagesPath": "C:\\Users\\alena\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\alena\\College\\real_estate_project\\RealtorSystemProject\\RealtorSystemDesk\\obj\\",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "C:\\Users\\alena\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
@@ -38,8 +39,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0-windows7.0": {
@@ -64,10 +64,6 @@
             "LiveCharts.Wpf.Core": {
               "target": "Package",
               "version": "[0.9.8, )"
-            },
-            "MaterialDesignColors": {
-              "target": "Package",
-              "version": "[5.2.1, )"
             },
             "MaterialDesignThemes": {
               "target": "Package",
