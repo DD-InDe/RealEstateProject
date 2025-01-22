@@ -21,6 +21,8 @@
             <DatePicker SelectedDate="{Binding DateCreate}" />
             <TextBlock Text="Срок действия (в днях):" />
             <TextBox Text="{Binding Days}" />
+            <TextBlock Text="Вознаграждение риэлтора (буквами):" />
+            <TextBox Text="{Binding RealtorReward}" />
             <TextBlock Text="Тип договора:" />
             <ComboBox x:Name="TypeComboBox"
                       SelectionChanged="TypeComboBox_OnSelectionChanged"
@@ -39,28 +41,45 @@
                     Visibility="Collapsed">
             <TextBlock Text="Информация об объекте" />
 
+            <TextBlock Text="Кадастровый номер:" />
+            <TextBox Text="{Binding CadastralNumber}"
+                     MaxLength="12" />
             <TextBlock Text="Адрес:" />
             <TextBox Text="{Binding Address}" />
-            <TextBlock Text="Этаж:" />
-            <TextBox Text="{Binding Floor}" />
-            <TextBlock Text="Количество этажей в здании:" />
-            <TextBox Text="{Binding FloorsCount}" />
-            <TextBlock Text="Количество комнат:" />   
-            <TextBox Text="{Binding RoomsCount}" />
             <TextBlock Text="Площадь:" />
             <TextBox Text="{Binding Square}" />
+            <TextBlock Text="Количество комнат:" />
+            <TextBox Text="{Binding RoomsCount}" />
             <TextBlock Text="Год постройки здания:" />
             <TextBox Text="{Binding BuildingYear}" />
-            <TextBlock Text="Тип здания:" />
-            <ComboBox x:Name="ObjectTypeComboBox"
-                      SelectedItem="{Binding ObjectType}"
-                      DisplayMemberPath="Name" />
             <TextBlock Text="Цена:" />
             <TextBox Text="{Binding Price}" />
-            <TextBlock Text="Описание:" />
-            <TextBox Text="{Binding Description}" />
-            <TextBlock Text="Заметка:" />
-            <TextBox Text="{Binding Note}" />
+            <TextBlock Text="Тип объекта:" />
+            <ComboBox x:Name="ObjectTypeComboBox"
+                      SelectionChanged="ObjectTypeComboBox_OnSelectionChanged"
+                      SelectedItem="{Binding Type}"
+                      DisplayMemberPath="Name" />
+
+            <StackPanel x:Name="ApartmentPanel"
+                        Visibility="Collapsed"
+                        Orientation="Vertical">
+                <TextBlock Text="Класс квартиры:" />
+                <ComboBox x:Name="ClassComboBox"
+                          SelectedItem="{Binding Class}"
+                          DisplayMemberPath="Name" />
+                <TextBlock Text="Этаж:" />
+                <TextBox Text="{Binding Floor}" />
+            </StackPanel>
+            <StackPanel x:Name="HousePanel"
+                        Visibility="Collapsed"
+                        Orientation="Vertical">
+                <TextBlock Text="Количество этажей в здании:" />
+                <TextBox Text="{Binding FloorsCount}" />
+                <TextBlock Text="Площадь участка:" />
+                <TextBox Text="{Binding PlotSquare}" />
+                <TextBlock Text="Материал здания:" />
+                <TextBox Text="{Binding Material}" />
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

@@ -24,9 +24,6 @@
                       Unchecked="CheckBox_Check" />
             <TextBlock Text="Тип объекта"/>
             <ComboBox x:Name="TypeComboBox" DisplayMemberPath="Name" SelectionChanged="TypeComboBox_OnSelectionChanged"/>
-            <Button x:Name="AddButton"
-                    Click="AddButton_OnClick"
-                    Content="Добавить" />
         </StackPanel>
 
         <DataGrid Grid.Row="1"

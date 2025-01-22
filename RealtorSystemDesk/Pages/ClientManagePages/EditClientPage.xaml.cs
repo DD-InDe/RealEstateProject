@@ -58,7 +58,6 @@ public partial class EditClientPage : Page
                 {
                     if (_client.PassportId == 0)
                     {
-                        _client.UserId = App.AuthorizedUser.Id;
                         Db.Context.Passports.Add(_client.Passport);
                         Db.Context.Clients.Add(_client);
                     }

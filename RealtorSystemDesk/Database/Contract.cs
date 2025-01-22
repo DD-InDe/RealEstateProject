@@ -19,6 +19,8 @@ public partial class Contract
 
     public int? UserId { get; set; }
 
+    public string? RealtorReward { get; set; }
+
     public virtual Client? Client { get; set; }
 
     public virtual RealEstateObject? RealEstateObject { get; set; }

@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.CompilerServices;
 using RealtorSystemDesk.Database;
 using RealtorSystemDesk.Models;
 using RealtorSystemDesk.Services;
@@ -32,33 +33,20 @@ public partial class AddContractPage : Page
                 Contract contract = new()
                 {
                     ClientId = _model.ClientId,
+                    UserId = App.AuthorizedUser.Id,
                     Type = _model.Type,
                     DateCreate = DateOnly.FromDateTime(_model.DateCreate),
                     ValidUntil = DateOnly.FromDateTime(DateTime.Today.AddDays(_model.Days)),
                 };
-                if (TypeComboBox.SelectedIndex == 1)
+                _estateObject.Contract = contract;
+
+                if (TypeComboBox.SelectedIndex == 1 && AddObject())
                 {
-                    if (!String.IsNullOrEmpty(_estateObject.Address) &&
-                        !String.IsNullOrEmpty(_estateObject.Description) &&
-                        _estateObject.Floor > 0 && _estateObject.Price > 0 &&
-                        _estateObject.FloorsCount > 0 && _estateObject.Square > 0 &&
-                        _estateObject.BuildingYear > 0 && _estateObject.RoomsCount > 0 &&
-                        _estateObject.ObjectType != null)
-                    {
-                        _estateObject.Contract = contract;
-                        Db.Context.RealEstateObjects.Add(_estateObject);
-                    }
-                    else
-                    {
-                        MessageService.ShowInfo("Заполните все поля!");
-                        return;
-                    }
+                    Db.Context.Contracts.Add(contract);
+
+                    DatabaseSaveService.SaveWithMessage("Данные добавлены");
+                    NavigationService.GoBack();
                 }
-
-                Db.Context.Contracts.Add(contract);
-
-                DatabaseSaveService.SaveWithMessage("Данные добавлены");
-                NavigationService.GoBack();
             }
             else
                 MessageService.ShowInfo("Заполните все поля!");
@@ -70,6 +58,53 @@ public partial class AddContractPage : Page
         }
     }
 
+    private bool AddObject()
+    {
+        try
+        {
+            if (!String.IsNullOrEmpty(_estateObject.Address) &&
+                !String.IsNullOrEmpty(_estateObject.CadastralNumber) &&
+                _estateObject is { Square: > 0, Price: > 0, RoomsCount: > 0, Type: not null })
+            {
+                if (Db.Context.RealEstateObjects.Find(_estateObject.CadastralNumber) != null)
+                {
+                    MessageService.ShowError(new Exception("Объект с таким кадастровым номером уже существует!"));
+                    return false;
+                }
+
+                switch (_estateObject.Type.Id)
+                {
+                    case 1:
+                        if (_estateObject is { FloorsCount: > 0, PlotSquare: > 0 } &&
+                            !String.IsNullOrEmpty(_estateObject.Material))
+                        {
+                            Db.Context.RealEstateObjects.Add(_estateObject);
+                            return true;
+                        }
+
+                        break;
+                    case 2:
+                        if (_estateObject is { Floor: > 0, Class: not null })
+                        {
+                            Db.Context.RealEstateObjects.Add(_estateObject);
+                            return true;
+                        }
+
+                        break;
+                }
+            }
+
+            MessageService.ShowInfo("Заполните все поля");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            MessageService.ShowError(e);
+        }
+
+        return false;
+    }
+
 
     private async void AddContractPage_OnLoaded(object sender, RoutedEventArgs e)
     {
@@ -77,6 +112,7 @@ public partial class AddContractPage : Page
         {
             TypeComboBox.ItemsSource = await Db.Context.ContractTypes.ToListAsync();
             ObjectTypeComboBox.ItemsSource = await Db.Context.RealEstateObjectTypes.ToListAsync();
+            ClassComboBox.ItemsSource = Db.Context.RealEstateObjectClasses.ToList();
         }
         catch (Exception exception)
         {
@@ -96,6 +132,21 @@ public partial class AddContractPage : Page
         {
             Console.WriteLine(exception);
             MessageService.ShowError(exception);
+        }
+    }
+
+    private void ObjectTypeComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        RealEstateObjectType type = (RealEstateObjectType)ObjectTypeComboBox.SelectedItem;
+        if (type.Id == 1)
+        {
+            HousePanel.Visibility = Visibility.Visible;
+            ApartmentPanel.Visibility = Visibility.Collapsed;
+        }
+        else
+        {
+            HousePanel.Visibility = Visibility.Collapsed;
+            ApartmentPanel.Visibility = Visibility.Visible;
         }
     }
 }

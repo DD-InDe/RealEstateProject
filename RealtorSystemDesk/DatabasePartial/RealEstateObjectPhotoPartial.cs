@@ -2,5 +2,5 @@
 
 public partial class RealEstateObjectPhoto
 {
-    public byte[] PhotoFile => Convert.FromBase64String(Photo);
+    // public byte[] PhotoFile => Convert.FromBase64String(Photo);
 }
