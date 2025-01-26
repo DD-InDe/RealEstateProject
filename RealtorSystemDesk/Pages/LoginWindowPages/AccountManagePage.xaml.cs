@@ -23,7 +23,6 @@ public partial class AccountManagePage : Page
         if (isReg)
         {
             Title = "Регистрация";
-            BackButton.Visibility = Visibility.Visible;
         }
 
         _model = new() { IsRegistration = isReg, User = App.AuthorizedUser ?? new() };
@@ -85,6 +84,4 @@ public partial class AccountManagePage : Page
             MessageService.ShowError(exception);
         }
     }
-
-    private void BackButton_OnClick(object sender, RoutedEventArgs e) => NavigationService.GoBack();
 }

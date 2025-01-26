@@ -1,56 +1,109 @@
 ﻿<Window x:Class="RealtorSystemDesk.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:design="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:RealtorSystemDesk"
         mc:Ignorable="d"
+        Style="{DynamicResource MaterialDesignWindow}"
         Title="Риэлторская система"
         MinHeight="450"
         MinWidth="800">
 
-    <Grid>
-        <TabControl>
-            <TabItem>
-                <TabItem.Header>
-                    <TextBlock Text="👥 Клиенты" />
-                </TabItem.Header>
+    <Grid x:Name="MainGrid"
+          Background="Transparent"
+          Visibility="Visible">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3.5*" />
+        </Grid.ColumnDefinitions>
+        <design:Card Margin="10"
+                     Padding="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
                 <StackPanel Orientation="Vertical">
-                    <Button x:Name="ClientBackButton"
-                            Content="Назад"
-                            HorizontalAlignment="Right"
-                            Click="ClientBackButton_OnClick" />
-                    <Frame x:Name="ClientFrame"
-                           Navigated="ClientFrame_OnNavigated"
-                           NavigationUIVisibility="Hidden"
-                           Source="../Pages/ClientManagePages/ViewAllClientPage.xaml" />
+                    <TextBlock Text="Агентский центр"
+                               HorizontalAlignment="Center"
+                               Style="{DynamicResource MaterialDesignTitleMediumTextBlock}" />
+
+                    <Image x:Name="LightLogImage"
+                           Width="100"
+                           Source="../Resources/logo_light.png"
+                           Height="100"
+                           Margin="10,5,10,10" />
+                    <Image x:Name="DarkLogImage"
+                           Width="100"
+                           Visibility="Collapsed"
+                           Source="../Resources/logo_dark.png"
+                           Height="100"
+                           Margin="10,5,10,10" />
                 </StackPanel>
-            </TabItem>
-            <TabItem>
-                <TabItem.Header>
-                    <TextBlock Text="🏘️ Объекты" />
-                </TabItem.Header>
-                <StackPanel Orientation="Vertical">
-                    <Button x:Name="ObjectBackButton"
-                            Content="Назад"
-                            HorizontalAlignment="Right"
-                            Click="ObjectBackButton_OnClick" />
-                    <Frame x:Name="ObjectFrame"
-                           Navigated="ObjectFrame_OnNavigated"
-                           NavigationUIVisibility="Hidden"
-                           Source="../Pages/ObjectManagePages/ViewAllObjectPage.xaml" />
+
+                <StackPanel x:Name="MenuPanel"
+                            Grid.Row="1"
+                            Orientation="Vertical">
+                    <Button x:Name="ClientButton"
+                            Click="ClientButton_OnClick"
+                            Content="Клиенты"
+                            Margin="7" />
+                    <Button x:Name="ObjectButton"
+                            Click="ObjectButton_OnClick"
+                            Content="Объекты"
+                            Margin="7" />
+                    <Button x:Name="AccountButton"
+                            Click="AccountButton_OnClick"
+                            Content="Профиль"
+                            Margin="7" />
                 </StackPanel>
-            </TabItem>
-            <TabItem>
-                <TabItem.Header>
-                    <TextBlock Text="👤 Профиль" />
-                </TabItem.Header>
-                <StackPanel Orientation="Vertical">
-                    <Frame x:Name="ProfileFrame"
-                           NavigationUIVisibility="Hidden" />
-                </StackPanel>
-            </TabItem>
-        </TabControl>
+
+                <DockPanel Grid.Row="2"
+                           HorizontalAlignment="Center">
+                    <TextBlock Text="Темная тема"
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" />
+                    <ToggleButton x:Name="DarkModeSwitch"
+                                  VerticalAlignment="Bottom"
+                                  Unchecked="Theme_Change"
+                                  Checked="Theme_Change" />
+                </DockPanel>
+            </Grid>
+        </design:Card>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <design:Card Margin="10,10,10,5">
+                <Grid>
+                    <TextBlock Text="{Binding ElementName=MainFrame, Path=Content.Title}"
+                               HorizontalAlignment="Center"
+                               Margin="0,5"
+                               Style="{DynamicResource MaterialDesignTitleLargeTextBlock}" />
+                    <Button x:Name="BackButton"
+                            Click="BackButton_OnClick"
+                            Style="{DynamicResource MaterialDesignFlatButton}"
+                            VerticalAlignment="Stretch"
+                            FontSize="17"
+                            HorizontalAlignment="Left"
+                            Content="⬅" />
+                </Grid>
+            </design:Card>
+
+
+            <design:Card Grid.Row="1"
+                         Margin="10,5,10,10">
+                <Frame x:Name="MainFrame"
+                       NavigationUIVisibility="Hidden"
+                       Source="../Pages/LoginWindowPages/AuthPage.xaml"
+                       Navigated="MainFrame_OnNavigated" />
+            </design:Card>
+        </Grid>
     </Grid>
 </Window>

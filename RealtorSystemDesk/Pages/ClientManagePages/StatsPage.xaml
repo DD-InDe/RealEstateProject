@@ -16,9 +16,15 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Период с" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Период с" />
                 <DatePicker x:Name="StartDatePicker" />
-                <TextBlock Text="по" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="по" />
                 <DatePicker x:Name="EndDatePicker" />
                 <CheckBox x:Name="AllCheckBox"
                           Content="За все время" />

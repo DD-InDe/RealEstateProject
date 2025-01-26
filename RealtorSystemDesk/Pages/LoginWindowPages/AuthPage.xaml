@@ -7,31 +7,39 @@
       xmlns:local="clr-namespace:RealtorSystemDesk.Pages"
       mc:Ignorable="d"
       Title="Вход в систему">
-    <materialDesign:Card Margin="20"
-                         Padding="15">
-        <Grid>
-            <StackPanel Orientation="Vertical"
-                        Width="250">
-                <TextBlock Text="Авторизация"
-                           Margin="5,15"
-                           HorizontalAlignment="Center" />
-                <TextBox x:Name="LoginTextBox"
-                         Margin="5" />
 
+    <Grid>
+        <StackPanel Orientation="Vertical"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <DockPanel HorizontalAlignment="Right">
+                <TextBlock Margin="7"
+                           Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                           VerticalAlignment="Center"
+                           Text="Логин:" />
+                <TextBox Width="200"
+                         x:Name="LoginTextBox"
+                         Margin="7" />
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Right">
+                <TextBlock Margin="7"
+                           Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                           VerticalAlignment="Center"
+                           Text="Пароль:" />
                 <PasswordBox x:Name="PasswordBox"
-                             Margin="5" />
+                             Width="200"
+                             Margin="7" />
+            </DockPanel>
 
 
-                <Button x:Name="LoginButton"
-                        Content="Войти"
-                        Style="{DynamicResource MaterialDesignFlatButton}"
-                        Click="LoginButton_OnClick"
-                        Margin="5" />
-                <Button x:Name="RegButton"
-                        Content="Регистрация"
-                        Click="RegButton_OnClick"
-                        Margin="5" />
-            </StackPanel>
-        </Grid>
-    </materialDesign:Card>
+            <Button x:Name="LoginButton"
+                    Content="Войти"
+                    Click="LoginButton_OnClick"
+                    Margin="7" />
+            <Button x:Name="RegButton"
+                    Content="Регистрация"
+                    Click="RegButton_OnClick"
+                    Margin="7" />
+        </StackPanel>
+    </Grid>
 </Page>

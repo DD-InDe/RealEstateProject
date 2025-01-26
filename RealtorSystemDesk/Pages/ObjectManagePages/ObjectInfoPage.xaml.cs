@@ -17,7 +17,7 @@ namespace RealtorSystemDesk.Pages.ObjectManagePages;
 
 public partial class ObjectInfoPage : Page
 {
-    private List<RealEstateObjectPhoto> _files;
+    private List<RealEstateObjectPhoto> _photos;
     private int _id;
     private RealEstateObject _object;
 
@@ -60,11 +60,11 @@ public partial class ObjectInfoPage : Page
     {
         try
         {
-            // _files = Db
-            //     .Context.RealEstateObjectPhotos.Where(c => c.RealEstateObjectId == _object.ContractId)
-            //     .ToList();
-            // PhotoItemsControl.ItemsSource = null;
-            // PhotoItemsControl.ItemsSource = _files;
+            _photos = Db
+                .Context.RealEstateObjectPhotos.Where(c => c.ObjectNumber == _object.CadastralNumber)
+                .ToList();
+            PhotoItemsControl.ItemsSource = null;
+            PhotoItemsControl.ItemsSource = _photos;
         }
         catch (Exception e)
         {
@@ -80,22 +80,22 @@ public partial class ObjectInfoPage : Page
     {
         try
         {
-            // OpenFileDialog dialog = new()
-            // {
-            //     Filter = "images |*.jpeg; *.jpg; *.png"
-            // };
-            // if (dialog.ShowDialog() == true)
-            // {
-            //     RealEstateObjectPhoto photo = new()
-            //     {
-            //         RealEstateObjectId = _object.ContractId,
-            //         Photo = Convert.ToBase64String(File.ReadAllBytes(dialog.FileName))
-            //     };
-            //     Db.Context.RealEstateObjectPhotos.Add(photo);
-            //
-            //     DatabaseSaveService.SaveWithMessage();
-            //     LoadData();
-            // }
+            OpenFileDialog dialog = new()
+            {
+                Filter = "images |*.jpeg; *.jpg; *.png"
+            };
+            if (dialog.ShowDialog() == true)
+            {
+                RealEstateObjectPhoto photo = new()
+                {
+                    ObjectNumber = _object.CadastralNumber,
+                    Photo = File.ReadAllBytes(dialog.FileName)
+                };
+                Db.Context.RealEstateObjectPhotos.Add(photo);
+
+                DatabaseSaveService.SaveWithMessage();
+                LoadData();
+            }
         }
         catch (Exception exception)
         {
@@ -108,26 +108,10 @@ public partial class ObjectInfoPage : Page
     {
         try
         {
-            // RealEstateObjectPhoto photo = ((MenuItem)sender).DataContext as RealEstateObjectPhoto;
-            // Db.Context.RealEstateObjectPhotos.Remove(photo);
-            // DatabaseSaveService.SaveWithMessage();
-            // LoadData();
-        }
-        catch (Exception exception)
-        {
-            Console.WriteLine(exception);
-            MessageService.ShowError(exception);
-        }
-    }
-
-    private void ArchiveButton_OnClick(object sender, RoutedEventArgs e)
-    {
-        try
-        {
-            // _object.IsArchive = !_object.IsArchive.Value;
-            // DatabaseSaveService.SaveWithMessage();
-            //
-            // ArchiveButton.Content = _object.IsArchive.Value ? "Убрать из архива" : "Добавить в архив";
+            RealEstateObjectPhoto photo = ((MenuItem)sender).DataContext as RealEstateObjectPhoto;
+            Db.Context.RealEstateObjectPhotos.Remove(photo);
+            DatabaseSaveService.SaveWithMessage();
+            LoadData();
         }
         catch (Exception exception)
         {

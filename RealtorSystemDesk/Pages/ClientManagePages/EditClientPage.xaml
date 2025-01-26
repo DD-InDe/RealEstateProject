@@ -17,19 +17,40 @@
 
         <StackPanel Orientation="Vertical"
                     Grid.Column="0">
-            <TextBlock Text="Фамилия:" />
-            <TextBox Text="{Binding LastName}" />
-            <TextBlock Text="Имя:" />
-            <TextBox Text="{Binding FirstName}" />
-            <TextBlock Text="Отчество:" />
-            <TextBox Text="{Binding MiddleName}" />
-            <TextBlock Text="Дата рождения:" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Фамилия:" />
+            <TextBox Width="200" Text="{Binding LastName}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Имя:" />
+            <TextBox Width="200" Text="{Binding FirstName}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Отчество:" />
+            <TextBox Width="200" Text="{Binding MiddleName}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Дата рождения:" />
             <DatePicker SelectedDate="{Binding BirthDateTime}" />
-            <TextBlock Text="Телефон:" />
-            <TextBox Text="{Binding Phone}" />
-            <TextBlock Text="Почта:" />
-            <TextBox Text="{Binding Email}" />
-            <TextBlock Text="Пол:" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Телефон:" />
+            <TextBox Width="200" Text="{Binding Phone}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Почта:" />
+            <TextBox Width="200" Text="{Binding Email}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Пол:" />
             <ComboBox x:Name="GenderComboBox"
                       DisplayMemberPath="Name"
                       SelectedItem="{Binding Gender}" />
@@ -40,16 +61,28 @@
         </StackPanel>
         <StackPanel Orientation="Vertical"
                     Grid.Column="1">
-            <TextBlock Text="Серия паспорта:" />
-            <TextBox MaxLength="4"
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Серия паспорта:" />
+            <TextBox Width="200" MaxLength="4"
                      Text="{Binding Passport.Serial}" />
-            <TextBlock Text="Номер паспорта:" />
-            <TextBox MaxLength="6"
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Номер паспорта:" />
+            <TextBox Width="200" MaxLength="6"
                      Text="{Binding Passport.Number}" />
-            <TextBlock Text="Дата выдачи паспорта:" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Дата выдачи паспорта:" />
             <DatePicker SelectedDate="{Binding Passport.IssuedDateTime}" />
-            <TextBlock Text="Кем выдан паспорт:" />
-            <TextBox Text="{Binding Passport.IssuedBy}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Кем выдан паспорт:" />
+            <TextBox Width="200" Text="{Binding Passport.IssuedBy}" />
         </StackPanel>
     </Grid>
 </Page>

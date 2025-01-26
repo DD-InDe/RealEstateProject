@@ -286,8 +286,6 @@ C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDes
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\Humanizer.dll
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\LiveCharts.dll
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\LiveCharts.Wpf.dll
-C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\MaterialDesignColors.dll
-C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\MaterialDesignThemes.Wpf.dll
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.dll
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.CSharp.dll
@@ -307,7 +305,6 @@ C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDes
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
-C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\Mono.TextTemplating.dll
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\Npgsql.dll
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\Npgsql.EntityFrameworkCore.PostgreSQL.dll
@@ -380,7 +377,6 @@ C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDes
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\LoginWindowPages\AuthPage.g.cs
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ObjectManagePages\ObjectInfoPage.g.cs
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ObjectManagePages\ViewAllObjectPage.g.cs
-C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Windows\LoginWindow.g.cs
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Windows\MainWindow.g.cs
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\App.g.cs
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\RealtorSystemDesk_MarkupCompile.cache
@@ -395,7 +391,6 @@ C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDes
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\LoginWindowPages\AuthPage.baml
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ObjectManagePages\ObjectInfoPage.baml
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Pages\ObjectManagePages\ViewAllObjectPage.baml
-C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Windows\LoginWindow.baml
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\Windows\MainWindow.baml
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\RealtorSystemDesk.g.resources
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\RealtorSystemDesk.GeneratedMSBuildEditorConfig.editorconfig
@@ -409,3 +404,7 @@ C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDes
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\RealtorSystemDesk.pdb
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\RealtorSystemDesk.genruntimeconfig.cache
 C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\obj\Debug\net8.0-windows\ref\RealtorSystemDesk.dll
+C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\MaterialDesignColors.dll
+C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\MaterialDesignThemes.Wpf.dll
+C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\MaterialDesignXaml.DialogsHelper.dll
+C:\Users\alena\College\real_estate_project\RealtorSystemProject\RealtorSystemDesk\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll

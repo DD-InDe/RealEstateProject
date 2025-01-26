@@ -2,7 +2,6 @@
 using System.Windows.Controls;
 using RealtorSystemDesk.Database;
 using RealtorSystemDesk.Services;
-using RealtorSystemDesk.Windows;
 
 namespace RealtorSystemDesk.Pages;
 
@@ -30,11 +29,11 @@ public partial class AuthPage : Page
                 {
                     App.AuthorizedUser = user;
                     MainWindow window = new();
-                    LoginWindow loginWindow = (Application.Current.MainWindow as LoginWindow)!;
+                    // LoginWindow loginWindow = (Application.Current.MainWindow as LoginWindow)!;
                     window.Show();
                     Application.Current.MainWindow = window;
 
-                    loginWindow.Close();
+                    // loginWindow.Close();
                 }
                 else
                     MessageService.ShowInfo("Пользователь не найден!");

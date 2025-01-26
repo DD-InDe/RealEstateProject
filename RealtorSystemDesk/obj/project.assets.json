@@ -96,25 +96,44 @@
           }
         }
       },
-      "MaterialDesignThemes/5.2.1": {
+      "MaterialDesignThemes/5.0.0": {
         "type": "package",
         "dependencies": {
-          "MaterialDesignColors": "5.2.1",
+          "MaterialDesignColors": "3.0.0",
           "Microsoft.Xaml.Behaviors.Wpf": "1.1.39"
         },
         "compile": {
-          "lib/net8.0/MaterialDesignThemes.Wpf.dll": {
+          "lib/net7.0/MaterialDesignThemes.Wpf.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net8.0/MaterialDesignThemes.Wpf.dll": {
+          "lib/net7.0/MaterialDesignThemes.Wpf.dll": {
             "related": ".pdb;.xml"
           }
         },
         "build": {
           "build/MaterialDesignThemes.targets": {}
         }
+      },
+      "MaterialDesignXaml.DialogsHelper/1.0.4": {
+        "type": "package",
+        "dependencies": {
+          "MaterialDesignThemes": "4.6.1"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/MaterialDesignXaml.DialogsHelper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/MaterialDesignXaml.DialogsHelper.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       },
       "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
         "type": "package",
@@ -1128,10 +1147,10 @@
         "materialdesigncolors.nuspec"
       ]
     },
-    "MaterialDesignThemes/5.2.1": {
-      "sha512": "x8JDqNHJcTLLxIoVts3w7AbSq5Zo0FXTw89XqPN7+n0EKqLXFwWsywiUn08HDyTGAmZVJqbQsWKxKWCI8qfWsQ==",
+    "MaterialDesignThemes/5.0.0": {
+      "sha512": "Az/2+YP+AdtyNceaU42cFo7Fl7KBrFkMa56uvesR363kZyOrASb0OnMvi0Ou4j1x0zwGa19AaK/vspDUBNDlBQ==",
       "type": "package",
-      "path": "materialdesignthemes/5.2.1",
+      "path": "materialdesignthemes/5.0.0",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -1155,7 +1174,6 @@
         "build/Resources/Roboto/RobotoCondensed-Light.ttf",
         "build/Resources/Roboto/RobotoCondensed-LightItalic.ttf",
         "build/Resources/Roboto/RobotoCondensed-Regular.ttf",
-        "docs/README.md",
         "images/MaterialDesignThemes.Icon.png",
         "lib/net462/MaterialDesignThemes.Wpf.dll",
         "lib/net462/MaterialDesignThemes.Wpf.pdb",
@@ -1163,12 +1181,26 @@
         "lib/net6.0/MaterialDesignThemes.Wpf.dll",
         "lib/net6.0/MaterialDesignThemes.Wpf.pdb",
         "lib/net6.0/MaterialDesignThemes.Wpf.xml",
-        "lib/net8.0/MaterialDesignThemes.Wpf.dll",
-        "lib/net8.0/MaterialDesignThemes.Wpf.pdb",
-        "lib/net8.0/MaterialDesignThemes.Wpf.xml",
-        "materialdesignthemes.5.2.1.nupkg.sha512",
+        "lib/net7.0/MaterialDesignThemes.Wpf.dll",
+        "lib/net7.0/MaterialDesignThemes.Wpf.pdb",
+        "lib/net7.0/MaterialDesignThemes.Wpf.xml",
+        "materialdesignthemes.5.0.0.nupkg.sha512",
         "materialdesignthemes.nuspec",
         "tools/VisualStudioToolsManifest.xml"
+      ]
+    },
+    "MaterialDesignXaml.DialogsHelper/1.0.4": {
+      "sha512": "Ummm605khMdUIvUAfP8bRwMaJvpmFYV4sIMJIWpzliQ802vmRmU1RUET7+r5DwZAgFlui6TInIeUEpvSjW/yJQ==",
+      "type": "package",
+      "path": "materialdesignxaml.dialogshelper/1.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "6281752-middle.png",
+        "lib/netcoreapp3.1/MaterialDesignXaml.DialogsHelper.dll",
+        "lib/netcoreapp3.1/MaterialDesignXaml.DialogsHelper.xml",
+        "materialdesignxaml.dialogshelper.1.0.4.nupkg.sha512",
+        "materialdesignxaml.dialogshelper.nuspec"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
@@ -2590,7 +2622,9 @@
       "LiveCharts.Core >= 0.9.8",
       "LiveCharts.Wpf >= 0.9.7",
       "LiveCharts.Wpf.Core >= 0.9.8",
-      "MaterialDesignThemes >= 5.2.1",
+      "MaterialDesignColors >= 5.2.1",
+      "MaterialDesignThemes >= 5.0.0",
+      "MaterialDesignXaml.DialogsHelper >= 1.0.4",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.11",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 8.0.11",
       "System.Drawing.Common >= 8.0.11"
@@ -2660,9 +2694,17 @@
             "target": "Package",
             "version": "[0.9.8, )"
           },
-          "MaterialDesignThemes": {
+          "MaterialDesignColors": {
             "target": "Package",
             "version": "[5.2.1, )"
+          },
+          "MaterialDesignThemes": {
+            "target": "Package",
+            "version": "[5.0.0, )"
+          },
+          "MaterialDesignXaml.DialogsHelper": {
+            "target": "Package",
+            "version": "[1.0.4, )"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

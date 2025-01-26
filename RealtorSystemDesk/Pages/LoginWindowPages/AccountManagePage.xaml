@@ -5,39 +5,78 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:RealtorSystemDesk.Pages"
       mc:Ignorable="d"
-      Title="Профиль"
-      d:DesignHeight="450"
-      d:DesignWidth="800">
+      Title="Профиль">
 
     <StackPanel Orientation="Vertical"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
                 x:Name="Panel">
-        <TextBlock Text="Фамилия:" />
-        <TextBox x:Name="LastNameTextBox"
-                 Text="{Binding User.LastName}" />
-        <TextBlock Text="Имя:" />
-        <TextBox x:Name="FirstNameTextBox"
-                 Text="{Binding User.FirstName}" />
-        <TextBlock Text="Отчество:" />
-        <TextBox x:Name="MiddleNameTextBox"
-                 Text="{Binding User.MiddleName}" />
-        <TextBlock Text="Комания:" />
-        <TextBox x:Name="CompanyTextBox"
-                 Text="{Binding User.CompanyName}" />
-        <TextBlock Text="Логин:" />
-        <TextBox x:Name="LoginTextBox"
-                 IsEnabled="{Binding IsRegistration}"
-                 Text="{Binding User.Login}" />
-        <TextBlock Text="Пароль:" />
-        <PasswordBox x:Name="PasswordBox" />
-        <TextBlock Text="Повторите пароль:" />
-        <PasswordBox x:Name="RepeatPasswordBox" />
+        <DockPanel HorizontalAlignment="Right">
+            <TextBlock Margin="7"
+                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Фамилия:" />
+            <TextBox Width="200"
+                     x:Name="LastNameTextBox"
+                     Text="{Binding User.LastName}" />
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Right">
+            <TextBlock Margin="7"
+                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Имя:" />
+            <TextBox Width="200"
+                     x:Name="FirstNameTextBox"
+                     Text="{Binding User.FirstName}" />
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Right">
+            <TextBlock Margin="7"
+                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Отчество:" />
+            <TextBox Width="200"
+                     x:Name="MiddleNameTextBox"
+                     Text="{Binding User.MiddleName}" />
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Right">
+            <TextBlock Margin="7"
+                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Комания:" />
+            <TextBox Width="200"
+                     x:Name="CompanyTextBox"
+                     Text="{Binding User.CompanyName}" />
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Right">
+            <TextBlock Margin="7"
+                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Логин:" />
+            <TextBox Width="200"
+                     x:Name="LoginTextBox"
+                     IsEnabled="{Binding IsRegistration}"
+                     Text="{Binding User.Login}" />
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Right">
+            <TextBlock Margin="7"
+                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Пароль:" />
+            <PasswordBox Width="200"
+                         x:Name="PasswordBox" />
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Right">
+            <TextBlock Margin="7"
+                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Повторите пароль:" />
+            <PasswordBox Width="200"
+                         x:Name="RepeatPasswordBox" />
+        </DockPanel>
 
         <Button x:Name="SaveButton"
                 Content="Сохранить"
+                Margin="7"
                 Click="SaveButton_OnClick" />
-        <Button x:Name="BackButton"
-                Visibility="Collapsed"
-                Content="Назад"
-                Click="BackButton_OnClick" />
     </StackPanel>
 </Page>

@@ -28,7 +28,10 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Информация об объекте"
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Информация об объекте"
                        Grid.Row="0"
                        Grid.ColumnSpan="2"
                        HorizontalAlignment="Center" />
@@ -36,31 +39,91 @@
                         Grid.Row="1"
                         Orientation="Vertical">
 
-                <TextBlock Text="Адрес:" />
-                <TextBlock Text="{Binding Address}" />
-                <TextBlock Text="Этаж:" />
-                <TextBlock Text="{Binding Floor}" />
-                <TextBlock Text="Количество этажей в здании:" />
-                <TextBlock Text="{Binding FloorsCount}" />
-                <TextBlock Text="Количество комнат:" />
-                <TextBlock Text="{Binding RoomsCount}" />
-                <TextBlock Text="Площадь:" />
-                <TextBlock Text="{Binding Square}" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Адрес:" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding Address}" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Этаж:" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding Floor}" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Количество этажей в здании:" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding FloorsCount}" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Количество комнат:" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding RoomsCount}" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Площадь:" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding Square}" />
 
             </StackPanel>
             <StackPanel Orientation="Vertical"
                         Grid.Row="1"
                         Grid.Column="1">
-                <TextBlock Text="Год постройки здания:" />
-                <TextBlock Text="{Binding BuildingYear}" />
-                <TextBlock Text="Тип здания:" />
-                <TextBlock Text="{Binding ObjectType.Name}" />
-                <TextBlock Text="Цена:" />
-                <TextBlock Text="{Binding Price}" />
-                <TextBlock Text="Описание:" />
-                <TextBlock Text="{Binding Description}" />
-                <TextBlock Text="Заметка:" />
-                <TextBlock Text="{Binding Note}" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Год постройки здания:" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding BuildingYear}" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Тип здания:" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding ObjectType.Name}" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Цена:" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding Price}" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Описание:" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding Description}" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Заметка:" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding Note}" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal"
@@ -68,14 +131,15 @@
                         Grid.ColumnSpan="2">
                 <Button Content="Клиент"
                         Click="CustomerButton_OnClick" />
-                <Button x:Name="ArchiveButton"
-                        Click="ArchiveButton_OnClick" />
             </StackPanel>
         </Grid>
 
         <StackPanel Orientation="Vertical"
                     Grid.Row="1">
-            <TextBlock Text="Фотографии объекта"
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Фотографии объекта"
                        HorizontalAlignment="Center" />
             <Button x:Name="AddPhotoButton"
                     Content="Добавить фото"

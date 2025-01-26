@@ -17,30 +17,99 @@
 
         <StackPanel Grid.Column="0"
                     Orientation="Vertical">
-            <TextBlock Text="Информация о клиенте" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Информация о клиенте" />
 
-            <TextBlock Text="Фамилия:" />
-            <TextBlock Text="{Binding LastName}" />
-            <TextBlock Text="Имя:" />
-            <TextBlock Text="{Binding FirstName}" />
-            <TextBlock Text="Отчество:" />
-            <TextBlock Text="{Binding MiddleName}" />
-            <TextBlock Text="Дата рождения:" />
-            <TextBlock Text="{Binding BirthDate}" />
-            <TextBlock Text="Телефон:" />
-            <TextBlock Text="{Binding Phone}" />
-            <TextBlock Text="Почта:" />
-            <TextBlock Text="{Binding Email}" />
-            <TextBlock Text="Пол:" />
-            <TextBlock Text="{Binding Gender.Name}" />
-            <TextBlock Text="Серия паспорта:" />
-            <TextBlock Text="{Binding Passport.Serial}" />
-            <TextBlock Text="Номер паспорта:" />
-            <TextBlock Text="{Binding Passport.Number}" />
-            <TextBlock Text="Дата выдачи паспорта:" />
-            <TextBlock Text="{Binding Passport.IssuedDate}" />
-            <TextBlock Text="Кем выдан паспорт:" />
-            <TextBlock Text="{Binding Passport.IssuedBy}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Фамилия:" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding LastName}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Имя:" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding FirstName}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Отчество:" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding MiddleName}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Дата рождения:" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding BirthDate}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Телефон:" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding Phone}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Почта:" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding Email}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Пол:" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding Gender.Name}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Серия паспорта:" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding Passport.Serial}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Номер паспорта:" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding Passport.Number}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Дата выдачи паспорта:" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding Passport.IssuedDate}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Кем выдан паспорт:" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="{Binding Passport.IssuedBy}" />
 
             <Button x:Name="EditButton"
                     Content="Редактировать данные"
@@ -55,7 +124,10 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
-                <TextBlock Text="Контракты" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Контракты" />
                 <Button x:Name="AddContractButton"
                         Content="Добавить контракт"
                         Click="AddContractButton_OnClick" />
@@ -95,7 +167,10 @@
 
             <StackPanel Orientation="Vertical"
                         Grid.Row="1">
-                <TextBlock Text="Документы" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Документы" />
                 <Button  x:Name="AddDocumentButton" Content="Загрузить"
                          Click="DocumentAddButton_OnClick" />
                 <DataGrid x:Name="FileDataGrid"

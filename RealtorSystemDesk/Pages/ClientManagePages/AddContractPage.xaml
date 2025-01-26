@@ -16,14 +16,26 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Vertical"
-                    Margin="5">
-            <TextBlock Text="Дата заключения:" />
+                    Margin="7">
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Дата заключения:" />
             <DatePicker SelectedDate="{Binding DateCreate}" />
-            <TextBlock Text="Срок действия (в днях):" />
-            <TextBox Text="{Binding Days}" />
-            <TextBlock Text="Вознаграждение риэлтора (буквами):" />
-            <TextBox Text="{Binding RealtorReward}" />
-            <TextBlock Text="Тип договора:" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Срок действия (в днях):" />
+            <TextBox Width="200" Text="{Binding Days}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Вознаграждение риэлтора (буквами):" />
+            <TextBox Width="200" Text="{Binding RealtorReward}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Тип договора:" />
             <ComboBox x:Name="TypeComboBox"
                       SelectionChanged="TypeComboBox_OnSelectionChanged"
                       SelectedItem="{Binding Type}"
@@ -35,26 +47,50 @@
         </StackPanel>
 
         <StackPanel x:Name="ObjectPanel"
-                    Margin="5"
+                    Margin="7"
                     Grid.Column="1"
                     Orientation="Vertical"
                     Visibility="Collapsed">
-            <TextBlock Text="Информация об объекте" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Информация об объекте" />
 
-            <TextBlock Text="Кадастровый номер:" />
-            <TextBox Text="{Binding CadastralNumber}"
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Кадастровый номер:" />
+            <TextBox Width="200" Text="{Binding CadastralNumber}"
                      MaxLength="12" />
-            <TextBlock Text="Адрес:" />
-            <TextBox Text="{Binding Address}" />
-            <TextBlock Text="Площадь:" />
-            <TextBox Text="{Binding Square}" />
-            <TextBlock Text="Количество комнат:" />
-            <TextBox Text="{Binding RoomsCount}" />
-            <TextBlock Text="Год постройки здания:" />
-            <TextBox Text="{Binding BuildingYear}" />
-            <TextBlock Text="Цена:" />
-            <TextBox Text="{Binding Price}" />
-            <TextBlock Text="Тип объекта:" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Адрес:" />
+            <TextBox Width="200" Text="{Binding Address}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Площадь:" />
+            <TextBox Width="200" Text="{Binding Square}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Количество комнат:" />
+            <TextBox Width="200" Text="{Binding RoomsCount}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Год постройки здания:" />
+            <TextBox Width="200" Text="{Binding BuildingYear}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Цена:" />
+            <TextBox Width="200" Text="{Binding Price}" />
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Тип объекта:" />
             <ComboBox x:Name="ObjectTypeComboBox"
                       SelectionChanged="ObjectTypeComboBox_OnSelectionChanged"
                       SelectedItem="{Binding Type}"
@@ -63,22 +99,37 @@
             <StackPanel x:Name="ApartmentPanel"
                         Visibility="Collapsed"
                         Orientation="Vertical">
-                <TextBlock Text="Класс квартиры:" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Класс квартиры:" />
                 <ComboBox x:Name="ClassComboBox"
                           SelectedItem="{Binding Class}"
                           DisplayMemberPath="Name" />
-                <TextBlock Text="Этаж:" />
-                <TextBox Text="{Binding Floor}" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Этаж:" />
+                <TextBox Width="200" Text="{Binding Floor}" />
             </StackPanel>
             <StackPanel x:Name="HousePanel"
                         Visibility="Collapsed"
                         Orientation="Vertical">
-                <TextBlock Text="Количество этажей в здании:" />
-                <TextBox Text="{Binding FloorsCount}" />
-                <TextBlock Text="Площадь участка:" />
-                <TextBox Text="{Binding PlotSquare}" />
-                <TextBlock Text="Материал здания:" />
-                <TextBox Text="{Binding Material}" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Количество этажей в здании:" />
+                <TextBox Width="200" Text="{Binding FloorsCount}" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Площадь участка:" />
+                <TextBox Width="200" Text="{Binding PlotSquare}" />
+                <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Материал здания:" />
+                <TextBox Width="200" Text="{Binding Material}" />
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -1,0 +1,15 @@
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDatabase\bin\Debug\net8.0\RealtorSystemDatabase.deps.json
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDatabase\bin\Debug\net8.0\RealtorSystemDatabase.runtimeconfig.json
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDatabase\bin\Debug\net8.0\RealtorSystemDatabase.dll
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDatabase\bin\Debug\net8.0\RealtorSystemDatabase.pdb
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDatabase\obj\Debug\net8.0\RealtorSystemDatabase.csproj.AssemblyReference.cache
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDatabase\obj\Debug\net8.0\RealtorSystemDatabase.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDatabase\obj\Debug\net8.0\RealtorSystemDatabase.AssemblyInfoInputs.cache
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDatabase\obj\Debug\net8.0\RealtorSystemDatabase.AssemblyInfo.cs
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDatabase\obj\Debug\net8.0\RealtorSystemDatabase.csproj.CoreCompileInputs.cache
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDatabase\obj\Debug\net8.0\RealtorSystemDatabase.sourcelink.json
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDatabase\obj\Debug\net8.0\RealtorSystemDatabase.dll
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDatabase\obj\Debug\net8.0\refint\RealtorSystemDatabase.dll
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDatabase\obj\Debug\net8.0\RealtorSystemDatabase.pdb
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDatabase\obj\Debug\net8.0\RealtorSystemDatabase.genruntimeconfig.cache
+C:\Users\alena\OneDrive\Desktop\real_estate_project\RealtorSystemProject\RealtorSystemDatabase\obj\Debug\net8.0\ref\RealtorSystemDatabase.dll

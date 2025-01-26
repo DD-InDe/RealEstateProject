@@ -16,13 +16,19 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Поиск" />
-            <TextBox x:Name="SearchTextBox"
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Поиск" />
+            <TextBox Width="200" x:Name="SearchTextBox"
                      TextChanged="SearchTextBox_OnTextChanged" />
             <CheckBox x:Name="ArchiveCheckBox" Content="Архив"
                       Checked="CheckBox_Check"
                       Unchecked="CheckBox_Check" />
-            <TextBlock Text="Тип объекта"/>
+            <TextBlock
+                               Margin="7"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center" Text="Тип объекта"/>
             <ComboBox x:Name="TypeComboBox" DisplayMemberPath="Name" SelectionChanged="TypeComboBox_OnSelectionChanged"/>
         </StackPanel>
 
