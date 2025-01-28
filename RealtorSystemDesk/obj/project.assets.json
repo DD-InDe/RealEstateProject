@@ -2636,11 +2636,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alena\\College\\real_estate_project\\RealtorSystemProject\\RealtorSystemDesk\\RealtorSystemDesk.csproj",
+      "projectUniqueName": "C:\\Users\\alena\\OneDrive\\Desktop\\Моя курсовая\\RealtorSystemProject\\RealtorSystemDesk\\RealtorSystemDesk.csproj",
       "projectName": "RealtorSystemDesk",
-      "projectPath": "C:\\Users\\alena\\College\\real_estate_project\\RealtorSystemProject\\RealtorSystemDesk\\RealtorSystemDesk.csproj",
+      "projectPath": "C:\\Users\\alena\\OneDrive\\Desktop\\Моя курсовая\\RealtorSystemProject\\RealtorSystemDesk\\RealtorSystemDesk.csproj",
       "packagesPath": "C:\\Users\\alena\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alena\\College\\real_estate_project\\RealtorSystemProject\\RealtorSystemDesk\\obj\\",
+      "outputPath": "C:\\Users\\alena\\OneDrive\\Desktop\\Моя курсовая\\RealtorSystemProject\\RealtorSystemDesk\\obj\\",
       "projectStyle": "PackageReference",
       "UsingMicrosoftNETSdk": false,
       "configFilePaths": [

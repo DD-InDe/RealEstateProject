@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "a+la9AFJ7iE=",
+  "dgSpecHash": "5mSILbh4vM4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\alena\\College\\real_estate_project\\RealtorSystemProject\\RealtorSystemDesk\\RealtorSystemDesk.csproj",
+  "projectFilePath": "C:\\Users\\alena\\OneDrive\\Desktop\\Моя курсовая\\RealtorSystemProject\\RealtorSystemDesk\\RealtorSystemDesk.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alena\\.nuget\\packages\\docx\\3.0.1\\docx.3.0.1.nupkg.sha512",
     "C:\\Users\\alena\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

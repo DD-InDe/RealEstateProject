@@ -16,7 +16,7 @@
             </ResourceDictionary.MergedDictionaries>
             <Style TargetType="DockPanel">
                 <Setter Property="HorizontalAlignment"
-                        Value="Right" />
+                        Value="Stretch" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

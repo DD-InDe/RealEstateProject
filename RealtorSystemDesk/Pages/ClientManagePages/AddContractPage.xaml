@@ -5,9 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:RealtorSystemDesk.Pages.ClientManagePages"
       mc:Ignorable="d"
+      xmlns:design="http://materialdesigninxaml.net/winfx/xaml/themes"
       Loaded="AddContractPage_OnLoaded"
       Title="Добавление договора"
-      d:DesignHeight="450"
+      d:DesignHeight="650"
       d:DesignWidth="800">
 
     <Grid>
@@ -15,122 +16,210 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Vertical"
-                    Margin="7">
-            <TextBlock
-                               Margin="7"
-                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                               VerticalAlignment="Center" Text="Дата заключения:" />
-            <DatePicker SelectedDate="{Binding DateCreate}" />
-            <TextBlock
-                               Margin="7"
-                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                               VerticalAlignment="Center" Text="Срок действия (в днях):" />
-            <TextBox Width="200" Text="{Binding Days}" />
-            <TextBlock
-                               Margin="7"
-                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                               VerticalAlignment="Center" Text="Вознаграждение риэлтора (буквами):" />
-            <TextBox Width="200" Text="{Binding RealtorReward}" />
-            <TextBlock
-                               Margin="7"
-                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                               VerticalAlignment="Center" Text="Тип договора:" />
-            <ComboBox x:Name="TypeComboBox"
-                      SelectionChanged="TypeComboBox_OnSelectionChanged"
-                      SelectedItem="{Binding Type}"
-                      DisplayMemberPath="Name" />
+        <design:Card Margin="5"
+                     Padding="5">
+            <StackPanel Orientation="Vertical"
+                        Margin="7">
+                <TextBlock Style="{DynamicResource MaterialDesignTitleSmallTextBlock}"
+                           HorizontalAlignment="Center"
+                           Text="Информация о договоре" />
 
-            <Button x:Name="SaveButton"
-                    Click="SaveButton_OnClick"
-                    Content="Сохранить" />
-        </StackPanel>
+                <DockPanel>
+                    <TextBlock HorizontalAlignment="Left"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center"
+                               Text="Дата заключения:" />
+                    <DatePicker HorizontalAlignment="Right"
+                                Width="200"
+                                Margin="7"
+                                SelectedDate="{Binding DateCreate}" />
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock HorizontalAlignment="Left"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center"
+                               Text="Срок действия (в днях):" />
+                    <TextBox HorizontalAlignment="Right"
+                             Width="200"
+                             Margin="7"
+                             Text="{Binding Days}" />
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock HorizontalAlignment="Left"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center"
+                               TextWrapping="Wrap"
+                               Text="Вознаграждение:" />
+                    <TextBox HorizontalAlignment="Right"
+                             Width="200"
+                             Margin="7"
+                             Text="{Binding RealtorReward}" />
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock HorizontalAlignment="Left"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center"
+                               Text="Тип договора:" />
+                    <ComboBox HorizontalAlignment="Right"
+                              x:Name="TypeComboBox"
+                              Margin="7"
+                              Width="200"
+                              SelectionChanged="TypeComboBox_OnSelectionChanged"
+                              SelectedItem="{Binding Type}"
+                              DisplayMemberPath="Name" />
+                </DockPanel>
 
-        <StackPanel x:Name="ObjectPanel"
-                    Margin="7"
-                    Grid.Column="1"
-                    Orientation="Vertical"
-                    Visibility="Collapsed">
-            <TextBlock
-                               Margin="7"
-                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                               VerticalAlignment="Center" Text="Информация об объекте" />
-
-            <TextBlock
-                               Margin="7"
-                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                               VerticalAlignment="Center" Text="Кадастровый номер:" />
-            <TextBox Width="200" Text="{Binding CadastralNumber}"
-                     MaxLength="12" />
-            <TextBlock
-                               Margin="7"
-                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                               VerticalAlignment="Center" Text="Адрес:" />
-            <TextBox Width="200" Text="{Binding Address}" />
-            <TextBlock
-                               Margin="7"
-                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                               VerticalAlignment="Center" Text="Площадь:" />
-            <TextBox Width="200" Text="{Binding Square}" />
-            <TextBlock
-                               Margin="7"
-                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                               VerticalAlignment="Center" Text="Количество комнат:" />
-            <TextBox Width="200" Text="{Binding RoomsCount}" />
-            <TextBlock
-                               Margin="7"
-                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                               VerticalAlignment="Center" Text="Год постройки здания:" />
-            <TextBox Width="200" Text="{Binding BuildingYear}" />
-            <TextBlock
-                               Margin="7"
-                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                               VerticalAlignment="Center" Text="Цена:" />
-            <TextBox Width="200" Text="{Binding Price}" />
-            <TextBlock
-                               Margin="7"
-                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                               VerticalAlignment="Center" Text="Тип объекта:" />
-            <ComboBox x:Name="ObjectTypeComboBox"
-                      SelectionChanged="ObjectTypeComboBox_OnSelectionChanged"
-                      SelectedItem="{Binding Type}"
-                      DisplayMemberPath="Name" />
-
-            <StackPanel x:Name="ApartmentPanel"
-                        Visibility="Collapsed"
-                        Orientation="Vertical">
-                <TextBlock
-                               Margin="7"
-                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                               VerticalAlignment="Center" Text="Класс квартиры:" />
-                <ComboBox x:Name="ClassComboBox"
-                          SelectedItem="{Binding Class}"
-                          DisplayMemberPath="Name" />
-                <TextBlock
-                               Margin="7"
-                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                               VerticalAlignment="Center" Text="Этаж:" />
-                <TextBox Width="200" Text="{Binding Floor}" />
+                <Button x:Name="SaveButton"
+                        Margin="10"
+                        Click="SaveButton_OnClick"
+                        Content="Сохранить" />
             </StackPanel>
-            <StackPanel x:Name="HousePanel"
-                        Visibility="Collapsed"
-                        Orientation="Vertical">
-                <TextBlock
-                               Margin="7"
+        </design:Card>
+
+        <design:Card Grid.Column="1"
+                     Margin="5"
+                     Padding="5">
+            <StackPanel x:Name="ObjectPanel"
+                        Orientation="Vertical"
+                        Visibility="Visible">
+                <TextBlock Style="{DynamicResource MaterialDesignTitleSmallTextBlock}"
+                           HorizontalAlignment="Center"
+                           Text="Информация об объекте" />
+
+                <DockPanel>
+                    <TextBlock HorizontalAlignment="Left"
                                Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                               VerticalAlignment="Center" Text="Количество этажей в здании:" />
-                <TextBox Width="200" Text="{Binding FloorsCount}" />
-                <TextBlock
-                               Margin="7"
+                               VerticalAlignment="Center"
+                               Text="Кадастровый номер:" />
+                    <TextBox HorizontalAlignment="Right"
+                             Width="200"
+                             Margin="7"
+                             Text="{Binding CadastralNumber}"
+                             MaxLength="12" />
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock HorizontalAlignment="Left"
                                Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                               VerticalAlignment="Center" Text="Площадь участка:" />
-                <TextBox Width="200" Text="{Binding PlotSquare}" />
-                <TextBlock
-                               Margin="7"
+                               VerticalAlignment="Center"
+                               Text="Адрес:" />
+                    <TextBox HorizontalAlignment="Right"
+                             Width="200"
+                             Margin="7"
+                             Text="{Binding Address}" />
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock HorizontalAlignment="Left"
                                Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                               VerticalAlignment="Center" Text="Материал здания:" />
-                <TextBox Width="200" Text="{Binding Material}" />
+                               VerticalAlignment="Center"
+                               Text="Площадь:" />
+                    <TextBox HorizontalAlignment="Right"
+                             Width="200"
+                             Margin="7"
+                             Text="{Binding Square}" />
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock HorizontalAlignment="Left"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center"
+                               Text="Количество комнат:" />
+                    <TextBox HorizontalAlignment="Right"
+                             Width="200"
+                             Margin="7"
+                             Text="{Binding RoomsCount}" />
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock HorizontalAlignment="Left"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center"
+                               Text="Год постройки здания:" />
+                    <TextBox HorizontalAlignment="Right"
+                             Width="200"
+                             Margin="7"
+                             Text="{Binding BuildingYear}" />
+                </DockPanel>
+                    <TextBlock HorizontalAlignment="Left"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center"
+                               Text="Цена:" />
+                    <TextBox HorizontalAlignment="Right"
+                             Width="200"
+                             Margin="7"
+                             Text="{Binding Price}" />
+                <DockPanel>
+                    <TextBlock HorizontalAlignment="Left"
+                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                               VerticalAlignment="Center"
+                               Text="Тип объекта:" />
+                    <ComboBox HorizontalAlignment="Right"
+                              x:Name="ObjectTypeComboBox"
+                              Margin="7"
+                              SelectionChanged="ObjectTypeComboBox_OnSelectionChanged"
+                              SelectedItem="{Binding Type}"
+                              Width="200"
+                              DisplayMemberPath="Name" />
+                </DockPanel>
+
+                <StackPanel x:Name="ApartmentPanel"
+                            Visibility="Visible"
+                            Orientation="Vertical">
+                    <DockPanel>
+                        <TextBlock HorizontalAlignment="Left"
+                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                   VerticalAlignment="Center"
+                                   Text="Класс квартиры:" />
+                        <ComboBox HorizontalAlignment="Right"
+                                  x:Name="ClassComboBox"
+                                  Margin="7"
+                                  Width="200"
+                                  SelectedItem="{Binding Class}"
+                                  DisplayMemberPath="Name" />
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock HorizontalAlignment="Left"
+                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                   VerticalAlignment="Center"
+                                   Text="Этаж:" />
+                        <TextBox HorizontalAlignment="Right"
+                                 Width="200"
+                                 Margin="7"
+                                 Text="{Binding Floor}" />
+                    </DockPanel>
+                </StackPanel>
+                <StackPanel x:Name="HousePanel"
+                            Visibility="Visible"
+                            Orientation="Vertical">
+                    <DockPanel>
+                        <TextBlock HorizontalAlignment="Left"
+                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                   VerticalAlignment="Center"
+                                   Text="Количество этажей в здании:" />
+                        <TextBox HorizontalAlignment="Right"
+                                 Width="200"
+                                 Margin="7"
+                                 Text="{Binding FloorsCount}" />
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock HorizontalAlignment="Left"
+                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                   VerticalAlignment="Center"
+                                   Text="Площадь участка:" />
+                        <TextBox HorizontalAlignment="Right"
+                                 Width="200"
+                                 Margin="7"
+                                 Text="{Binding PlotSquare}" />
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock HorizontalAlignment="Left"
+                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                   VerticalAlignment="Center"
+                                   Text="Материал здания:" />
+                        <TextBox HorizontalAlignment="Right"
+                                 Width="200"
+                                 Margin="7"
+                                 Text="{Binding Material}" />
+                    </DockPanel>
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
+        </design:Card>
     </Grid>
 </Page>
