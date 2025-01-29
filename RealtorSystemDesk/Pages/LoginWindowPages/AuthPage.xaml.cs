@@ -29,11 +29,7 @@ public partial class AuthPage : Page
                 {
                     App.AuthorizedUser = user;
                     MainWindow window = new();
-                    // LoginWindow loginWindow = (Application.Current.MainWindow as LoginWindow)!;
-                    window.Show();
-                    Application.Current.MainWindow = window;
-
-                    // loginWindow.Close();
+                    NavigationService.Navigate(null);
                 }
                 else
                     MessageService.ShowInfo("Пользователь не найден!");

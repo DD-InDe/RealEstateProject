@@ -12,21 +12,23 @@
         <StackPanel Orientation="Vertical"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
-            <DockPanel HorizontalAlignment="Right">
-                <TextBlock Margin="7"
-                           Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+            <DockPanel>
+                <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
                            VerticalAlignment="Center"
                            Text="Логин:" />
                 <TextBox Width="200"
+                         MaxLength="100"
+                         HorizontalAlignment="Right"
                          x:Name="LoginTextBox"
                          Margin="7" />
             </DockPanel>
-            <DockPanel HorizontalAlignment="Right">
-                <TextBlock Margin="7"
-                           Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+            <DockPanel>
+                <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
                            VerticalAlignment="Center"
                            Text="Пароль:" />
                 <PasswordBox x:Name="PasswordBox"
+                             HorizontalAlignment="Right"
+                             MaxLength="100"
                              Width="200"
                              Margin="7" />
             </DockPanel>

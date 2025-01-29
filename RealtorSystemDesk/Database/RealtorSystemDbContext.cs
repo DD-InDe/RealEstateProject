@@ -23,8 +23,6 @@ public partial class RealtorSystemDbContext : DbContext
 
     public virtual DbSet<ContractType> ContractTypes { get; set; }
 
-    public virtual DbSet<File> Files { get; set; }
-
     public virtual DbSet<Gender> Genders { get; set; }
 
     public virtual DbSet<Passport> Passports { get; set; }
@@ -43,7 +41,7 @@ public partial class RealtorSystemDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Server=localhost;Port=5432;Username=postgres;Password=123;Database=realtor_system_db");
+        => optionsBuilder.UseNpgsql("Server=localhost;Port=5432;Database=realtor_system_db;Username=postgres;Password=123");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -91,24 +89,20 @@ public partial class RealtorSystemDbContext : DbContext
 
         modelBuilder.Entity<ClientFile>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("client_document_pkey");
+            entity.HasKey(e => e.Id).HasName("client_file_pkey");
 
             entity.ToTable("client_file");
 
-            entity.Property(e => e.Id)
-                .HasDefaultValueSql("nextval('client_document_id_seq'::regclass)")
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.ClientId).HasColumnName("client_id");
-            entity.Property(e => e.FileId).HasColumnName("file_id");
+            entity.Property(e => e.FileData).HasColumnName("file_data");
+            entity.Property(e => e.FileName)
+                .HasMaxLength(100)
+                .HasColumnName("file_name");
 
             entity.HasOne(d => d.Client).WithMany(p => p.ClientFiles)
                 .HasForeignKey(d => d.ClientId)
-                .HasConstraintName("client_document_client_id_fkey");
-
-            entity.HasOne(d => d.File).WithMany(p => p.ClientFiles)
-                .HasForeignKey(d => d.FileId)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("client_document_document_id_fkey");
+                .HasConstraintName("client_file_client_id_fkey");
         });
 
         modelBuilder.Entity<Contract>(entity =>
@@ -151,20 +145,6 @@ public partial class RealtorSystemDbContext : DbContext
             entity.Property(e => e.Name)
                 .HasMaxLength(100)
                 .HasColumnName("name");
-        });
-
-        modelBuilder.Entity<File>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("document_pkey");
-
-            entity.ToTable("file");
-
-            entity.Property(e => e.Id)
-                .HasDefaultValueSql("nextval('document_id_seq'::regclass)")
-                .HasColumnName("id");
-            entity.Property(e => e.FileName)
-                .HasMaxLength(300)
-                .HasColumnName("file_name");
         });
 
         modelBuilder.Entity<Gender>(entity =>

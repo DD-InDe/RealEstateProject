@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 using System.Windows.Controls;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Win32;
@@ -54,19 +55,18 @@ public partial class ClientInfoPage : Page
     {
         try
         {
-            ContractDataGrid.ItemsSource = null;
-            ContractDataGrid.ItemsSource =
+            ContractListView.ItemsSource = null;
+            ContractListView.ItemsSource =
                 await Db
                     .Context.Contracts
                     .Include(c => c.Type)
-                    .Where(c => c.ClientId == _client.PassportId)
+                    .Where(c => c.ClientId == _client.PassportId && c.UserId == App.AuthorizedUser.Id)
                     .ToListAsync();
 
             FileDataGrid.ItemsSource = null;
             FileDataGrid.ItemsSource =
                 await Db
                     .Context.ClientFiles
-                    .Include(c => c.File)
                     .Where(c => c.ClientId == _client.PassportId)
                     .ToListAsync();
         }
@@ -125,7 +125,8 @@ public partial class ClientInfoPage : Page
                 bookmarks.Find(c => c.Name == "USER_NAME").SetText(
                     $"{App.AuthorizedUser.LastName} {App.AuthorizedUser.FirstName} {App.AuthorizedUser.MiddleName}");
                 bookmarks.Find(c => c.Name == "CONTRACT_DATE_VALID")
-                    .SetText(contract.ValidUntil.Value.ToDateTime(new()).ToString("dd.mm.yyyy"));
+                    .SetText(contract.ValidUntil.Value.ToDateTime(new()).ToString("dd.MM.yy"));
+                bookmarks.Find(c => c.Name == "REWARD").SetText(contract.RealtorReward);
 
                 if (contract.TypeId == 2)
                 {
@@ -194,7 +195,15 @@ public partial class ClientInfoPage : Page
         try
         {
             ClientFile file = (((Button)sender).DataContext as ClientFile)!;
-            FileService.DownloadFile(file.File.FileName);
+
+            SaveFileDialog dialog = new SaveFileDialog()
+                { DefaultExt = file.FileName.Split('.').Last(), FileName = file.FileName };
+            if (dialog.ShowDialog() == true)
+            {
+                File.WriteAllBytes(dialog.FileName, file.FileData);
+                Clipboard.SetText(dialog.FileName);
+                MessageService.ShowOk("Файл сохранен! Путь к файлу скопирован в буфер обмена.");
+            }
         }
         catch (Exception exception)
         {
@@ -207,8 +216,9 @@ public partial class ClientInfoPage : Page
     {
         try
         {
-            File file = ((ClientFile)((Button)sender).DataContext).File!;
-            FileService.DeleteFile(file);
+            ClientFile file = (ClientFile)((Button)sender).DataContext;
+            Db.Context.ClientFiles.Remove(file);
+            DatabaseSaveService.SaveWithMessage();
             LoadData();
         }
         catch (Exception exception)
@@ -218,21 +228,20 @@ public partial class ClientInfoPage : Page
         }
     }
 
-    private void DocumentAddButton_OnClick(object sender, RoutedEventArgs e)
+    private async void DocumentAddButton_OnClick(object sender, RoutedEventArgs e)
     {
         try
         {
-            int fileId = FileService.UploadFile(FileOption.Document);
-            if (fileId != 0)
+            OpenFileDialog dialog = new() { Filter = "documents (.docx, .doc, .pdf)|*.docx; *.doc; *.pdf; " };
+            if (dialog.ShowDialog() == true)
             {
-                ClientFile clientFile = new()
+                ClientFile file = new()
                 {
-                    ClientId = _client.PassportId,
-                    FileId = fileId
+                    ClientId = _client.PassportId, FileData = File.ReadAllBytes(dialog.FileName),
+                    FileName = dialog.SafeFileName
                 };
-                Db.Context.ClientFiles.Add(clientFile);
-                DatabaseSaveService.SaveWithMessage("Данные обновлены!");
-
+                Db.Context.ClientFiles.Add(file);
+                DatabaseSaveService.SaveWithMessage("Документ загружен!");
                 LoadData();
             }
         }

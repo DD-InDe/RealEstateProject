@@ -5,72 +5,88 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:RealtorSystemDesk.Pages"
       mc:Ignorable="d"
-      Title="Профиль">
+      Title="Профиль"
+      d:DesignHeight="450"
+      d:DesignWidth="800">
 
     <StackPanel Orientation="Vertical"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
                 x:Name="Panel">
-        <DockPanel HorizontalAlignment="Right">
-            <TextBlock Margin="7"
-                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+        <DockPanel>
+            <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
                        VerticalAlignment="Center"
                        Text="Фамилия:" />
             <TextBox Width="200"
+                     Margin="7"
+                     MaxLength="100"
+                     HorizontalAlignment="Right"
                      x:Name="LastNameTextBox"
                      Text="{Binding User.LastName}" />
         </DockPanel>
-        <DockPanel HorizontalAlignment="Right">
-            <TextBlock Margin="7"
-                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+        <DockPanel>
+            <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
                        VerticalAlignment="Center"
                        Text="Имя:" />
             <TextBox Width="200"
+                     MaxLength="100"
+                     Margin="7"
+                     HorizontalAlignment="Right"
                      x:Name="FirstNameTextBox"
                      Text="{Binding User.FirstName}" />
         </DockPanel>
-        <DockPanel HorizontalAlignment="Right">
-            <TextBlock Margin="7"
-                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+        <DockPanel>
+            <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
                        VerticalAlignment="Center"
                        Text="Отчество:" />
             <TextBox Width="200"
+                     Margin="7"
+                     MaxLength="100"
+                     HorizontalAlignment="Right"
                      x:Name="MiddleNameTextBox"
                      Text="{Binding User.MiddleName}" />
         </DockPanel>
-        <DockPanel HorizontalAlignment="Right">
-            <TextBlock Margin="7"
-                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+        <DockPanel>
+            <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
                        VerticalAlignment="Center"
-                       Text="Комания:" />
+                       Text="Компания:" />
             <TextBox Width="200"
+                     Margin="7"
+                     MaxLength="150"
+                     HorizontalAlignment="Right"
                      x:Name="CompanyTextBox"
                      Text="{Binding User.CompanyName}" />
         </DockPanel>
-        <DockPanel HorizontalAlignment="Right">
-            <TextBlock Margin="7"
-                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+        <DockPanel>
+            <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
                        VerticalAlignment="Center"
                        Text="Логин:" />
             <TextBox Width="200"
+                     Margin="7"
+                     MaxLength="100"
+                     HorizontalAlignment="Right"
                      x:Name="LoginTextBox"
                      IsEnabled="{Binding IsRegistration}"
                      Text="{Binding User.Login}" />
         </DockPanel>
-        <DockPanel HorizontalAlignment="Right">
-            <TextBlock Margin="7"
-                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+        <DockPanel>
+            <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
                        VerticalAlignment="Center"
                        Text="Пароль:" />
             <PasswordBox Width="200"
+                         MaxLength="100"
+                         Margin="7"
+                         HorizontalAlignment="Right"
                          x:Name="PasswordBox" />
         </DockPanel>
-        <DockPanel HorizontalAlignment="Right">
-            <TextBlock Margin="7"
-                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+        <DockPanel>
+            <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
                        VerticalAlignment="Center"
                        Text="Повторите пароль:" />
             <PasswordBox Width="200"
+                         MaxLength="100"
+                         Margin="7"
+                         HorizontalAlignment="Right"
                          x:Name="RepeatPasswordBox" />
         </DockPanel>
 

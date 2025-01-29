@@ -40,23 +40,25 @@ public partial class MainWindow : Window
 
     private void MainFrame_OnNavigated(object sender, NavigationEventArgs e)
     {
+        // включение меню для пустой страницы
         if (MainFrame.Content == null)
         {
             MenuPanel.Visibility = Visibility.Visible;
             return;
         }
 
-        if (MainFrame.Content.GetType() != typeof(AuthPage))
-        {
-            BackButton.Visibility = Visibility.Visible;
-            if (App.AuthorizedUser != null)
-                MenuPanel.Visibility = Visibility.Visible;
-        }
-        else
-        {
-            BackButton.Visibility = Visibility.Collapsed;
-            MenuPanel.Visibility = Visibility.Collapsed;
-        }
+        // отключения меню для авторизации
+        MenuPanel.Visibility = MainFrame.Content.GetType() == typeof(AuthPage) || App.AuthorizedUser == null
+            ? Visibility.Collapsed
+            : Visibility.Visible;
+
+        if (MainFrame.Content.GetType() == typeof(ViewAllObjectPage) ||
+            MainFrame.Content.GetType() == typeof(ViewAllClientPage) ||
+            MainFrame.Content.GetType() == typeof(AuthPage) ||
+            (MainFrame.Content.GetType() == typeof(AccountManagePage) && App.AuthorizedUser != null))
+            ClearHistory();
+
+        BackButton.Visibility = MainFrame.CanGoBack ? Visibility.Visible : Visibility.Collapsed;
     }
 
     private void BackButton_OnClick(object sender, RoutedEventArgs e) => MainFrame.GoBack();
@@ -69,4 +71,19 @@ public partial class MainWindow : Window
 
     private void ClientButton_OnClick(object sender, RoutedEventArgs e) =>
         MainFrame.NavigationService.Navigate(new ViewAllClientPage());
+
+
+    private void ClearHistory()
+    {
+        if (MainFrame.CanGoBack)
+        {
+            var journalEntry = MainFrame.RemoveBackEntry();
+            while (journalEntry != null)
+            {
+                journalEntry = MainFrame.RemoveBackEntry();
+            }
+
+            BackButton.Visibility = Visibility.Collapsed;
+        }
+    }
 }

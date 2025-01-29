@@ -30,7 +30,7 @@ public partial class StatsPage : Page
             {
                 if (StartDatePicker.SelectedDate != null && EndDatePicker.SelectedDate != null)
                 {
-                    if (StartDatePicker.SelectedDate > EndDatePicker.SelectedDate)
+                    if (StartDatePicker.SelectedDate < EndDatePicker.SelectedDate)
                     {
                         contracts.AddRange(Db.Context.Contracts
                             .Include(c => c.Client)

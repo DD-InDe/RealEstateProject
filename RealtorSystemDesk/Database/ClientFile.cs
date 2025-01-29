@@ -9,9 +9,9 @@ public partial class ClientFile
 
     public int? ClientId { get; set; }
 
-    public int? FileId { get; set; }
+    public string? FileName { get; set; }
+
+    public byte[]? FileData { get; set; }
 
     public virtual Client? Client { get; set; }
-
-    public virtual File? File { get; set; }
 }
