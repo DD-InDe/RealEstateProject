@@ -7,9 +7,7 @@
         xmlns:local="clr-namespace:RealtorSystemDesk"
         mc:Ignorable="d"
         Style="{DynamicResource MaterialDesignWindow}"
-        Title="Риэлторская система"
-        MinHeight="450"
-        MinWidth="1000">
+        Title="Риэлторская система">
 
     <Grid x:Name="MainGrid"
           Background="Transparent"

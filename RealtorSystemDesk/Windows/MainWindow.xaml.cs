@@ -14,6 +14,8 @@ public partial class MainWindow : Window
 {
     public MainWindow()
     {
+        this.MinWidth = 1300;
+        this.MinHeight = 600;
         InitializeComponent();
         DataContext = this;
     }

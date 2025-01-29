@@ -35,6 +35,8 @@ public partial class RealEstateObject
 
     public virtual Contract? Contract { get; set; }
 
+    public virtual ICollection<RealEstateObjectDocument> RealEstateObjectDocuments { get; set; } = new List<RealEstateObjectDocument>();
+
     public virtual ICollection<RealEstateObjectPhoto> RealEstateObjectPhotos { get; set; } = new List<RealEstateObjectPhoto>();
 
     public virtual RealEstateObjectType? Type { get; set; }

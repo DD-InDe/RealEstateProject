@@ -9,166 +9,223 @@
       x:Name="ThisPage"
       Loaded="ObjectInfoPage_OnLoaded"
       Title="Информация об объекте"
-      d:DesignHeight="450"
+      d:DesignHeight="750"
       d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.5*" />
+            <RowDefinition Height="1.3*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <design:Card Margin="5"
-                     Padding="5">
-            <Grid x:Name="MainGrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="0"
-                            Grid.Row="0"
-                            Orientation="Vertical">
-                    <DockPanel>
-                        <TextBlock Margin="7"
-                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   FontWeight="Medium"
-                                   Text="Адрес:" />
-                        <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Right"
-                                   Text="{Binding Address}" />
-                    </DockPanel>
-                    <DockPanel>
-                        <TextBlock Margin="7"
-                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   FontWeight="Medium"
-                                   Text="Этаж:" />
-                        <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Right"
-                                   Text="{Binding Floor}" />
-                    </DockPanel>
-                    <DockPanel>
-                        <TextBlock Margin="7"
-                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   FontWeight="Medium"
-                                   Text="Количество этажей в здании:" />
-                        <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   Text="{Binding FloorsCount}" />
-                    </DockPanel>
-                    <DockPanel>
-                        <TextBlock Margin="7"
-                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   FontWeight="Medium"
-                                   Text="Количество комнат:" />
-                        <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Right"
-                                   Text="{Binding RoomsCount}" />
-                    </DockPanel>
-                    <DockPanel>
-                        <TextBlock Margin="7"
-                                   FontWeight="Medium"
-                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   Text="Площадь:" />
-                        <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Right"
-                                   Text="{Binding Square}" />
-                    </DockPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <design:Card Margin="5"
+                             Grid.Column="0"
+                             Padding="5">
+                    <StackPanel x:Name="MainPanel"
+                                Orientation="Vertical">
+                        <DockPanel>
+                            <TextBlock HorizontalAlignment="Left"
+                                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Medium"
+                                       Margin="7"
+                                       Text="Кадастровый номер:" />
+                            <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Text="{Binding CadastralNumber}" />
+                        </DockPanel>
+                        <DockPanel>
+                            <TextBlock HorizontalAlignment="Left"
+                                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Medium"
+                                       Margin="7"
+                                       Text="Адрес:" />
+                            <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Text="{Binding Address}" />
+                        </DockPanel>
+                        <DockPanel>
+                            <TextBlock HorizontalAlignment="Left"
+                                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Medium"
+                                       Margin="7"
+                                       Text="Площадь:" />
+                            <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Text="{Binding Square}" />
+                        </DockPanel>
+                        <DockPanel>
+                            <TextBlock HorizontalAlignment="Left"
+                                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Medium"
+                                       Margin="7"
+                                       Text="Количество комнат:" />
+                            <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Text="{Binding RoomsCount}" />
+                        </DockPanel>
+                        <DockPanel>
+                            <TextBlock HorizontalAlignment="Left"
+                                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Medium"
+                                       Margin="7"
+                                       Text="Год постройки здания:" />
+                            <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Text="{Binding BuildingYear}" />
+                        </DockPanel>
+                        <DockPanel>
+                            <TextBlock HorizontalAlignment="Left"
+                                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Medium"
+                                       Margin="7"
+                                       Text="Цена:" />
+                            <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Text="{Binding Price}" />
+                        </DockPanel>
+                        <DockPanel>
+                            <TextBlock HorizontalAlignment="Left"
+                                       Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Medium"
+                                       Margin="7"
+                                       Text="Тип объекта:" />
+                            <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Text="{Binding Type.Name}" />
+                        </DockPanel>
 
-                </StackPanel>
-                <StackPanel Orientation="Vertical"
-                            Grid.Row="0"
-                            Grid.Column="1">
-                    <DockPanel>
-                        <TextBlock Margin="7"
-                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   FontWeight="Medium"
-                                   Text="Год постройки здания:" />
-                        <TextBlock Margin="7"
-                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Right"
-                                   Text="{Binding BuildingYear}" />
-                    </DockPanel>
-                    <DockPanel>
-                        <TextBlock Margin="7"
-                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   FontWeight="Medium"
-                                   Text="Тип здания:" />
-                        <TextBlock Margin="7"
-                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Right"
-                                   Text="{Binding ObjectType.Name}" />
-                    </DockPanel>
-                    <DockPanel>
-                        <TextBlock Margin="7"
-                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   FontWeight="Medium"
-                                   Text="Цена:" />
-                        <TextBlock Margin="7"
-                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Right"
-                                   Text="{Binding Price}" />
-                    </DockPanel>
-                    <DockPanel>
-                        <TextBlock Margin="7"
-                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   FontWeight="Medium"
-                                   Text="Описание:" />
-                        <TextBlock Margin="7"
-                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Right"
-                                   Text="{Binding Description}" />
-                    </DockPanel>
-                    <DockPanel>
-                        <TextBlock Margin="7"
-                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   FontWeight="Medium"
-                                   Text="Заметка:" />
-                        <TextBlock Margin="7"
-                                   Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Right"
-                                   Text="{Binding Note}" />
-                    </DockPanel>
-                </StackPanel>
+                        <StackPanel x:Name="ApartmentPanel"
+                                    Visibility="Collapsed"
+                                    Orientation="Vertical">
+                            <DockPanel>
+                                <TextBlock HorizontalAlignment="Left"
+                                           Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                           VerticalAlignment="Center"
+                                           FontWeight="Medium"
+                                           Margin="7"
+                                           Text="Класс квартиры:" />
+                                <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Right"
+                                           Text="{Binding Class.Name}" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock HorizontalAlignment="Left"
+                                           Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                           VerticalAlignment="Center"
+                                           FontWeight="Medium"
+                                           Margin="7"
+                                           Text="Этаж:" />
+                                <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Right"
+                                           Text="{Binding Floor}" />
+                            </DockPanel>
+                        </StackPanel>
+                        <StackPanel x:Name="HousePanel"
+                                    Visibility="Visible"
+                                    Orientation="Vertical">
+                            <DockPanel>
+                                <TextBlock HorizontalAlignment="Left"
+                                           Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                           VerticalAlignment="Center"
+                                           FontWeight="Medium"
+                                           Margin="7"
+                                           Text="Количество этажей в здании:" />
+                                <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Right"
+                                           Text="{Binding FloorsCount}" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock HorizontalAlignment="Left"
+                                           Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                           VerticalAlignment="Center"
+                                           FontWeight="Medium"
+                                           Margin="7"
+                                           Text="Площадь участка:" />
+                                <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Right"
+                                           Text="{Binding PlotSquare}" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock HorizontalAlignment="Left"
+                                           Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                           VerticalAlignment="Center"
+                                           FontWeight="Medium"
+                                           Margin="7"
+                                           Text="Материал здания:" />
+                                <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Right"
+                                           Text="{Binding Material}" />
+                            </DockPanel>
+
+                        </StackPanel>
 
 
-                <Button Content="Клиент"
-                        Grid.Row="1"
-                        Grid.ColumnSpan="2"
-                        Margin="7"
-                        HorizontalAlignment="Center"
-                        Click="CustomerButton_OnClick" />
-            </Grid>
-        </design:Card>
+                        <Button Content="Клиент"
+                                Margin="5"
+                                Style="{DynamicResource MaterialDesignFlatButton}"
+                                Click="CustomerButton_OnClick" />
+                    </StackPanel>
+                </design:Card>
+            </ScrollViewer>
+            <design:Card Margin="5"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         Padding="5">
+                <ItemsControl x:Name="DocumentListView">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="DarkGray"
+                                    BorderThickness="0,0,0,1">
+                                <DockPanel>
+                                    <TextBlock HorizontalAlignment="Left"
+                                               Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                               VerticalAlignment="Center"
+                                               FontWeight="Medium"
+                                               Margin="7"
+                                               Text="{Binding DocumentType.Name}" />
+                                    <Button Margin="7"
+                                            Click="FileButton_OnClick"
+                                            Style="{DynamicResource MaterialDesignFlatButton}"
+                                            HorizontalAlignment="Right"
+                                            Content="{Binding ButtonText}" />
+                                </DockPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </design:Card>
+        </Grid>
 
         <design:Card Grid.Row="1"
                      Margin="5"
                      Padding="5">
             <StackPanel Orientation="Vertical">
-                <TextBlock Margin="5"
-                           Style="{DynamicResource MaterialDesignTitleSmallTextBlock}"
+                <TextBlock Style="{DynamicResource MaterialDesignTitleSmallTextBlock}"
                            VerticalAlignment="Center"
                            Text="Фотографии объекта"
                            HorizontalAlignment="Center" />
@@ -194,7 +251,7 @@
                                        Height="200"
                                        Stretch="Fill"
                                        Margin="20,10"
-                                       Source="{Binding PhotoFile}">
+                                       Source="{Binding Photo}">
                                     <Image.ContextMenu>
                                         <ContextMenu>
                                             <MenuItem Header="Удалить"

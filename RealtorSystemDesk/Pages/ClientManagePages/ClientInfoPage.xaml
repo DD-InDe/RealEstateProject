@@ -159,48 +159,63 @@
                          Grid.Row="0"
                          Margin="5"
                          Padding="5">
-                <StackPanel>
-                    <TextBlock Style="{DynamicResource MaterialDesignTitleSmallTextBlock}"
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               Text="Договоры" />
-                    <Button x:Name="AddContractButton"
-                            HorizontalAlignment="Left"
-                            Style="{DynamicResource MaterialDesignFlatButton}"
-                            FontSize="17"
-                            Content="+"
-                            Click="AddContractButton_OnClick" />
-                    <ListView x:Name="ContractListView">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0">
+                        <TextBlock Style="{DynamicResource MaterialDesignTitleSmallTextBlock}"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Text="Договоры" />
+                        <Button x:Name="AddContractButton"
+                                HorizontalAlignment="Left"
+                                Style="{DynamicResource MaterialDesignFlatButton}"
+                                FontSize="17"
+                                Content="+"
+                                Click="AddContractButton_OnClick" />
+                    </StackPanel>
+
+                    <ListView x:Name="ContractListView"
+                              Grid.Row="1">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                               VerticalAlignment="Center"
-                                               Margin="7"
-                                               FontWeight="Medium"
-                                               Text="Дата составления:" />
-                                    <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                               VerticalAlignment="Center"
-                                               Margin="7,0"
-                                               Text="{Binding DateCreate}" />
-                                    <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                               VerticalAlignment="Center"
-                                               Margin="7"
-                                               FontWeight="Medium"
-                                               Text="Действителен до:" />
-                                    <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                               VerticalAlignment="Center"
-                                               Margin="7,0"
-                                               Text="{Binding ValidUntil}" />
-                                    <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                               VerticalAlignment="Center"
-                                               Margin="7"
-                                               FontWeight="Medium"
-                                               Text="Тип:" />
-                                    <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
-                                               VerticalAlignment="Center"
-                                               Margin="7,0"
-                                               Text="{Binding Type.Name}" />
+                                    <DockPanel>
+                                        <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                                   VerticalAlignment="Center"
+                                                   Margin="7"
+                                                   FontWeight="Medium"
+                                                   Text="Дата составления:" />
+                                        <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                                   VerticalAlignment="Center"
+                                                   Margin="7,0"
+                                                   Text="{Binding DateCreate}" />
+                                    </DockPanel>
+                                    <DockPanel>
+                                        <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                                   VerticalAlignment="Center"
+                                                   Margin="7"
+                                                   FontWeight="Medium"
+                                                   Text="Действителен до:" />
+                                        <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                                   VerticalAlignment="Center"
+                                                   Margin="7,0"
+                                                   Text="{Binding ValidUntil}" />
+                                    </DockPanel>
+                                    <DockPanel>
+                                        <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                                   VerticalAlignment="Center"
+                                                   Margin="7"
+                                                   FontWeight="Medium"
+                                                   Text="Тип:" />
+                                        <TextBlock Style="{DynamicResource MaterialDesignBodyMediumTextBlock}"
+                                                   VerticalAlignment="Center"
+                                                   Margin="7,0"
+                                                   Text="{Binding Type.Name}" />
+                                    </DockPanel>
                                     <StackPanel Orientation="Horizontal"
                                                 HorizontalAlignment="Center">
                                         <Button Content="Объект"
@@ -217,7 +232,8 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                </StackPanel>
+                </Grid>
+
             </design:Card>
 
             <design:Card Grid.Column="0"

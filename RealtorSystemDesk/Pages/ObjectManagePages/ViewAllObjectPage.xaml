@@ -34,11 +34,6 @@
                           Margin="7"
                           DisplayMemberPath="Name"
                           SelectionChanged="TypeComboBox_OnSelectionChanged" />
-                <CheckBox x:Name="ArchiveCheckBox"
-                          Content="Архив"
-                          Margin="7"
-                          Checked="CheckBox_Check"
-                          Unchecked="CheckBox_Check" />
             </StackPanel>
         </design:Card>
 
@@ -49,22 +44,23 @@
                       IsReadOnly="True"
                       AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Статус"
-                                        Width="*"
-                                        Binding="{Binding Status}" />
                     <DataGridTextColumn Header="Адрес"
                                         Width="*"
                                         Binding="{Binding Address}" />
+                    <DataGridTextColumn Header="Кол-во комнат"
+                                        Width="*"
+                                        Binding="{Binding RoomsCount}" />
                     <DataGridTextColumn Header="Тип объекта"
                                         Width="*"
-                                        Binding="{Binding ObjectType.Name}" />
+                                        Binding="{Binding Type.Name}" />
                     <DataGridTextColumn Header="Клиент"
                                         Width="*"
                                         Binding="{Binding Contract.Client.FullName}" />
-                    <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn Width="0.5*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Подробнее"
+                                <Button Content="Инфо"
+                                        Style="{DynamicResource MaterialDesignFlatButton}"
                                         x:Name="InfoButton"
                                         Click="InfoButton_OnClick" />
                             </DataTemplate>

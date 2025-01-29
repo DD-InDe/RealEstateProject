@@ -35,27 +35,24 @@ public partial class ViewAllObjectPage : Page
     {
         try
         {
-            // string search = SearchTextBox.Text.ToLower();
-            // bool showArchive = ArchiveCheckBox.IsChecked ?? false;
-            // RealEstateObjectType? type = TypeComboBox.SelectedItem as RealEstateObjectType;
-            //
-            // List<RealEstateObject> objects = await Db.Context.RealEstateObjects
-            //     .Include(c => c.Contract)
-            //     .Include(c => c.Contract.Client)
-            //     .Include(c => c.ObjectType)
-            //     .Where(c => c.Contract.Client.UserId == App.AuthorizedUser.Id &&
-            //                 (c.Contract.Client.FirstName.ToLower().Contains(search) ||
-            //                  c.Contract.Client.LastName.ToLower().Contains(search) ||
-            //                  c.Contract.Client.MiddleName.ToLower().Contains(search) ||
-            //                  (c.Description != null && c.Description.ToLower().Contains(search)) ||
-            //                  (c.Notes != null && c.Notes.ToLower().Contains(search)) ||
-            //                  (c.Address != null && c.Address.ToLower().Contains(search))))
-            //     .ToListAsync();
-            // if (!showArchive) objects = objects.Where(c => c.IsArchive == false).ToList();
-            // if (type != null && type.Id != 0) objects = objects.Where(c => c.ObjectTypeId == type.Id).ToList();
+            string search = SearchTextBox.Text.ToLower();
+            RealEstateObjectType? type = TypeComboBox.SelectedItem as RealEstateObjectType;
+
+            List<RealEstateObject> objects = await Db.Context.RealEstateObjects
+                .Include(c => c.Contract)
+                .Include(c => c.Contract.Client)
+                .Include(c => c.Type)
+                .Where(c =>
+                    c.Contract.Client.FirstName.ToLower().Contains(search) ||
+                    c.Contract.Client.LastName.ToLower().Contains(search) ||
+                    c.Contract.Client.MiddleName.ToLower().Contains(search) ||
+                    (c.Address != null && c.Address.ToLower().Contains(search)) ||
+                    (c.CadastralNumber != null && c.CadastralNumber.ToLower().Contains(search)))
+                .ToListAsync();
+            if (type != null && type.Id != 0) objects = objects.Where(c => c.TypeId == type.Id).ToList();
 
             ObjectDataGrid.ItemsSource = null;
-            // ObjectDataGrid.ItemsSource = objects;
+            ObjectDataGrid.ItemsSource = objects;
         }
         catch (Exception e)
         {
@@ -65,8 +62,6 @@ public partial class ViewAllObjectPage : Page
     }
 
     private void SearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e) => LoadData();
-
-    private void CheckBox_Check(object sender, RoutedEventArgs e) => LoadData();
 
     private void InfoButton_OnClick(object sender, RoutedEventArgs e)
         => NavigationService.Navigate(

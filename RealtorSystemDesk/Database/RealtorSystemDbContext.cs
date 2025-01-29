@@ -23,6 +23,8 @@ public partial class RealtorSystemDbContext : DbContext
 
     public virtual DbSet<ContractType> ContractTypes { get; set; }
 
+    public virtual DbSet<DocumentType> DocumentTypes { get; set; }
+
     public virtual DbSet<Gender> Genders { get; set; }
 
     public virtual DbSet<Passport> Passports { get; set; }
@@ -147,6 +149,18 @@ public partial class RealtorSystemDbContext : DbContext
                 .HasColumnName("name");
         });
 
+        modelBuilder.Entity<DocumentType>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("document_type_pkey");
+
+            entity.ToTable("document_type");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Name)
+                .HasMaxLength(100)
+                .HasColumnName("name");
+        });
+
         modelBuilder.Entity<Gender>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("gender_pkey");
@@ -238,21 +252,22 @@ public partial class RealtorSystemDbContext : DbContext
 
         modelBuilder.Entity<RealEstateObjectDocument>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("real_estate_object_document");
+            entity.HasKey(e => e.Id).HasName("real_estate_object_document_pkey");
 
-            entity.Property(e => e.BasisOfOwnership).HasColumnName("basis_of_ownership");
-            entity.Property(e => e.CertificateOfNoDebt).HasColumnName("certificate_of_no_debt");
-            entity.Property(e => e.ExtractFromEgrn).HasColumnName("extract_from_egrn");
-            entity.Property(e => e.GuardianshipConsent).HasColumnName("guardianship_consent");
+            entity.ToTable("real_estate_object_document");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Document).HasColumnName("document");
+            entity.Property(e => e.DocumentTypeId).HasColumnName("document_type_id");
             entity.Property(e => e.ObjectNumber)
                 .HasMaxLength(16)
                 .HasColumnName("object_number");
-            entity.Property(e => e.OwnersPassports).HasColumnName("owners_passports");
-            entity.Property(e => e.SpousesConsent).HasColumnName("spouses_consent");
 
-            entity.HasOne(d => d.ObjectNumberNavigation).WithMany()
+            entity.HasOne(d => d.DocumentType).WithMany(p => p.RealEstateObjectDocuments)
+                .HasForeignKey(d => d.DocumentTypeId)
+                .HasConstraintName("real_estate_object_document_document_type_id_fkey");
+
+            entity.HasOne(d => d.ObjectNumberNavigation).WithMany(p => p.RealEstateObjectDocuments)
                 .HasForeignKey(d => d.ObjectNumber)
                 .HasConstraintName("real_estate_object_document_object_number_fkey");
         });

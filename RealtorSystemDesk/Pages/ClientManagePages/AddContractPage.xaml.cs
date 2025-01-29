@@ -42,6 +42,11 @@ public partial class AddContractPage : Page
 
                 if (TypeComboBox.SelectedIndex == 1 && AddObject())
                 {
+                    List<RealEstateObjectDocument> documents = new();
+                    for (int i = 1; i < 7; i++)
+                        documents.Add(new() { ObjectNumber = _estateObject.CadastralNumber, DocumentTypeId = i });
+                    Db.Context.RealEstateObjectDocuments.AddRange(documents);
+                    
                     Db.Context.Contracts.Add(contract);
 
                     DatabaseSaveService.SaveWithMessage("Данные добавлены");
