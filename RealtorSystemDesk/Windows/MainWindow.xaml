@@ -25,7 +25,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Vertical">
-                    <TextBlock Text="Агентский центр"
+                    <TextBlock Text="Риэлторская система"
                                HorizontalAlignment="Center"
                                Style="{DynamicResource MaterialDesignTitleMediumTextBlock}" />
 

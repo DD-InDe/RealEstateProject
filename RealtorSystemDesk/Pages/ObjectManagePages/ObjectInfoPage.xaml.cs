@@ -7,7 +7,6 @@ using System.Windows.Media.Imaging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Win32;
 using RealtorSystemDesk.Database;
-using RealtorSystemDesk.Enums;
 using RealtorSystemDesk.Pages.ClientManagePages;
 using RealtorSystemDesk.Services;
 using File = System.IO.File;

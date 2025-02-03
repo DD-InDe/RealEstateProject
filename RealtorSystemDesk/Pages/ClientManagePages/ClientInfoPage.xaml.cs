@@ -4,7 +4,6 @@ using System.Windows.Controls;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Win32;
 using RealtorSystemDesk.Database;
-using RealtorSystemDesk.Enums;
 using RealtorSystemDesk.Pages.ObjectManagePages;
 using RealtorSystemDesk.Services;
 using Xceed.Document.NET;

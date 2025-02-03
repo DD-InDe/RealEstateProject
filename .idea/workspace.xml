@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="63e937a6-82c1-443d-97f8-8524a75fc613" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RealtorSystemProject/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Database.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Database/Client.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Database/ClientFile.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Database/Contract.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Database/ContractType.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Database/File.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Database/Gender.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Database/Passport.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Database/RealEstateObject.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Database/RealEstateObjectClass.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Database/RealEstateObjectDocument.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Database/RealEstateObjectType.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Database/RealtorSystemDbContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/Database/User.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/bin/Debug/net8.0/Database.deps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/bin/Debug/net8.0/Database.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/bin/Debug/net8.0/Database.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/bin/Debug/net8.0/Database.runtimeconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Database.csproj.EntityFrameworkCore.targets" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Database.csproj.nuget.dgspec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Database.csproj.nuget.g.props" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Database.csproj.nuget.g.targets" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Debug/net8.0/Database.AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Debug/net8.0/Database.AssemblyInfoInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Debug/net8.0/Database.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Debug/net8.0/Database.GlobalUsings.g.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Debug/net8.0/Database.assets.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Debug/net8.0/Database.csproj.AssemblyReference.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Debug/net8.0/Database.csproj.CoreCompileInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Debug/net8.0/Database.csproj.FileListAbsolute.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Debug/net8.0/Database.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Debug/net8.0/Database.genruntimeconfig.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Debug/net8.0/Database.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Debug/net8.0/Database.sourcelink.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Debug/net8.0/ref/Database.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/Debug/net8.0/refint/Database.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/project.assets.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/project.nuget.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/project.packagespec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/rider.project.model.nuget.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/obj/rider.project.restore.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/Database/Client.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/Database/ClientFile.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/Database/Contract.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/Database/ContractType.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/Database/File.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/Database/Gender.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/Database/Passport.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/Database/RealEstateObject.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/Database/RealEstateObjectClass.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/Database/RealEstateObjectDocument.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/Database/RealEstateObjectType.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/Database/RealtorSystemDbContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/Database/User.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/DatabasePartial/ContractPartial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/DatabasePartial/Db.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/DatabasePartial/PassportPartial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/DatabasePartial/RealEstateObjectPartial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/DatabasePartial/RealEstateObjectPhotoPartial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/RealtorSystemDatabase.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/bin/Debug/net8.0/RealtorSystemDatabase.deps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/bin/Debug/net8.0/RealtorSystemDatabase.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/bin/Debug/net8.0/RealtorSystemDatabase.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/bin/Debug/net8.0/RealtorSystemDatabase.runtimeconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/Debug/net8.0/RealtorSystemDatabase.AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/Debug/net8.0/RealtorSystemDatabase.AssemblyInfoInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/Debug/net8.0/RealtorSystemDatabase.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/Debug/net8.0/RealtorSystemDatabase.GlobalUsings.g.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/Debug/net8.0/RealtorSystemDatabase.assets.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/Debug/net8.0/RealtorSystemDatabase.csproj.AssemblyReference.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/Debug/net8.0/RealtorSystemDatabase.csproj.CoreCompileInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/Debug/net8.0/RealtorSystemDatabase.csproj.FileListAbsolute.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/Debug/net8.0/RealtorSystemDatabase.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/Debug/net8.0/RealtorSystemDatabase.genruntimeconfig.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/Debug/net8.0/RealtorSystemDatabase.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/Debug/net8.0/RealtorSystemDatabase.sourcelink.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/Debug/net8.0/ref/RealtorSystemDatabase.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/Debug/net8.0/refint/RealtorSystemDatabase.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/RealtorSystemDatabase.csproj.EntityFrameworkCore.targets" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/RealtorSystemDatabase.csproj.nuget.dgspec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/RealtorSystemDatabase.csproj.nuget.g.props" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/RealtorSystemDatabase.csproj.nuget.g.targets" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/project.assets.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/project.nuget.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/project.packagespec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/rider.project.model.nuget.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDatabase/obj/rider.project.restore.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDesk/Windows/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/RealtorSystemDesk/Windows/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDesk/bin/Debug/net8.0-windows/RealtorSystemDesk.dll" beforeDir="false" afterPath="$PROJECT_DIR$/RealtorSystemDesk/bin/Debug/net8.0-windows/RealtorSystemDesk.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDesk/bin/Debug/net8.0-windows/RealtorSystemDesk.exe" beforeDir="false" afterPath="$PROJECT_DIR$/RealtorSystemDesk/bin/Debug/net8.0-windows/RealtorSystemDesk.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDesk/bin/Debug/net8.0-windows/RealtorSystemDesk.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/RealtorSystemDesk/bin/Debug/net8.0-windows/RealtorSystemDesk.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/RealtorSystemDesk.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/RealtorSystemDesk.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/RealtorSystemDesk.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/RealtorSystemDesk.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/RealtorSystemDesk.dll" beforeDir="false" afterPath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/RealtorSystemDesk.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/RealtorSystemDesk.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/RealtorSystemDesk.g.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/RealtorSystemDesk.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/RealtorSystemDesk.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/RealtorSystemDesk.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/RealtorSystemDesk.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/Windows/MainWindow.baml" beforeDir="false" afterPath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/Windows/MainWindow.baml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/Windows/MainWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/Windows/MainWindow.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/ref/RealtorSystemDesk.dll" beforeDir="false" afterPath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/ref/RealtorSystemDesk.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/refint/RealtorSystemDesk.dll" beforeDir="false" afterPath="$PROJECT_DIR$/RealtorSystemDesk/obj/Debug/net8.0-windows/refint/RealtorSystemDesk.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RealtorSystemDesk/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/RealtorSystemDesk/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_files/1/2312122124-2048x1152.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_files/1/5304419f944ba68dd07ff394446bbcbe.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_files/1/6447918644.jpg" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2sOBFf7R3JUBDpedKbNJ7mb1lur" />
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/alena"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+</project>
